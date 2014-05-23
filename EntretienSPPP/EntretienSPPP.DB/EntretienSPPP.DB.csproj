@@ -39,8 +39,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="COMPETENCE\Competence.cs" />
+    <Compile Include="COMPETENCE\CompetenceDB.cs" />
+    <Compile Include="CV\CV.cs" />
+    <Compile Include="CV\CVDB.cs" />
+    <Compile Include="DIPLOME\Diplome.cs" />
+    <Compile Include="DIPLOME\DiplomeDB.cs" />
+    <Compile Include="DIPLOME\Diplome_Personne.cs" />
+    <Compile Include="DIPLOME\Diplome_PersonneDB.cs" />
+    <Compile Include="ENTRETIEN\Entretien.cs" />
+    <Compile Include="ENTRETIEN\EntretienDB.cs" />
+    <Compile Include="ENTRETIEN\Evaluation.cs" />
+    <Compile Include="ENTRETIEN\EvaluationDB.cs" />
+    <Compile Include="ENTRETIEN\EvaluationMoi.cs" />
+    <Compile Include="ENTRETIEN\EvaluationMoiDB.cs" />
+    <Compile Include="FAMILLE\Famille.cs" />
+    <Compile Include="FAMILLE\FamilleDB.cs" />
+    <Compile Include="FORMATION\Formation.cs" />
+    <Compile Include="FORMATION\FormationDB.cs" />
+    <Compile Include="FORMATION\Formation_Personne.cs" />
+    <Compile Include="FORMATION\Formation_PersonneDB.cs" />
+    <Compile Include="PERSONNE\Genre.cs" />
+    <Compile Include="PERSONNE\GenreDB.cs" />
+    <Compile Include="HABILITE\Habilite.cs" />
+    <Compile Include="HABILITE\HabiliteDB.cs" />
+    <Compile Include="HABILITE\Habilite_Personne.cs" />
+    <Compile Include="HABILITE\Habilite_PersonneDB.cs" />
+    <Compile Include="PERSONNE\Identification.cs" />
+    <Compile Include="PERSONNE\IdentificationDB.cs" />
+    <Compile Include="INAPTITUDE\Inaptitude.cs" />
+    <Compile Include="INAPTITUDE\InaptitudeDB.cs" />
+    <Compile Include="INAPTITUDE\Inaptitude_Personne.cs" />
+    <Compile Include="INAPTITUDE\Inaptitude_PersonneDB.cs" />
+    <Compile Include="LANGUE\Langue.cs" />
+    <Compile Include="LANGUE\LangueDB.cs" />
+    <Compile Include="LANGUE\Langue_Personne.cs" />
+    <Compile Include="LANGUE\Langue_PersonneDB.cs" />
+    <Compile Include="OBJECTIF\Objectif.cs" />
+    <Compile Include="OBJECTIF\ObjectifDB.cs" />
+    <Compile Include="OBJECTIF\Organisme.cs" />
+    <Compile Include="OBJECTIF\OrganismeDB.cs" />
+    <Compile Include="PERSONNE\Personne.cs" />
+    <Compile Include="PERSONNE\PersonneDB.cs" />
+    <Compile Include="POSTE\Poste.cs" />
+    <Compile Include="POSTE\PosteDB.cs" />
+    <Compile Include="POSTE\Poste_Personne.cs" />
+    <Compile Include="POSTE\Poste_PersonneDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ENTRETIEN\Satisfaction.cs" />
+    <Compile Include="ENTRETIEN\SatisfactionDB.cs" />
+    <Compile Include="ENTRETIEN\Senior.cs" />
+    <Compile Include="ENTRETIEN\SeniorDB.cs" />
+    <Compile Include="POSTE\Site.cs" />
+    <Compile Include="POSTE\SiteDB.cs" />
+    <Compile Include="FORMATION\SouhaitFormation.cs" />
+    <Compile Include="FORMATION\SouhaitFormationDB.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ORGANISME\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
