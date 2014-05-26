@@ -13,7 +13,7 @@ namespace EntretienSPPP.DB
         #region Propriétés
         public int Identifiant { get; set; }
         public string Libelle { get; set; }
-        public string Niveau { get; set; }
+        public Niveau niveau { get; set; }
         #endregion
 
         #region Constructeurs

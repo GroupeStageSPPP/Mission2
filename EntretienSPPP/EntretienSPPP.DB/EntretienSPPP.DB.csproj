@@ -60,6 +60,8 @@
     <Compile Include="FORMATION\FormationDB.cs" />
     <Compile Include="FORMATION\Formation_Personne.cs" />
     <Compile Include="FORMATION\Formation_PersonneDB.cs" />
+    <Compile Include="Niveau.cs" />
+    <Compile Include="NiveauDB.cs" />
     <Compile Include="PERSONNE\Genre.cs" />
     <Compile Include="PERSONNE\GenreDB.cs" />
     <Compile Include="HABILITE\Habilite.cs" />

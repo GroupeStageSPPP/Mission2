@@ -22,7 +22,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, Libelle, Niveau FROM Diplome";
+            String requete = "SELECT Identifiant, Libelle, IdentifiantNiveau FROM Diplome";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -37,7 +37,7 @@ namespace EntretienSPPP.DB
                 Diplome diplome = new Diplome();
                 diplome.Identifiant = dataReader.GetInt32(0);
                 diplome.Libelle = dataReader.GetString(1);
-                diplome.Niveau = dataReader.GetString(2);
+                diplome.niveau.Identifiant = dataReader.GetInt32(2);
 
 
                 //2 - Ajouter ce Diplome à la list de client
@@ -59,7 +59,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"SELECT Identifiant, Libelle, Niveau FROM Diplome
+            String requete = @"SELECT Identifiant, Libelle, IdentifiantNiveau FROM Diplome
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -77,7 +77,7 @@ namespace EntretienSPPP.DB
 
             diplome.Identifiant = dataReader.GetInt32(0);
             diplome.Libelle = dataReader.GetString(1);
-            diplome.Niveau = dataReader.GetString(2);
+            diplome.niveau.Identifiant = dataReader.GetInt32(2);
             dataReader.Close();
             connection.Close();
             return diplome;
@@ -89,13 +89,13 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"INSERT INTO Diplome (Libelle, Niveau)
-                                VALUES (@Libelle, @Niveau)";
+            String requete = @"INSERT INTO Diplome (Libelle, IdentifiantNiveau)
+                                VALUES (@Libelle, @IdentifiantNiveau)";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Diplome.Libelle);
-            commande.Parameters.AddWithValue("Libelle", Diplome.Niveau);
+            commande.Parameters.AddWithValue("IdentifiantNiveau", Diplome.niveau.Identifiant);
             //Execution
             connection.Open();
 
@@ -112,14 +112,14 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"UPDATE Diplome
-                               SET Libelle = @Libelle, Niveau = @Niveau
+                               SET Libelle = @Libelle, IdentifiantNiveau = @IdentifiantNiveau
                                WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Diplome.Libelle);
-            commande.Parameters.AddWithValue("Niveau", Diplome.Niveau);
-            commande.Parameters.AddWithValue("Identifiant", Diplome.Niveau);
+            commande.Parameters.AddWithValue("niveau", Diplome.niveau);
+            commande.Parameters.AddWithValue("IdentifiantNiveau", Diplome.niveau.Identifiant);
             //Execution
             connection.Open();
             commande.ExecuteNonQuery();
