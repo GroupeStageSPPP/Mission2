@@ -12,7 +12,7 @@ namespace EntretienSPPP.DB
         #endregion
 
         #region Propriétés
-        public int IdentifiantEntretien { get; set; }
+        public Int32 IdentifiantEntretien { get; set; }
         public Int16 Ambiance { get; set; }
         public Int16 Materiel { get; set; }
         public Int16 Secteur { get; set; }

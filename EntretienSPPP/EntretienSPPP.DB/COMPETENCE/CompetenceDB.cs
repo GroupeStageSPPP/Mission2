@@ -19,7 +19,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Libelle FROM Competence";
@@ -54,7 +54,7 @@ namespace EntretienSPPP.DB
         public static Competence Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Libelle FROM Competence
@@ -84,7 +84,7 @@ namespace EntretienSPPP.DB
         public static void Insert(Competence Competence)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"INSERT INTO Competence (Libelle)
@@ -104,7 +104,7 @@ namespace EntretienSPPP.DB
         public static void Update(Competence Competence)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"UPDATE Competence 
@@ -124,7 +124,7 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"DELETE FROM Competence 

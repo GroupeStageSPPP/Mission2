@@ -20,7 +20,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Libelle, Adresse FROM Site";
@@ -57,7 +57,7 @@ namespace EntretienSPPP.DB
         public static Site Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Libelle, Adresse FROM Site
@@ -87,7 +87,7 @@ namespace EntretienSPPP.DB
         public static void Insert(Site Site)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"INSERT INTO Site (Libelle, Adresse)
@@ -106,7 +106,7 @@ namespace EntretienSPPP.DB
         public static void Update(Site Site)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"UPDATE Site 
@@ -127,7 +127,7 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"DELETE FROM Site 

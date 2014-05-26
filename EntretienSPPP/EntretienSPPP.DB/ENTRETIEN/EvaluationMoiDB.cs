@@ -20,7 +20,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT IdentifiantEntretien, Communication, SensRelationnel, Implication, Competence,Performance,Management,Objectifs,Commentaire FROM EvaluationMoi ;";
@@ -63,7 +63,7 @@ namespace EntretienSPPP.DB
         public static EvaluationMoi Get(Int32 identifiantEntretien)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT IdentifiantEntretien, Communication, SensRelationnel, Implication, Competence,Performance,Management,Objectifs,Commentaire FROM EvaluationMoi
@@ -103,7 +103,7 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"Update EvaluationMoi set Communication = @Communication,SensRelationnel = @SensRelationnel, Implication = @Implication, Competence = @Competence, Performance = @Performance, Management =   @Management , Objectifs = @Objectifs,Commentaire =@Commentaire  where identifiantEntretien = @identifiantEntretien ;";
@@ -146,7 +146,7 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"DELETE FROM EvaluationMoi WHERE IdentifiantEntretien = @IdentifiantEntretien ;";
@@ -180,7 +180,7 @@ namespace EntretienSPPP.DB
         public static EvaluationMoi CreerEvaluationMoi(EvaluationMoi evaluationMoi)
         {
 
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
 

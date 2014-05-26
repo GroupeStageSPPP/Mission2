@@ -20,7 +20,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, Telephone, Mail FROM Personne";
@@ -66,7 +66,7 @@ namespace EntretienSPPP.DB
         public static Personne Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, Telephone, Mail FROM Personne
@@ -109,7 +109,7 @@ namespace EntretienSPPP.DB
         public static void Insert(Personne Personne)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"INSERT INTO Personne (Nom, Prenom, DateNaissance, Ville, CodePostal, Telephone, Mail, IdentifiantFamille, IdentifiantGenre)
@@ -136,7 +136,7 @@ namespace EntretienSPPP.DB
         public static void Update(Personne Personne)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"UPDATE Personne SET Nom = @Nom, Prenom = @Prenom, DateNaissance = @DateNaissance, Ville = @Ville, CodePostal = @CodePostal, Telephone = @Telephone, Mail = @Mail, IdentifiantFamille = @IdentifiantFamille, IdentifiantGenre = @IdentifiantGenre
@@ -164,7 +164,7 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"DELETE FROM Personne 

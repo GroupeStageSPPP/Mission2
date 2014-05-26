@@ -19,7 +19,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT IdentifiantEntretien, PAS, DIF, BilanCompetence, TempsTravail, TransfertCompetence FROM Senior";
@@ -58,7 +58,7 @@ namespace EntretienSPPP.DB
         public static Senior Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT IdentifiantEntretien, PAS, DIF, BilanCompetence, TempsTravail, TransfertCompetence FROM Senior
@@ -91,7 +91,7 @@ namespace EntretienSPPP.DB
         public static void Insert(Senior Senior)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"INSERT INTO Senior (IdentifiantEntretien, PAS, DIF, BilanCompetence, TempsTravail, TransfertCompetence)
@@ -114,7 +114,7 @@ namespace EntretienSPPP.DB
         public static void Update(Senior Senior)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"UPDATE Senior 
@@ -138,7 +138,7 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"DELETE FROM Senior 

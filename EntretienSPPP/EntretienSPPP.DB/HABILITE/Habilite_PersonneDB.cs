@@ -19,7 +19,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection;
+            SqlConnection connection = DataBase.connection;;
             //Commande
             String requete = "SELECT Identifiant, IdentifiantOrganisme, DateFin, IdentifiantPersonne, IdentifiantHabilite FROM Habilite_Personne";
             connection.Open();
@@ -58,7 +58,7 @@ namespace EntretienSPPP.DB
         public static Habilite_Personne Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection;
+            SqlConnection connection = DataBase.connection;;
            
             //Commande
             String requete = @"SELECT Identifiant, IdentifiantOrganisme, DateFin, IdentifiantPersonne, IdentifiantHabilite FROM Habilite_Personne

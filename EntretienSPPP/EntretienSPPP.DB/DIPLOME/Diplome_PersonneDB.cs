@@ -19,7 +19,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, DateObtention, IdentifiantDiplome, IdentifiantPersonne FROM Diplome_Personne";
@@ -67,7 +67,7 @@ namespace EntretienSPPP.DB
         public static Diplome_Personne Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, DateObtention, IdentifiantDiplome, IdentifiantPersonne FROM Diplome_Personne
