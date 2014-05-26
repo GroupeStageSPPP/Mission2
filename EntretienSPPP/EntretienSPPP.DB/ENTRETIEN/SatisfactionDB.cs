@@ -19,7 +19,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT IdentifiantEntretien, Ambiance, Materiel, Secteur, Cadre, Futur, MesIdees, ReunionService, LaDirection, EvolutionMission, MonService, MonSite, AutreSite  FROM Satisfaction";
@@ -69,7 +69,7 @@ namespace EntretienSPPP.DB
         public static Satisfaction Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Ambiance, Materiel, Secteur, Cadre, Futur, MesIdees, ReunionService, LaDirection, EvolutionMission, MonService, MonSite, AutreSite FROM Satisfaction
@@ -88,7 +88,7 @@ namespace EntretienSPPP.DB
             //1 - Création du Satisfaction
             Satisfaction satisfaction = new Satisfaction();
 
-            satisfaction.Identifiant = dataReader.GetInt32(0);
+            satisfaction.IdentifiantEntretien = dataReader.GetInt32(0);
             satisfaction.Ambiance = dataReader.GetInt16(1);
             satisfaction.Materiel = dataReader.GetInt16(2);
             satisfaction.Secteur = dataReader.GetInt16(3);

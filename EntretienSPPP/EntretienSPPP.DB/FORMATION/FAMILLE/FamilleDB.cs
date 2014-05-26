@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 
 namespace EntretienSPPP.DB
 {
@@ -19,7 +18,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Libelle FROM Famille ;";
@@ -55,7 +54,7 @@ namespace EntretienSPPP.DB
         public static Famille Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Libelle FROM Famille
@@ -81,14 +80,14 @@ namespace EntretienSPPP.DB
             return famille;
         }
 
-        public static Boolean update(Famille famille)
+        public static Boolean Update(Famille famille)
         {
             Boolean isUpDAte = false;
             //mettre a jour la base de donnée
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"Update famille set libelle = @libelle where identifiant = @identifiant  ;";
@@ -122,7 +121,7 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"DELETE FROM Famille WHERE Identifiant = @Identifiant ; ";
@@ -157,7 +156,7 @@ namespace EntretienSPPP.DB
         public static Famille CreateFamille (Famille famille)
         {
             
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["CarnetAdresseE1BConnectionString"];
+            SqlConnection connection = DataBase.connection;
            
 
 

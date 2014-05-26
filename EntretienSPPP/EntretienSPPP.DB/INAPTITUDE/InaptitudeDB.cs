@@ -20,7 +20,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Descriptif FROM Inaptitude ;";
@@ -56,7 +56,7 @@ namespace EntretienSPPP.DB
         public static Inaptitude Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Descriptif FROM Inaptitude
@@ -88,7 +88,7 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"Update Inaptitude set Descriptif = @Descriptif where identifiant = @identifiant  ;";
@@ -122,7 +122,7 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"DELETE FROM Inaptitude WHERE Identifiant = @Identifiant ; ";
@@ -157,7 +157,7 @@ namespace EntretienSPPP.DB
         public static Inaptitude CreateInaptitude(Inaptitude inaptitude)
         {
 
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
 

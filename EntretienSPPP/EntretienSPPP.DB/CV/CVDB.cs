@@ -19,7 +19,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, DateDeb, DateFin, Entreprise, IdentifiantPersonne FROM CV";
@@ -57,7 +57,7 @@ namespace EntretienSPPP.DB
         public static CV Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, DateDeb, DateFin, Entreprise, Secteur, Poste, IdentifiantPersonne FROM CV
@@ -91,7 +91,7 @@ namespace EntretienSPPP.DB
         public static void Insert(CV Cv)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"INSERT INTO CV  (DateDeb, DateFin, Entreprise, Secteur, Poste, IdentifiantPersonne)
@@ -114,7 +114,7 @@ namespace EntretienSPPP.DB
         public static void Update(CV Cv)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"UPDATE CV  
@@ -138,7 +138,7 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"DELETE FROM CV 
