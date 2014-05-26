@@ -43,7 +43,7 @@
     <Compile Include="COMPETENCE\CompetenceDB.cs" />
     <Compile Include="CV\CV.cs" />
     <Compile Include="CV\CVDB.cs" />
-    <Compile Include="DataBase.cs" />
+    <Compile Include="ALGO\DataBase.cs" />
     <Compile Include="DIPLOME\Diplome.cs" />
     <Compile Include="DIPLOME\DiplomeDB.cs" />
     <Compile Include="DIPLOME\Diplome_Personne.cs" />
@@ -54,14 +54,14 @@
     <Compile Include="ENTRETIEN\EvaluationDB.cs" />
     <Compile Include="ENTRETIEN\EvaluationMoi.cs" />
     <Compile Include="ENTRETIEN\EvaluationMoiDB.cs" />
-    <Compile Include="FORMATION\FAMILLE\Famille.cs" />
-    <Compile Include="FORMATION\FAMILLE\FamilleDB.cs" />
+    <Compile Include="PERSONNE\Famille.cs" />
+    <Compile Include="PERSONNE\FamilleDB.cs" />
     <Compile Include="FORMATION\Formation.cs" />
     <Compile Include="FORMATION\FormationDB.cs" />
     <Compile Include="FORMATION\Formation_Personne.cs" />
     <Compile Include="FORMATION\Formation_PersonneDB.cs" />
-    <Compile Include="Niveau.cs" />
-    <Compile Include="NiveauDB.cs" />
+    <Compile Include="DIPLOME\Niveau.cs" />
+    <Compile Include="DIPLOME\NiveauDB.cs" />
     <Compile Include="PERSONNE\Genre.cs" />
     <Compile Include="PERSONNE\GenreDB.cs" />
     <Compile Include="HABILITE\Habilite.cs" />
@@ -98,9 +98,7 @@
     <Compile Include="FORMATION\SouhaitFormation.cs" />
     <Compile Include="FORMATION\SouhaitFormationDB.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ORGANISME\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
