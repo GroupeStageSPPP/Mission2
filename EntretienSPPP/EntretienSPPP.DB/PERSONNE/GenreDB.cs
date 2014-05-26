@@ -20,7 +20,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Libelle FROM Genre ;";
@@ -56,7 +56,7 @@ namespace EntretienSPPP.DB
         public static Genre Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Libelle FROM Genre
@@ -89,7 +89,7 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"Update genre set libelle = @libelle where identifiant = @identifiant  ;";
@@ -123,7 +123,7 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"DELETE FROM genre WHERE Identifiant = @Identifiant ; ";
@@ -158,7 +158,7 @@ namespace EntretienSPPP.DB
         public static Genre CreateGenre (Genre genre)
         {
             
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
 

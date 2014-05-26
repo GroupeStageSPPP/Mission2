@@ -19,7 +19,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe FROM Formation ;";
@@ -60,7 +60,7 @@ namespace EntretienSPPP.DB
         public static Formation Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe FROM Formation WHERE Identifiant = @Identifiant ;";
@@ -91,7 +91,7 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"Update Formation set organisme = @organisme,Titre = @Titre, Objectif = @Objectif, interne = @interne, externe = @externe where identifiant = @identifiant  ;";
@@ -129,7 +129,7 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"DELETE FROM Formation WHERE Identifiant = @Identifiant ;";
@@ -164,7 +164,7 @@ namespace EntretienSPPP.DB
         public static Formation CreateFormation (Formation formation)
         {
             
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
 

@@ -18,7 +18,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien FROM SouhaitFormation";
@@ -61,7 +61,7 @@ namespace EntretienSPPP.DB
         public static SouhaitFormation Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien FROM SouhaitFormation
@@ -96,7 +96,7 @@ namespace EntretienSPPP.DB
         public static void Insert(SouhaitFormation SouhaitFormation)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"INSERT INTO SouhaitFormation (Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien)
@@ -119,7 +119,7 @@ namespace EntretienSPPP.DB
         public static void Update(SouhaitFormation SouhaitFormation)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"UPDATE SouhaitFormation 
@@ -143,7 +143,7 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"DELETE FROM SouhaitFormation 

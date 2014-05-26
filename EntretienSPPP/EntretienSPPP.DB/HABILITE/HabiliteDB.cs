@@ -20,7 +20,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Type FROM Habilite ;";
@@ -57,7 +57,7 @@ namespace EntretienSPPP.DB
         public static Habilite Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Type FROM Habilite
@@ -90,7 +90,7 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"Update habilite set type = @type where identifiant = @identifiant  ;";
@@ -124,7 +124,7 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"DELETE FROM habilite WHERE Identifiant = @Identifiant ; ";
@@ -159,7 +159,7 @@ namespace EntretienSPPP.DB
         public static Habilite CreateHabilite(Habilite habilite)
         {
 
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
 

@@ -20,7 +20,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Libelle, Telephone, Adresse FROM Organisme";
@@ -58,7 +58,7 @@ namespace EntretienSPPP.DB
         public static Organisme Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Libelle, Telephone, Adresse FROM Organisme
@@ -89,7 +89,7 @@ namespace EntretienSPPP.DB
          public static void Insert(Organisme Organisme)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"INSERT INTO Organisme (Libelle, Telephone, Adresse)
@@ -109,7 +109,7 @@ namespace EntretienSPPP.DB
          public static void Update(Organisme Organisme)
          {
              //Connection
-             SqlConnection connection = DataBase.connection
+             SqlConnection connection = DataBase.connection;
             
              //Commande
              String requete = @"INSERT INTO Organisme 
@@ -131,7 +131,7 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"DELETE FROM Organisme 

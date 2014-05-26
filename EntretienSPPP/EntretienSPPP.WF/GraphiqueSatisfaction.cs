@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-
+using EntretienSPPP.DB;
 using EntretienSPPP.WinForm;
 
 namespace EntretienSPPP.WinForm

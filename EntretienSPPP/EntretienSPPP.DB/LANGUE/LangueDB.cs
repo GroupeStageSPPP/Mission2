@@ -20,7 +20,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, Libelle FROM Langue ;";
@@ -55,7 +55,7 @@ namespace EntretienSPPP.DB
         public static Langue Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, Libelle FROM Langue
@@ -88,7 +88,7 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"Update Langue set libelle = @libelle where identifiant = @identifiant  ;";
@@ -122,7 +122,7 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"DELETE FROM langue WHERE Identifiant = @Identifiant ; ";
@@ -157,7 +157,7 @@ namespace EntretienSPPP.DB
         public static Langue CreateLangue(Langue langue)
         {
 
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
 

@@ -19,7 +19,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT Identifiant, DateDeb, DateFin, Commentaire, IdentifiantPersonne, Expression, DefinitionFonction, ClareteFonction,ClareteObjectif FROM Entretien";
@@ -61,7 +61,7 @@ namespace EntretienSPPP.DB
         public static Entretien Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT Identifiant, DateDeb, DateFin, Commentaire, IdentifiantPersonne, Expression, DefinitionFonction, ClareteFonction, ClareteObjectif FROM Entretien
@@ -96,7 +96,7 @@ namespace EntretienSPPP.DB
         public static void Insert(Entretien Entretien)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"INSERT INTO Entretien (DateDeb, DateFin, Commentaire, IdentifiantPersonne, Expression, DefinitionFonction, ClareteFonction, ClareteObjectif)
@@ -121,7 +121,7 @@ namespace EntretienSPPP.DB
         public static void Update(Entretien Entretien)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"UPDATE Entretien 
@@ -148,7 +148,7 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"DELETE FROM Entretien 

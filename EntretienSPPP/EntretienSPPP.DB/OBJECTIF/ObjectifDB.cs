@@ -20,7 +20,7 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = "SELECT IdentifiantEntretien, Mesure, Description, Resultat,IdentifiantEntretien FROM Objectif ;";
@@ -59,7 +59,7 @@ namespace EntretienSPPP.DB
         public static Objectif Get(Int32 identifiant)
         {
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
             //Commande
             String requete = @"SELECT  Identifiant,Mesure,Description, Resultat,IdentifiantEntretien FROM Objectif
@@ -95,7 +95,7 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"Update objectif set Mesure = @Mesure,Description = @Description,Resultat = @Resultat, IdentifiantEntretien = @IdentifiantEntretien where identifiant = @identifiant  ;";
@@ -132,7 +132,7 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
             String requete = @"DELETE FROM objectif WHERE Identifiant = @Identifiant ; ";
@@ -167,7 +167,7 @@ namespace EntretienSPPP.DB
         public static Objectif CreateGroupe(Objectif objectif)
         {
 
-            SqlConnection connection = DataBase.connection
+            SqlConnection connection = DataBase.connection;
            
 
 
