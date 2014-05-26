@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +19,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, Libelle, Niveau FROM Diplome";
             connection.Open();
@@ -57,8 +56,8 @@ namespace EntretienSPPP.DB
         public static Diplome Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, Libelle, Niveau FROM Diplome
                                 WHERE Identifiant = @Identifiant";
@@ -87,8 +86,8 @@ namespace EntretienSPPP.DB
         public static void Insert(Diplome Diplome)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"INSERT INTO Diplome (Libelle, Niveau)
                                 VALUES (@Libelle, @Niveau)";
@@ -109,8 +108,8 @@ namespace EntretienSPPP.DB
 
 
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"UPDATE Diplome
                                SET Libelle = @Libelle, Niveau = @Niveau
@@ -130,8 +129,8 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"DELETE FROM Diplome 
                                WHERE Identifiant = @Identifiant";

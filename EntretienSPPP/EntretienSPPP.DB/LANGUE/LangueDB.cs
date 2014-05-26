@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
+
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +20,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, Libelle FROM Langue ;";
             connection.Open();
@@ -55,8 +55,8 @@ namespace EntretienSPPP.DB
         public static Langue Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, Libelle FROM Langue
                                 WHERE Identifiant = @Identifiant ;";
@@ -88,8 +88,8 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"Update Langue set libelle = @libelle where identifiant = @identifiant  ;";
             
@@ -122,8 +122,8 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"DELETE FROM langue WHERE Identifiant = @Identifiant ; ";
 
@@ -157,8 +157,8 @@ namespace EntretienSPPP.DB
         public static Langue CreateLangue(Langue langue)
         {
 
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
 
             String requete = @"Insert INTO langue(libelle) Values (@libelle); SELECT SCOPE_IDENTITY() ; ";

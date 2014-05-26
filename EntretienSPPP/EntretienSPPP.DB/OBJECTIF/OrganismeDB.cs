@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
+
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +20,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, Libelle, Telephone, Adresse FROM Organisme";
             connection.Open();
@@ -58,8 +58,8 @@ namespace EntretienSPPP.DB
         public static Organisme Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, Libelle, Telephone, Adresse FROM Organisme
                                 WHERE Identifiant = @Identifiant";
@@ -89,8 +89,8 @@ namespace EntretienSPPP.DB
          public static void Insert(Organisme Organisme)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"INSERT INTO Organisme (Libelle, Telephone, Adresse)
                                VALUES (@Libelle, @Telephone, @Adresse)";
@@ -109,8 +109,8 @@ namespace EntretienSPPP.DB
          public static void Update(Organisme Organisme)
          {
              //Connection
-             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+             SqlConnection connection = DataBase.connection
+            
              //Commande
              String requete = @"INSERT INTO Organisme 
                                 SET Libelle = @Libelle, Telephone = @Telephone, Adresse = @Adresse
@@ -131,8 +131,8 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"DELETE FROM Organisme 
                                WHERE Identifiant = @Identifiant";

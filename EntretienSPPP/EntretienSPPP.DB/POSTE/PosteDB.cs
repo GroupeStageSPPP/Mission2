@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
+
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +20,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, Libelle, Fonction FROM Poste";
             connection.Open();
@@ -57,8 +57,8 @@ namespace EntretienSPPP.DB
         public static Poste Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, Libelle, Fonction FROM Poste
                                 WHERE Identifiant = @Identifiant";
@@ -87,8 +87,8 @@ namespace EntretienSPPP.DB
         public static void Insert(Poste Poste)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"INSERT INTO Poste (Libelle, Fonction)
                                 VALUES (@Libelle, @Fonction)";
@@ -106,8 +106,8 @@ namespace EntretienSPPP.DB
         public static void Update(Poste Poste)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"UPDATE Poste 
                                SET Libelle = @Libelle, Fonction = @Fonction
@@ -127,8 +127,8 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"DELETE FROM Poste 
                                WHERE Identifiant = @Identifiant";

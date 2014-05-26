@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
+
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +20,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, DateFin, Definitif, IdentifiantInaptitude, IdentifiantPersonne FROM Inaptitude_Personne";
             connection.Open();
@@ -61,8 +61,8 @@ namespace EntretienSPPP.DB
         public static Inaptitude_Personne Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, DateFin, Definitif, IdentifiantInaptitude, IdentifiantPersonne FROM Inaptitude_Personne
                                 WHERE Identifiant = @Identifiant";

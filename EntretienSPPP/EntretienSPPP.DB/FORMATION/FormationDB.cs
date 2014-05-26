@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +19,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe FROM Formation ;";
 
@@ -61,8 +60,8 @@ namespace EntretienSPPP.DB
         public static Formation Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe FROM Formation WHERE Identifiant = @Identifiant ;";
             SqlCommand commande = new SqlCommand(requete, connection);
@@ -92,8 +91,8 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"Update Formation set organisme = @organisme,Titre = @Titre, Objectif = @Objectif, interne = @interne, externe = @externe where identifiant = @identifiant  ;";
             
@@ -130,8 +129,8 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"DELETE FROM Formation WHERE Identifiant = @Identifiant ;";
 
@@ -165,8 +164,8 @@ namespace EntretienSPPP.DB
         public static Formation CreateFormation (Formation formation)
         {
             
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
 
             String requete = @"Insert INTO formation(organisme,Titre,Objectif,Interne,Externe) Values (@organisme,@Titre,@Objectif,@Interne,@Externe); SELECT SCOPE_IDENTITY() ;";

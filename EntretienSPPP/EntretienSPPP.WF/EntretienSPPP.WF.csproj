@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4045A0E9-EF07-4430-8A66-338713A7B7F0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EntretienSPPP.WinForm</RootNamespace>
+    <AssemblyName>EntretienSPPP.WinForm</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph">
+      <HintPath>..\..\..\zedgraph_dll_v515\zedgraph_dll_v5.1.5\ZedGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph.Web">
+      <HintPath>..\..\..\zedgraph_dll_v515\zedgraph_dll_v5.1.5\ZedGraph.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acceuil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acceuil.Designer.cs">
+      <DependentUpon>Acceuil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterCompetence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterCompetence.Designer.cs">
+      <DependentUpon>AjouterCompetence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterAncienEmplois.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterAncienEmplois.Designer.cs">
+      <DependentUpon>AjouterAncienEmplois.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterDiplome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterDiplome.Designer.cs">
+      <DependentUpon>AjouterDiplome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterFormation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterFormation.Designer.cs">
+      <DependentUpon>AjouterFormation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterHabilitation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterHabilitation.Designer.cs">
+      <DependentUpon>AjouterHabilitation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterInaptitude.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterInaptitude.Designer.cs">
+      <DependentUpon>AjouterInaptitude.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterLangue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterLangue.Designer.cs">
+      <DependentUpon>AjouterLangue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterPoste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterPoste.Designer.cs">
+      <DependentUpon>AjouterPoste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphiqueHierarchie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphiqueHierarchie.Designer.cs">
+      <DependentUpon>GraphiqueHierarchie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphiqueMOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphiqueMOD.Designer.cs">
+      <DependentUpon>GraphiqueMOD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphiqueMOI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphiqueMOI.Designer.cs">
+      <DependentUpon>GraphiqueMOI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphiqueSatisfaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphiqueSatisfaction.Designer.cs">
+      <DependentUpon>GraphiqueSatisfaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Identification_Page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Identification_Page.Designer.cs">
+      <DependentUpon>Identification_Page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuitterComfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuitterComfirmation.Designer.cs">
+      <DependentUpon>QuitterComfirmation.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Acceuil.resx">
+      <DependentUpon>Acceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterCompetence.resx">
+      <DependentUpon>AjouterCompetence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterAncienEmplois.resx">
+      <DependentUpon>AjouterAncienEmplois.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterDiplome.resx">
+      <DependentUpon>AjouterDiplome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterFormation.resx">
+      <DependentUpon>AjouterFormation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterHabilitation.resx">
+      <DependentUpon>AjouterHabilitation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterInaptitude.resx">
+      <DependentUpon>AjouterInaptitude.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterLangue.resx">
+      <DependentUpon>AjouterLangue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterPoste.resx">
+      <DependentUpon>AjouterPoste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphiqueHierarchie.resx">
+      <DependentUpon>GraphiqueHierarchie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphiqueMOD.resx">
+      <DependentUpon>GraphiqueMOD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphiqueMOI.resx">
+      <DependentUpon>GraphiqueMOI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphiqueSatisfaction.resx">
+      <DependentUpon>GraphiqueSatisfaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Identification_Page.resx">
+      <DependentUpon>Identification_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QuitterComfirmation.resx">
+      <DependentUpon>QuitterComfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntretienSPPP.DB\EntretienSPPP.DB.csproj">
+      <Project>{54b30e80-cfe3-49ee-ba10-e7025c871ef0}</Project>
+      <Name>EntretienSPPP.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntretienSPPP.library\EntretienSPPP.library.csproj">
+      <Project>{1b8004c1-6bf8-41ee-b78b-9cfb7e789952}</Project>
+      <Name>EntretienSPPP.library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPPP+Nom-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fermer-croix-supprimer-erreurs-sortie-icone-4368-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoRH.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
