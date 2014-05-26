@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +19,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, DateDeb, DateFin, Entreprise, IdentifiantPersonne FROM CV";
             connection.Open();
@@ -58,8 +57,8 @@ namespace EntretienSPPP.DB
         public static CV Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, DateDeb, DateFin, Entreprise, Secteur, Poste, IdentifiantPersonne FROM CV
                                 WHERE Identifiant = @Identifiant";
@@ -92,8 +91,8 @@ namespace EntretienSPPP.DB
         public static void Insert(CV Cv)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"INSERT INTO CV  (DateDeb, DateFin, Entreprise, Secteur, Poste, IdentifiantPersonne)
                                VALUES (@DateDeb, @DateFin, @Entreprise, @Secteur, @Poste, @IdentifiantPersonne)";
@@ -115,8 +114,8 @@ namespace EntretienSPPP.DB
         public static void Update(CV Cv)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"UPDATE CV  
                                SET DateDeb = @DateDeb, DateFin = @DateFin,  Entreprise = @Entreprise,  Secteur = @Secteur,  Poste @Poste= ,  IdentifiantPersonne =  @IdentifiantPersonne
@@ -139,8 +138,8 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"DELETE FROM CV 
                                WHERE Identifiant = @Identifiant";

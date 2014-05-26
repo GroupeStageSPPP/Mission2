@@ -43,6 +43,7 @@
     <Compile Include="COMPETENCE\CompetenceDB.cs" />
     <Compile Include="CV\CV.cs" />
     <Compile Include="CV\CVDB.cs" />
+    <Compile Include="DataBase.cs" />
     <Compile Include="DIPLOME\Diplome.cs" />
     <Compile Include="DIPLOME\DiplomeDB.cs" />
     <Compile Include="DIPLOME\Diplome_Personne.cs" />
@@ -53,8 +54,8 @@
     <Compile Include="ENTRETIEN\EvaluationDB.cs" />
     <Compile Include="ENTRETIEN\EvaluationMoi.cs" />
     <Compile Include="ENTRETIEN\EvaluationMoiDB.cs" />
-    <Compile Include="FAMILLE\Famille.cs" />
-    <Compile Include="FAMILLE\FamilleDB.cs" />
+    <Compile Include="FORMATION\FAMILLE\Famille.cs" />
+    <Compile Include="FORMATION\FAMILLE\FamilleDB.cs" />
     <Compile Include="FORMATION\Formation.cs" />
     <Compile Include="FORMATION\FormationDB.cs" />
     <Compile Include="FORMATION\Formation_Personne.cs" />

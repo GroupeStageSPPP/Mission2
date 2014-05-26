@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
 
 
 namespace EntretienSPPP.DB
@@ -21,8 +20,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT IdentifiantEntretien, Communication, SensRelationnel, Implication, Competence,Performance,Management,Objectifs,Commentaire FROM EvaluationMoi ;";
             connection.Open();
@@ -64,8 +63,8 @@ namespace EntretienSPPP.DB
         public static EvaluationMoi Get(Int32 identifiantEntretien)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT IdentifiantEntretien, Communication, SensRelationnel, Implication, Competence,Performance,Management,Objectifs,Commentaire FROM EvaluationMoi
                                 WHERE IdentifiantEntretien = @IdentifiantEntretien ;";
@@ -104,8 +103,8 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"Update EvaluationMoi set Communication = @Communication,SensRelationnel = @SensRelationnel, Implication = @Implication, Competence = @Competence, Performance = @Performance, Management =   @Management , Objectifs = @Objectifs,Commentaire =@Commentaire  where identifiantEntretien = @identifiantEntretien ;";
 
@@ -147,8 +146,8 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"DELETE FROM EvaluationMoi WHERE IdentifiantEntretien = @IdentifiantEntretien ;";
 
@@ -181,8 +180,8 @@ namespace EntretienSPPP.DB
         public static EvaluationMoi CreerEvaluationMoi(EvaluationMoi evaluationMoi)
         {
 
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
 
             String requete = @"Insert INTO EvalutationMoi Communication,SensRelationnel,Implication,Competence,Performance,Management,Objectifs,Commentaire,IdentifiantEntretien) Values (@Communication,@SensRelationnel,@Implication,@Competence,@Performance,@Management,@Objectifs,@Commentaire,@identifiantEntretien);";

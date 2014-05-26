@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
+
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +20,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, Type FROM Habilite ;";
             connection.Open();
@@ -57,8 +57,8 @@ namespace EntretienSPPP.DB
         public static Habilite Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, Type FROM Habilite
                                 WHERE Identifiant = @Identifiant ;";
@@ -90,8 +90,8 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"Update habilite set type = @type where identifiant = @identifiant  ;";
             
@@ -124,8 +124,8 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"DELETE FROM habilite WHERE Identifiant = @Identifiant ; ";
 
@@ -159,8 +159,8 @@ namespace EntretienSPPP.DB
         public static Habilite CreateHabilite(Habilite habilite)
         {
 
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
 
             String requete = @"Insert INTO habilite(type) Values (@type); SELECT SCOPE_IDENTITY() ; ";

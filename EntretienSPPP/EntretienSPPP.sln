@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntretienSPPP.DB", "EntretienSPPP.DB\EntretienSPPP.DB.csproj", "{5F62189E-0F21-4884-9524-7694118C21D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntretienSPP.WF", "EntretienSPP.WF\EntretienSPP.WF.csproj", "{F412D94C-5947-4D2A-A849-BF0786241B42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntretienSPPP.WF", "EntretienSPPP.WF\EntretienSPPP.WF.csproj", "{4045A0E9-EF07-4430-8A66-338713A7B7F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{5F62189E-0F21-4884-9524-7694118C21D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F62189E-0F21-4884-9524-7694118C21D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F62189E-0F21-4884-9524-7694118C21D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F412D94C-5947-4D2A-A849-BF0786241B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F412D94C-5947-4D2A-A849-BF0786241B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F412D94C-5947-4D2A-A849-BF0786241B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F412D94C-5947-4D2A-A849-BF0786241B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4045A0E9-EF07-4430-8A66-338713A7B7F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4045A0E9-EF07-4430-8A66-338713A7B7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4045A0E9-EF07-4430-8A66-338713A7B7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4045A0E9-EF07-4430-8A66-338713A7B7F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
