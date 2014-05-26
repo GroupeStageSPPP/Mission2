@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EntretienSPPP.library
+namespace EntretienSPPP.DB
 {
     public class Poste_Personne
     {

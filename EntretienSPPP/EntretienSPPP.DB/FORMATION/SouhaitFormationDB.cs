@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
 {
@@ -19,8 +18,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien FROM SouhaitFormation";
             connection.Open();
@@ -62,8 +61,8 @@ namespace EntretienSPPP.DB
         public static SouhaitFormation Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien FROM SouhaitFormation
                                 WHERE Identifiant = @Identifiant";
@@ -97,8 +96,8 @@ namespace EntretienSPPP.DB
         public static void Insert(SouhaitFormation SouhaitFormation)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"INSERT INTO SouhaitFormation (Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien)
                                VALUES (@Objectif, @Interne, @Externe, @AvisPersonne, @AvisResponsable, @IdentifiantEntretien)";
@@ -120,8 +119,8 @@ namespace EntretienSPPP.DB
         public static void Update(SouhaitFormation SouhaitFormation)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"UPDATE SouhaitFormation 
                                SET Objectif = @Objectif, Interne = @Interne, Externe = @Externe, AvisPersonne = @AvisPersonne, AvisResponsable = @AvisResponsable
@@ -144,8 +143,8 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"DELETE FROM SouhaitFormation 
                                WHERE Identifiant = @Identifiant";

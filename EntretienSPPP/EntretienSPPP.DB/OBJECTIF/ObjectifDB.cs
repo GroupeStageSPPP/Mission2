@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
+
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +20,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT IdentifiantEntretien, Mesure, Description, Resultat,IdentifiantEntretien FROM Objectif ;";
             connection.Open();
@@ -59,8 +59,8 @@ namespace EntretienSPPP.DB
         public static Objectif Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT  Identifiant,Mesure,Description, Resultat,IdentifiantEntretien FROM Objectif
                                 WHERE Identifiant = @Identifiant ; ";
@@ -95,8 +95,8 @@ namespace EntretienSPPP.DB
             // retourne un boulean si l'update ses bien dérouler
 
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"Update objectif set Mesure = @Mesure,Description = @Description,Resultat = @Resultat, IdentifiantEntretien = @IdentifiantEntretien where identifiant = @identifiant  ;";
             
@@ -132,8 +132,8 @@ namespace EntretienSPPP.DB
         {
             Boolean isDelete = false;
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
             String requete = @"DELETE FROM objectif WHERE Identifiant = @Identifiant ; ";
 
@@ -167,8 +167,8 @@ namespace EntretienSPPP.DB
         public static Objectif CreateGroupe(Objectif objectif)
         {
 
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
 
 
             String requete = @"Insert INTO objectif(Mesure,Description,Resultat,IdentifiantEntretien) Values (@Mesure,@Description,@Resultat,@IdentifiantEntretien); SELECT SCOPE_IDENTITY() ; ";

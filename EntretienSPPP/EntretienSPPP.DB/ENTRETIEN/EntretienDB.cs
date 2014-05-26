@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
 {
@@ -20,8 +19,8 @@ namespace EntretienSPPP.DB
         {
             //Récupération de la chaine de connexion
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = "SELECT Identifiant, DateDeb, DateFin, Commentaire, IdentifiantPersonne, Expression, DefinitionFonction, ClareteFonction,ClareteObjectif FROM Entretien";
             connection.Open();
@@ -62,8 +61,8 @@ namespace EntretienSPPP.DB
         public static Entretien Get(Int32 identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"SELECT Identifiant, DateDeb, DateFin, Commentaire, IdentifiantPersonne, Expression, DefinitionFonction, ClareteFonction, ClareteObjectif FROM Entretien
                                 WHERE Identifiant = @Identifiant";
@@ -97,8 +96,8 @@ namespace EntretienSPPP.DB
         public static void Insert(Entretien Entretien)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"INSERT INTO Entretien (DateDeb, DateFin, Commentaire, IdentifiantPersonne, Expression, DefinitionFonction, ClareteFonction, ClareteObjectif)
                                 VALUES (@DateDeb, @DateFin, @Commentaire, @IdentifiantPersonne, @Expression, @DefinitionFonction, @ClareteFonction, @ClareteObjectif)";
@@ -122,8 +121,8 @@ namespace EntretienSPPP.DB
         public static void Update(Entretien Entretien)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"UPDATE Entretien 
                                SET DateDeb = @DateDeb, DateFin = @DateFin, Commentaire = @Commentaire , IdentifiantPersonne = @IdentifiantPersonne , Expression = @Expression, DefinitionFonction = @DefinitionFonction, ClareteFonction = @ClareteFonction, ClareteObjectif = @ClareteObjectif
@@ -149,8 +148,8 @@ namespace EntretienSPPP.DB
         public static void Delete(Int32 Identifiant)
         {
             //Connection
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            SqlConnection connection = DataBase.connection
+           
             //Commande
             String requete = @"DELETE FROM Entretien 
                                WHERE Identifiant = @Identifiant";
