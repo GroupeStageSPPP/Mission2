@@ -95,7 +95,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO Senior (IdentifiantEntretien, PAS, DIF, BilanCompetence, TempsTravail, TransfertCompetence)
-                                VALUES (@IdentifiantEntretien, @PAS, @DIF, @BilanCompetence, @TempsTravail, @TransfertCompetence)";
+                                VALUES (@IdentifiantEntretien, @PAS, @DIF, @BilanCompetence, @TempsTravail, @TransfertCompetence);SELECT SCOPE_IDENTITY() ";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres

@@ -181,10 +181,10 @@ namespace EntretienSPPP.DB
         {
 
             SqlConnection connection = DataBase.connection;
-           
 
 
-            String requete = @"Insert INTO EvalutationMoi Communication,SensRelationnel,Implication,Competence,Performance,Management,Objectifs,Commentaire,IdentifiantEntretien) Values (@Communication,@SensRelationnel,@Implication,@Competence,@Performance,@Management,@Objectifs,@Commentaire,@identifiantEntretien);";
+
+            String requete = @"Insert INTO EvalutationMoi Communication,SensRelationnel,Implication,Competence,Performance,Management,Objectifs,Commentaire,IdentifiantEntretien) Values (@Communication,@SensRelationnel,@Implication,@Competence,@Performance,@Management,@Objectifs,@Commentaire,@identifiantEntretien);SELECT SCOPE_IDENTITY() ";
 
               SqlCommand commande = new SqlCommand(requete, connection);
 

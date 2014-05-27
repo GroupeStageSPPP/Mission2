@@ -100,7 +100,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO SouhaitFormation (Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien)
-                               VALUES (@Objectif, @Interne, @Externe, @AvisPersonne, @AvisResponsable, @IdentifiantEntretien)";
+                               VALUES (@Objectif, @Interne, @Externe, @AvisPersonne, @AvisResponsable, @IdentifiantEntretien);SELECT SCOPE_IDENTITY() ";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres

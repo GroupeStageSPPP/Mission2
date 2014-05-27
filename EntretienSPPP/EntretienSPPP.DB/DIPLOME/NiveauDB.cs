@@ -92,7 +92,7 @@ namespace EntretienSPPP.DB
 
             SqlConnection connection = DataBase.connection;
 
-            String requete = @"INSERT INTO Niveau(Libelle) VALUES(@Libelle)";
+            String requete = @"INSERT INTO Niveau(Libelle) VALUES(@Libelle); SELECT SCOPE_IDENTITY() ";
             connection.Open();
 
             SqlCommand commande = new SqlCommand(requete, connection);

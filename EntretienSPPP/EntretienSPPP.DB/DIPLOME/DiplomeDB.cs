@@ -90,7 +90,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO Diplome (Libelle, IdentifiantNiveau)
-                                VALUES (@Libelle, @IdentifiantNiveau)";
+                                VALUES (@Libelle, @IdentifiantNiveau);SELECT SCOPE_IDENTITY() ";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
