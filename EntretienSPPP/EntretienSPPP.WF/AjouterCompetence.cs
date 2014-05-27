@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EntretienSPPP.DB;
 
 namespace EntretienSPPP.WinForm
 {
@@ -36,7 +37,19 @@ namespace EntretienSPPP.WinForm
 
         private void buttonAjouterCompétence_Click(object sender, EventArgs e)
         {
-            //Fonction créer une compétence
+            Competence_Personne competencePersonne = new Competence_Personne();
+
+            competencePersonne.personne.Identifiant = PersonneDB.LastID();
+            competencePersonne.competence.Identifiant = Convert.ToInt32                                            (this.comboBoxCompétences.SelectedValue);
+
+            if (this.comboBoxCompétences.SelectedValue == "Autre")
+            {
+                Competence competence = new Competence();
+                competence.Libelle = this.textBoxNomNewCompetence.SelectedText;
+                competencePersonne.competence.Identifiant = CompetenceDB.LastID();
+            }
+
+            Competence_PersonneDB.Insert(competencePersonne);
             this.Close();
         }
     }

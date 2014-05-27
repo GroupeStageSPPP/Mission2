@@ -141,6 +141,30 @@ namespace EntretienSPPP.DB
             commande.ExecuteNonQuery();
             connection.Close();
         }
+        public static Int32 LastID()
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Commande
+            String requete = @"SELECT Identifiant FROM Competence
+                                WHERE Identifiant = (SELECT MAX(Identifiant) FROM Competence); ";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+
+            //Execution
+            connection.Open();
+            SqlDataReader dataReader = commande.ExecuteReader();
+
+            dataReader.Read();
+
+            Int32 LastID = dataReader.GetInt32(0);
+
+            dataReader.Close();
+            connection.Close();
+            return LastID;
+
+        }
 
 
 

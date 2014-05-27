@@ -40,7 +40,7 @@ namespace EntretienSPPP.DB
                 postePersonne.DateDebut = dataReader.GetDateTime(1);
                 postePersonne.DateFin = dataReader.GetDateTime(2);
                 postePersonne.Statut = dataReader.GetString(3);
-                postePersonne.Coefficient = dataReader.GetFloat(4);
+                postePersonne.Coefficient = dataReader.GetInt32(4);
                 postePersonne.personne.Identifiant = dataReader.GetInt32(5);
                 postePersonne.poste.Identifiant = dataReader.GetInt32(6);
                 postePersonne.Contrat = dataReader.GetString(7);
@@ -86,7 +86,7 @@ namespace EntretienSPPP.DB
             postePersonne.DateDebut = dataReader.GetDateTime(1);
             postePersonne.DateFin = dataReader.GetDateTime(2);
             postePersonne.Statut = dataReader.GetString(3);
-            postePersonne.Coefficient = dataReader.GetFloat(4);
+            postePersonne.Coefficient = dataReader.GetInt32(4);
             postePersonne.personne.Identifiant = dataReader.GetInt32(5);
             postePersonne.poste.Identifiant = dataReader.GetInt32(6);
             postePersonne.Contrat = dataReader.GetString(7);
