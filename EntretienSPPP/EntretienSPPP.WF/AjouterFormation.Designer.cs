@@ -52,8 +52,8 @@
             this.comboBoxListeNomOrganisme = new System.Windows.Forms.ComboBox();
             this.textBoxObjectifFOrmation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxAnnée = new System.Windows.Forms.TextBox();
             this.InformationPerso = new System.Windows.Forms.Label();
+            this.dateTimePickerDateFormation = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label11
@@ -62,9 +62,9 @@
             this.label11.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.label11.Location = new System.Drawing.Point(12, 107);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 13);
+            this.label11.Size = new System.Drawing.Size(34, 13);
             this.label11.TabIndex = 53;
-            this.label11.Text = "Année";
+            this.label11.Text = "Date";
             // 
             // buttonRetour
             // 
@@ -287,15 +287,6 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Objectifs";
             // 
-            // textBoxAnnée
-            // 
-            this.textBoxAnnée.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.textBoxAnnée.Location = new System.Drawing.Point(12, 123);
-            this.textBoxAnnée.MaxLength = 4;
-            this.textBoxAnnée.Name = "textBoxAnnée";
-            this.textBoxAnnée.Size = new System.Drawing.Size(129, 21);
-            this.textBoxAnnée.TabIndex = 54;
-            // 
             // InformationPerso
             // 
             this.InformationPerso.AutoSize = true;
@@ -306,14 +297,21 @@
             this.InformationPerso.TabIndex = 55;
             this.InformationPerso.Text = "Formation";
             // 
+            // dateTimePickerDateFormation
+            // 
+            this.dateTimePickerDateFormation.Location = new System.Drawing.Point(12, 123);
+            this.dateTimePickerDateFormation.Name = "dateTimePickerDateFormation";
+            this.dateTimePickerDateFormation.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDateFormation.TabIndex = 56;
+            // 
             // AjouterFormation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(411, 414);
+            this.Controls.Add(this.dateTimePickerDateFormation);
             this.Controls.Add(this.InformationPerso);
-            this.Controls.Add(this.textBoxAnnée);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.buttonRetour);
             this.Controls.Add(this.buttonAjouter);
@@ -372,7 +370,7 @@
         private System.Windows.Forms.ComboBox comboBoxListeNomOrganisme;
         private System.Windows.Forms.TextBox textBoxObjectifFOrmation;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxAnnée;
         private System.Windows.Forms.Label InformationPerso;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDateFormation;
     }
 }
