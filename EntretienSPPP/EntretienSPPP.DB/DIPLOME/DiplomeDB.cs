@@ -91,13 +91,14 @@ namespace EntretienSPPP.DB
             //Commande
             String requete = @"INSERT INTO Diplome (Libelle, IdentifiantNiveau)
                                 VALUES (@Libelle, @IdentifiantNiveau);SELECT SCOPE_IDENTITY() ";
+            connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Diplome.Libelle);
             commande.Parameters.AddWithValue("IdentifiantNiveau", Diplome.niveau.Identifiant);
             //Execution
-            connection.Open();
+
 
             commande.ExecuteNonQuery();
             connection.Close();
@@ -114,6 +115,7 @@ namespace EntretienSPPP.DB
             String requete = @"UPDATE Diplome
                                SET Libelle = @Libelle, IdentifiantNiveau = @IdentifiantNiveau
                                WHERE Identifiant = @Identifiant";
+            connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -121,7 +123,7 @@ namespace EntretienSPPP.DB
             commande.Parameters.AddWithValue("niveau", Diplome.niveau);
             commande.Parameters.AddWithValue("IdentifiantNiveau", Diplome.niveau.Identifiant);
             //Execution
-            connection.Open();
+
             commande.ExecuteNonQuery();
             connection.Close();
         }
@@ -134,14 +136,39 @@ namespace EntretienSPPP.DB
             //Commande
             String requete = @"DELETE FROM Diplome 
                                WHERE Identifiant = @Identifiant";
+            connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
             //Execution
-            connection.Open();
+
             commande.ExecuteNonQuery();
             connection.Close();
+        }
+        public static Int32 LastID()
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Commande
+            String requete = @"SELECT Identifiant FROM Diplome
+                                WHERE Identifiant = (SELECT MAX(Identifiant) FROM Diplome); ";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+
+            //Execution
+            connection.Open();
+            SqlDataReader dataReader = commande.ExecuteReader();
+
+            dataReader.Read();
+
+            Int32 LastID = dataReader.GetInt32(0);
+
+            dataReader.Close();
+            connection.Close();
+            return LastID;
+
         }
     }
 }

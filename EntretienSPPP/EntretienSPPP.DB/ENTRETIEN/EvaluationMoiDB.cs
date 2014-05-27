@@ -96,7 +96,7 @@ namespace EntretienSPPP.DB
             return evaluationMoi;
         }
 
-        public static Boolean update(EvaluationMoi evaluationMoi) // la modification fonctionne pour tout sauf civilite et groupe
+        public static Boolean Update(EvaluationMoi evaluationMoi) // la modification fonctionne pour tout sauf civilite et groupe
         {
             Boolean isUpDAte = false;
             //mettre a jour la base de donnée
@@ -142,7 +142,7 @@ namespace EntretienSPPP.DB
 
         }
 
-        public static Boolean delete(EvaluationMoi evaluationMoi)
+        public static Boolean delete(Int32 IdentifiantEntretien)
         {
             Boolean isDelete = false;
             //Connection
@@ -154,7 +154,7 @@ namespace EntretienSPPP.DB
             SqlCommand commande = new SqlCommand(requete, connection);
 
 
-            commande.Parameters.AddWithValue("IdentifiantEntretien", evaluationMoi.IdentifiantEntretien);
+            commande.Parameters.AddWithValue("IdentifiantEntretien", IdentifiantEntretien);
 
             try
             {

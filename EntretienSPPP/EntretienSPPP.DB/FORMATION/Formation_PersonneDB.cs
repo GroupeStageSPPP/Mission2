@@ -81,18 +81,120 @@ namespace EntretienSPPP.DB
             //1 - Création du Formation_Personne
             Formation_Personne formationPersonne = new Formation_Personne();
 
-            formationPersonne.Identifiant = dataReader.GetInt32(0);
-            formationPersonne.Annee = dataReader.GetDateTime(1);
-            formationPersonne.Contenu = dataReader.GetString(2);
-            formationPersonne.Documentation = dataReader.GetString(3);
-            formationPersonne.Formateur = dataReader.GetString(4);
-            formationPersonne.AvisResponsable = dataReader.GetString(5);
-            formationPersonne.formation.Identifiant = dataReader.GetInt32(6);
-            formationPersonne.personne.Identifiant = dataReader.GetInt32(7);
-            formationPersonne.organisme.Identifiant = dataReader.GetInt32(8);
+            formationPersonne.Identifiant               = dataReader.GetInt32(0);
+            formationPersonne.Annee                 = dataReader.GetDateTime(1);
+            formationPersonne.Contenu               = dataReader.GetString(2);
+            formationPersonne.Documentation              = dataReader.GetString(3);
+            formationPersonne.Formateur                 = dataReader.GetString(4);
+            formationPersonne.AvisResponsable           = dataReader.GetString(5);
+            formationPersonne.formation.Identifiant         = dataReader.GetInt32(6);
+            formationPersonne.personne.Identifiant      = dataReader.GetInt32(7);
+            formationPersonne.organisme.Identifiant      = dataReader.GetInt32(8);
             dataReader.Close();
             connection.Close();
             return formationPersonne;
+        }
+
+        public static void Insert(Formation_Personne FormationPersonne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"INSERT INTO Formation_Personne (Annee,                
+                                                               Contenu,              
+                                                               Documentation,        
+                                                               Formateur,            
+                                                               AvisResponsable,      
+                                                               IdentifiantFormation,
+                                                               IdentifiantPersonne, 
+                                                               IdentifiantOrganisme)
+                                                       VALUES (@Annee,                
+                                                               @Contenu,              
+                                                               @Documentation,        
+                                                               @Formateur,            
+                                                               @AvisResponsable,      
+                                                               @IdentifiantFormation,
+                                                               @IdentifiantPersonne, 
+                                                               @IdentifiantOrganisme) 
+                               SELECT SCOPE_IDENTITY() ;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Annee", FormationPersonne.Annee);
+            commande.Parameters.AddWithValue("Contenu", FormationPersonne.Contenu);
+            commande.Parameters.AddWithValue("Documentation", FormationPersonne.Documentation);
+            commande.Parameters.AddWithValue("Formateur", FormationPersonne.Formateur);
+            commande.Parameters.AddWithValue("AvisResponsable", FormationPersonne.AvisResponsable);
+            commande.Parameters.AddWithValue("IdentifiantFormation", FormationPersonne.formation.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", FormationPersonne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantOrganisme", FormationPersonne.organisme.Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Formation_Personne FormationPersonne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"UPDATE Formation_Personne
+                               SET Annee=@Annee,              
+                                   Contenu=@Contenu,            
+                                   Documentation=@Documentation,      
+                                   Formateur=@Formateur,          
+                                   AvisResponsable=@AvisResponsable,    
+                                   IdentifiantFormation=@IdentifiantFormation,
+                                   IdentifiantPersonne= @IdentifiantPersonne,
+                                   IdentifiantOrganisme=@IdentifiantOrganisme
+
+                               WHERE Identifiant=@Identifiant ;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Identifiant", FormationPersonne.Identifiant);
+            commande.Parameters.AddWithValue("Annee", FormationPersonne.Annee);
+            commande.Parameters.AddWithValue("Contenu", FormationPersonne.Contenu);
+            commande.Parameters.AddWithValue("Documentation", FormationPersonne.Documentation);
+            commande.Parameters.AddWithValue("Formateur", FormationPersonne.Formateur);
+            commande.Parameters.AddWithValue("AvisResponsable", FormationPersonne.AvisResponsable);
+            commande.Parameters.AddWithValue("IdentifiantFormation", FormationPersonne.formation.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", FormationPersonne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantOrganisme", FormationPersonne.organisme.Identifiant);
+            
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"DELETE Formation_Personne
+                               WHERE Identifiant=@Identifiant ;";
+
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EntretienSPPP.DB</RootNamespace>
     <AssemblyName>EntretienSPPP.DB</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +42,8 @@
   <ItemGroup>
     <Compile Include="COMPETENCE\Competence.cs" />
     <Compile Include="COMPETENCE\CompetenceDB.cs" />
+    <Compile Include="COMPETENCE\Competence_Personne.cs" />
+    <Compile Include="COMPETENCE\Competence_PersonneDB.cs" />
     <Compile Include="CV\CV.cs" />
     <Compile Include="CV\CVDB.cs" />
     <Compile Include="ALGO\DataBase.cs" />

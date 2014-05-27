@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EntretienSPPP.WinForm</RootNamespace>
     <AssemblyName>EntretienSPPP.WinForm</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -220,10 +221,6 @@
     <ProjectReference Include="..\EntretienSPPP.DB\EntretienSPPP.DB.csproj">
       <Project>{54b30e80-cfe3-49ee-ba10-e7025c871ef0}</Project>
       <Name>EntretienSPPP.DB</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EntretienSPPP.library\EntretienSPPP.library.csproj">
-      <Project>{1b8004c1-6bf8-41ee-b78b-9cfb7e789952}</Project>
-      <Name>EntretienSPPP.library</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

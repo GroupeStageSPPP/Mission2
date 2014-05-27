@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 
 namespace EntretienSPPP.DB
 {
@@ -135,7 +134,7 @@ namespace EntretienSPPP.DB
             connection.Close();
         }
 
-        public static void Delete(Int32 Identifiant)
+        public static void Delete(Int32 IdentifiantEntretien)
         {
             //Connection
             SqlConnection connection = DataBase.connection;
@@ -146,7 +145,7 @@ namespace EntretienSPPP.DB
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
-            commande.Parameters.AddWithValue("IdentifiantEntretien", Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantEntretien", IdentifiantEntretien);
             //Execution
             connection.Open();
             commande.ExecuteNonQuery();

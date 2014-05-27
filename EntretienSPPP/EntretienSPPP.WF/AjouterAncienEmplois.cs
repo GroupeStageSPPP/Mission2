@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EntretienSPPP.DB;
 
 namespace EntretienSPPP.WinForm
 {
@@ -24,7 +25,18 @@ namespace EntretienSPPP.WinForm
 
         private void buttonConfirmerAjoutEmploi_Click(object sender, EventArgs e)
         {
-            //fonction creer Ancien emplois
+            CV ancienEmploi = new CV();
+            ancienEmploi.personne.Identifiant = PersonneDB.LastID();
+            ancienEmploi.Entreprise = this.textBoxEntreprise.Text;
+            ancienEmploi.Poste = this.textBoxIntituleDuPoste.Text;
+            ancienEmploi.DateDeb = this.dateTimePickerDateDebutAncienEmploi.Value;
+            ancienEmploi.DateFin = this.dateTimePickerDateFinAncienEmploi.Value;
+            //ancienEmploi.Secteur = this.dateTimePickerDateFinAncienEmploi;
+
+            CVDB.Insert(ancienEmploi);
+
+
+
             this.Close();
         }
     }

@@ -82,7 +82,7 @@ namespace EntretienSPPP.DB
             return genre;
         }
 
-        public static Boolean update(Genre genre)
+        public static Boolean Update(Genre genre)
         {
             Boolean isUpDAte = false ;
             //mettre a jour la base de donnée
@@ -119,7 +119,7 @@ namespace EntretienSPPP.DB
             return isUpDAte;
         }
 
-        public static Boolean delete(Genre genre)
+        public static Boolean Delete(Genre genre)
         {
             Boolean isDelete = false;
             //Connection
@@ -155,14 +155,14 @@ namespace EntretienSPPP.DB
       
         }
 
-        public static Genre CreateGenre (Genre genre)
+        public static Genre Insert (Genre genre)
         {
             
             SqlConnection connection = DataBase.connection;
            
 
 
-            String requete = @"Insert INTO genre(libelle) Values (@libelle); SELECT SCOPE_IDENTITY() ; ";
+            String requete = @"Insert INTO genre(libelle) Values (@libelle) SELECT SCOPE_IDENTITY() ; ";
 
             SqlCommand commande = new SqlCommand(requete, connection);
 

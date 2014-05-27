@@ -262,7 +262,36 @@ namespace EntretienSPPP.WinForm
 
             private void buttonADMINISTRATIONAjoutEmployeSuivant_Click(object sender,                EventArgs e)
             {
+                Personne personne = new Personne();
+                personne.Nom = this.textBoxNomAjoutEmploye.Text;
+                personne.Prenom = this.TextBoxPrenomAjoutEmploye.Text;
+                personne.DateNaissance = this.dateTimePickerDateNaissanceAjoutEmploye.Value;
+                personne.Rue = this.textBoxAdresseAjoutEmploye.Text;
+                personne.CodePostal = this.maskedTextBoxCodePostalAjoutEmploye.Text;
+                personne.Ville = this.textBoxVilleAjoutEmploye.Text;
+                personne.Mail = this.textBoxMailAjoutEmploye.Text;
+                personne.Telephone = this.maskedTextBoxNumerosTelephoneAjoutEmploye.Text;
+
+                bool isChecked = this.BoutonRadioMonsieurAjoutEmploye.Checked;
+                      if (isChecked)
+                         {
+                personne.genre.Identifiant = 1;
+                         }
+                      else
+                         {
+                personne.genre.Identifiant = 2;
+                         }
+
+                 
+
+                 personne.famille.Identifiant = Convert.ToInt32                                                         (this.comboBoxSituationFamillaleAjoutEmploye.SelectedValue);
+
+                 PersonneDB.Insert(personne);
+
+
+
                 RefreshAjoutEmployeTrue();
+
             }
                 private void panelAjoutemploye_VisibleChanged(object sender, EventArgs e)
                 {

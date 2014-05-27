@@ -101,6 +101,7 @@ namespace EntretienSPPP.DB
             //Commande
             String requete = @"INSERT INTO Entretien (DateDeb, DateFin, Commentaire, IdentifiantPersonne, Expression, DefinitionFonction, ClareteFonction, ClareteObjectif)
                                 VALUES (@DateDeb, @DateFin, @Commentaire, @IdentifiantPersonne, @Expression, @DefinitionFonction, @ClareteFonction, @ClareteObjectif) ; SELECT SCOPE_IDENTITY() ";
+            connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -113,7 +114,7 @@ namespace EntretienSPPP.DB
             commande.Parameters.AddWithValue("ClareteFonction", Entretien.ClareteFonction);
             commande.Parameters.AddWithValue("ClareteObjectif", Entretien.ClareteObjectif);
             //Execution
-            connection.Open();
+
             commande.ExecuteNonQuery();
             connection.Close();
         }
@@ -127,6 +128,7 @@ namespace EntretienSPPP.DB
             String requete = @"UPDATE Entretien 
                                SET DateDeb = @DateDeb, DateFin = @DateFin, Commentaire = @Commentaire , IdentifiantPersonne = @IdentifiantPersonne , Expression = @Expression, DefinitionFonction = @DefinitionFonction, ClareteFonction = @ClareteFonction, ClareteObjectif = @ClareteObjectif
                                WHERE Identifiant = @Identifiant";
+            connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -140,7 +142,7 @@ namespace EntretienSPPP.DB
             commande.Parameters.AddWithValue("ClareteObjectif", Entretien.ClareteObjectif);
             commande.Parameters.AddWithValue("Identifiant", Entretien.Identifiant);
             //Execution
-            connection.Open();
+
             commande.ExecuteNonQuery();
             connection.Close();
         }
@@ -153,12 +155,13 @@ namespace EntretienSPPP.DB
             //Commande
             String requete = @"DELETE FROM Entretien 
                                WHERE Identifiant = @Identifiant";
+            connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
             //Execution
-            connection.Open();
+
             commande.ExecuteNonQuery();
             connection.Close();
         }

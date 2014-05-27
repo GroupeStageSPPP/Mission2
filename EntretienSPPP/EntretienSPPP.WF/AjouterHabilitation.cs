@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EntretienSPPP.DB;
 
 namespace EntretienSPPP.WinForm
 {
@@ -24,7 +25,28 @@ namespace EntretienSPPP.WinForm
             }
             private void buttonValiderHabilité_Click(object sender, EventArgs e)
         {
-            //fonction creer habiliter
+            
+                Habilite_Personne habilité = new Habilite_Personne();
+            
+            habilité.Identifiant = PersonneDB.LastID();
+            habilité.habilite.Identifiant = Convert.ToInt32(this.comboBoxTypeHabilité.SelectedValue);
+            habilité.organisme.Identifiant = Convert.ToInt32(this.comboBoxNomOrganisme.SelectedValue);
+            habilité.DateFin = this.dateTimePickerDateFinValidité.Value;
+
+            if (this.comboBoxNomOrganisme.Text == "Autre")
+            {
+                Organisme organisme = new Organisme();
+                organisme.Libelle = textBoxNouveauNom.Text;
+                OrganismeDB.Insert(organisme);
+                habilité.organisme.Identifiant = OrganismeDB.LastID();
+
+            }
+
+            
+
+            Habilite_PersonneDB.Insert(habilité);
+
+
             this.Close();
         }
         #endregion

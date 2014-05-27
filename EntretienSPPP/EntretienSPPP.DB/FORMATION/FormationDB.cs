@@ -22,7 +22,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe FROM Formation ;";
+            String requete = "SELECT Identifiant, Titre, Objectif, Interne, Externe FROM Formation ;";
 
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
@@ -37,7 +37,6 @@ namespace EntretienSPPP.DB
                 //1 - Créer un Formation à partir des donner de la ligne du dataReader
                 Formation formation = new Formation();
                 formation.Identifiant = dataReader.GetInt32(0);
-                formation.organisme.Identifiant = dataReader.GetInt32(1);
                 formation.Titre = dataReader.GetString(2);
                 formation.Objectif = dataReader.GetString(3);
                 formation.Interne = dataReader.GetChar(4);
@@ -63,7 +62,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe FROM Formation WHERE Identifiant = @Identifiant ;";
+            String requete = @"SELECT Identifiant, Titre, Objectif, Interne, Externe FROM Formation WHERE Identifiant = @Identifiant ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -94,11 +93,10 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
 
-            String requete = @"Update Formation set organisme = @organisme,Titre = @Titre, Objectif = @Objectif, interne = @interne, externe = @externe where identifiant = @identifiant  ;";
+            String requete = @"UPDATE Formation SET Titre = @Titre, Objectif = @Objectif, interne = @interne, externe = @externe WHERE Identifiant = @Identifiant  ;";
             
             SqlCommand commande = new SqlCommand(requete, connection);
 
-            commande.Parameters.AddWithValue("organisme", formation.organisme);
             commande.Parameters.AddWithValue("Titre", formation.Titre);
             commande.Parameters.AddWithValue("Objectif", formation.Objectif);
             commande.Parameters.AddWithValue("interne", formation.Interne);
@@ -161,18 +159,17 @@ namespace EntretienSPPP.DB
       
         }
 
-        public static Formation CreateFormation (Formation formation)
+        public static Formation Insert (Formation formation)
         {
             
             SqlConnection connection = DataBase.connection;
            
 
 
-            String requete = @"Insert INTO formation(organisme,Titre,Objectif,Interne,Externe) Values (@organisme,@Titre,@Objectif,@Interne,@Externe); SELECT SCOPE_IDENTITY() ;";
+            String requete = @"Insert INTO formation(Titre,Objectif,Interne,Externe) Values (@organisme,@Titre,@Objectif,@Interne,@Externe); SELECT SCOPE_IDENTITY() ;";
 
             SqlCommand commande = new SqlCommand(requete, connection);
 
-            commande.Parameters.AddWithValue("organisme",formation.organisme);
             commande.Parameters.AddWithValue("Titre",formation.Titre);
             commande.Parameters.AddWithValue("Objectif",formation.Objectif);
             commande.Parameters.AddWithValue("Interne",formation.Interne);

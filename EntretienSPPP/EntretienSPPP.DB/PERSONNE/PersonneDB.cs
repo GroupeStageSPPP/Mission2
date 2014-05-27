@@ -113,7 +113,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO Personne (Nom, Prenom, DateNaissance, Ville, CodePostal, Telephone, Mail, IdentifiantFamille, IdentifiantGenre)
-                               VALUES (@Nom, @Prenom, @DateNaissance, @Ville, @CodePostal, @Telephone, @Mail, @IdentifiantFamille, @IdentifiantGenre) ;SELECT SCOPE_IDENTITY() ";
+                               VALUES (@Nom, @Prenom, @DateNaissance, @Ville, @CodePostal, @Telephone, @Mail, @IdentifiantFamille, @IdentifiantGenre) SELECT SCOPE_IDENTITY() ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -140,7 +140,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"UPDATE Personne SET Nom = @Nom, Prenom = @Prenom, DateNaissance = @DateNaissance, Ville = @Ville, CodePostal = @CodePostal, Telephone = @Telephone, Mail = @Mail, IdentifiantFamille = @IdentifiantFamille, IdentifiantGenre = @IdentifiantGenre
-                               WHERE ";
+                               WHERE Identifiant=@Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -168,7 +168,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"DELETE FROM Personne 
-                               WHERE Identifiant = @Identifiant";
+                               WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -177,6 +177,31 @@ namespace EntretienSPPP.DB
             connection.Open();
             commande.ExecuteNonQuery();
             connection.Close();
+        }
+
+        public static Int32 LastID()
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Commande
+            String requete = @"SELECT Identifiant FROM Personne
+                                WHERE Identifiant = (SELECT MAX(Identifiant) FROM Personne); ";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+
+            //Execution
+            connection.Open();
+            SqlDataReader dataReader = commande.ExecuteReader();
+
+            dataReader.Read();
+
+            Int32 LastID = dataReader.GetInt32(0);
+
+            dataReader.Close();
+            connection.Close();
+            return LastID;
+
         }
     }
 }

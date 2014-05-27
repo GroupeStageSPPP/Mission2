@@ -8,23 +8,18 @@ namespace EntretienSPPP.DB
     public class Langue_Personne
     {
         #region Attributs
-
         #endregion
-
-        #region Propriétés
         public int Identifiant { get; set; }
-        public string niveau { get; set; }
-        public string Utilite { get; set; }
-        public Langue langue { get; set; }
+        public String Niveau { get; set; }
+        public Char Utilite { get; set; }
         public Personne personne { get; set; }
+        public Langue langue { get; set; }
+        #region Propriétés
 
         #endregion
 
         #region Constructeurs
-        public Langue_Personne()
-        {
 
-        }
         #endregion
 
         #region Méthodes

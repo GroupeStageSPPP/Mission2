@@ -88,14 +88,15 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO Competence (Libelle)
-                                VALUES @Libelle; SELECT SCOPE_IDENTITY() ";
+                                VALUES @Libelle SELECT SCOPE_IDENTITY() ";
+            connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Competence.Libelle);
 
             //Execution
-            connection.Open();
+            
             
             commande.ExecuteNonQuery();
             connection.Close();
@@ -110,13 +111,14 @@ namespace EntretienSPPP.DB
             String requete = @"UPDATE Competence 
                                SET Libelle = @Libelle
                                WHERE Identifiant = @Identifiant";
+            connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Competence.Libelle);
             commande.Parameters.AddWithValue("Identifiant", Competence.Identifiant);
             //Execution
-            connection.Open();
+            
             commande.ExecuteNonQuery();
             connection.Close();
         }
@@ -129,14 +131,39 @@ namespace EntretienSPPP.DB
             //Commande
             String requete = @"DELETE FROM Competence 
                                WHERE Identifiant = @Identifiant";
+            connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
             //Execution
-            connection.Open();
+            
             commande.ExecuteNonQuery();
             connection.Close();
+        }
+        public static Int32 LastID()
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Commande
+            String requete = @"SELECT Identifiant FROM Competence
+                                WHERE Identifiant = (SELECT MAX(Identifiant) FROM Competence); ";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+
+            //Execution
+            connection.Open();
+            SqlDataReader dataReader = commande.ExecuteReader();
+
+            dataReader.Read();
+
+            Int32 LastID = dataReader.GetInt32(0);
+
+            dataReader.Close();
+            connection.Close();
+            return LastID;
+
         }
 
 
