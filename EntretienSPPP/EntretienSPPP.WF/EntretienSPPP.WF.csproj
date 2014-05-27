@@ -221,10 +221,6 @@
       <Project>{54b30e80-cfe3-49ee-ba10-e7025c871ef0}</Project>
       <Name>EntretienSPPP.DB</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EntretienSPPP.library\EntretienSPPP.library.csproj">
-      <Project>{1b8004c1-6bf8-41ee-b78b-9cfb7e789952}</Project>
-      <Name>EntretienSPPP.library</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SPPP+Nom-.png" />
