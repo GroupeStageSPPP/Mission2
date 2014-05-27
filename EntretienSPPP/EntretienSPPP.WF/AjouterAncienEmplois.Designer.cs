@@ -40,6 +40,8 @@
             this.dateTimePickerDateFinAncienEmploi = new System.Windows.Forms.DateTimePicker();
             this.buttonAnnuler = new System.Windows.Forms.Button();
             this.InformationPerso = new System.Windows.Forms.Label();
+            this.textBoxSecteur = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxIntituleDuPoste
@@ -81,7 +83,7 @@
             // buttonConfirmerAjoutEmploi
             // 
             this.buttonConfirmerAjoutEmploi.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.buttonConfirmerAjoutEmploi.Location = new System.Drawing.Point(346, 120);
+            this.buttonConfirmerAjoutEmploi.Location = new System.Drawing.Point(346, 159);
             this.buttonConfirmerAjoutEmploi.Name = "buttonConfirmerAjoutEmploi";
             this.buttonConfirmerAjoutEmploi.Size = new System.Drawing.Size(75, 22);
             this.buttonConfirmerAjoutEmploi.TabIndex = 13;
@@ -128,7 +130,7 @@
             // buttonAnnuler
             // 
             this.buttonAnnuler.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.buttonAnnuler.Location = new System.Drawing.Point(12, 120);
+            this.buttonAnnuler.Location = new System.Drawing.Point(12, 159);
             this.buttonAnnuler.Name = "buttonAnnuler";
             this.buttonAnnuler.Size = new System.Drawing.Size(75, 22);
             this.buttonAnnuler.TabIndex = 18;
@@ -146,12 +148,32 @@
             this.InformationPerso.TabIndex = 26;
             this.InformationPerso.Text = "Ancien emplois";
             // 
+            // textBoxSecteur
+            // 
+            this.textBoxSecteur.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.textBoxSecteur.Location = new System.Drawing.Point(15, 133);
+            this.textBoxSecteur.Name = "textBoxSecteur";
+            this.textBoxSecteur.Size = new System.Drawing.Size(200, 21);
+            this.textBoxSecteur.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.label5.Location = new System.Drawing.Point(12, 117);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Secteur";
+            // 
             // AjouterAncienEmplois
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(433, 154);
+            this.ClientSize = new System.Drawing.Size(433, 193);
+            this.Controls.Add(this.textBoxSecteur);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.InformationPerso);
             this.Controls.Add(this.buttonAnnuler);
             this.Controls.Add(this.textBoxIntituleDuPoste);
@@ -165,8 +187,6 @@
             this.Controls.Add(this.dateTimePickerDateFinAncienEmploi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(433, 154);
-            this.MinimumSize = new System.Drawing.Size(433, 154);
             this.Name = "AjouterAncienEmplois";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AjouterAncienEmplois";
@@ -188,5 +208,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDateFinAncienEmploi;
         private System.Windows.Forms.Button buttonAnnuler;
         private System.Windows.Forms.Label InformationPerso;
+        private System.Windows.Forms.TextBox textBoxSecteur;
+        private System.Windows.Forms.Label label5;
     }
 }

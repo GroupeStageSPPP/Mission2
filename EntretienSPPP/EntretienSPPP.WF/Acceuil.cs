@@ -314,6 +314,13 @@ namespace EntretienSPPP.WinForm
                     //    this.RefreshInaptitudePersonne();
                     //    this.RefreshPosteActuel();
                     //    this.refreshCompetencePersonne();
+
+
+
+                        //this.comboBoxSituationFamillaleAjoutEmploye.DataSource = FamilleDB.List();
+                        //this.comboBoxSituationFamillaleAjoutEmploye.ValueMember = "Identifiant";
+                        //this.comboBoxSituationFamillaleAjoutEmploye.DisplayMember = "Libelle";
+
                     }
                 #endregion
                 #region RafraichissementListBox
@@ -345,7 +352,7 @@ namespace EntretienSPPP.WinForm
                     }
                     private void RefreshLanguePersonne()
                     {
-                        List<Langue_Personne> listLanguePersonne = Langue_PersonneDB.List                        ();
+                        List<Langue_Personne> listLanguePersonne = Langue_PersonneDB.List                                      ();
                         this.listBoxLangueAjoutEmploye.DataSource = listLanguePersonne;
                         this.listBoxLangueAjoutEmploye.DisplayMember = "langue";
                         this.listBoxLangueAjoutEmploye.DisplayMember = "niveau";

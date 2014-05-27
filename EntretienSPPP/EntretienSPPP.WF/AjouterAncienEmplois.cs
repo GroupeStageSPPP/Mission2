@@ -15,6 +15,7 @@ namespace EntretienSPPP.WinForm
     {
         public AjouterAncienEmplois()
         {
+           
             InitializeComponent();
         }
 
