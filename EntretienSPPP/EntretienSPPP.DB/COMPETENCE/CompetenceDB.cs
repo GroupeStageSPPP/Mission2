@@ -88,14 +88,15 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO Competence (Libelle)
-                                VALUES @Libelle; SELECT SCOPE_IDENTITY() ";
+                                VALUES @Libelle SELECT SCOPE_IDENTITY() ";
+            connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Competence.Libelle);
 
             //Execution
-            connection.Open();
+            
             
             commande.ExecuteNonQuery();
             connection.Close();
@@ -110,13 +111,14 @@ namespace EntretienSPPP.DB
             String requete = @"UPDATE Competence 
                                SET Libelle = @Libelle
                                WHERE Identifiant = @Identifiant";
+            connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Competence.Libelle);
             commande.Parameters.AddWithValue("Identifiant", Competence.Identifiant);
             //Execution
-            connection.Open();
+            
             commande.ExecuteNonQuery();
             connection.Close();
         }
@@ -129,12 +131,13 @@ namespace EntretienSPPP.DB
             //Commande
             String requete = @"DELETE FROM Competence 
                                WHERE Identifiant = @Identifiant";
+            connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
             //Execution
-            connection.Open();
+            
             commande.ExecuteNonQuery();
             connection.Close();
         }

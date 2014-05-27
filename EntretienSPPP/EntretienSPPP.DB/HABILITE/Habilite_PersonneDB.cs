@@ -86,5 +86,86 @@ namespace EntretienSPPP.DB
             connection.Close();
             return habilitePersonne;
         }
+
+        public static void Insert(Habilite_Personne Habilite_Personne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"INSERT INTO Habilite_Personne (IdentifiantOrganisme, 
+                                                              DateFin, 
+                                                              IdentifiantPersonne, 
+                                                              IdentifiantHabilite)
+                                                      VALUES (@IdentifiantOrganisme, 
+                                                              @DateFin, 
+                                                              @IdentifiantPersonne, 
+                                                              @IdentifiantHabilite)
+                               SELECT SCOPE_IdentifiantENTITY() ;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("IdentifiantOrganisme", Habilite_Personne.organisme.Identifiant);
+            commande.Parameters.AddWithValue("DateFin", Habilite_Personne.DateFin);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", Habilite_Personne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantHabilite", Habilite_Personne.habilite.Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Habilite_Personne Habilite_Personne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"UPDATE Habilite_Personne
+                               SET IdentifiantOrganisme=@IdentifiantOrganisme;
+                                   DateFin=@DateFin;
+                                   IdentifiantPersonne=@IdentifiantPersonne;
+                                   IdentifiantHabilite=@IdentifiantHabilite;
+                               WHERE Identifiant=@Identifiant ;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Identifiant", Habilite_Personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantOrganisme", Habilite_Personne.organisme.Identifiant);
+            commande.Parameters.AddWithValue("DateFin", Habilite_Personne.DateFin);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", Habilite_Personne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantHabilite", Habilite_Personne.habilite.Identifiant);
+            
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"DELETE Habilite_Personne
+                               WHERE Identifiant=@Identifiant ;";
+
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

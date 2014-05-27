@@ -23,7 +23,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, DateDebut, DateFin, Site, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentiifiantSite FROM Poste_Personne";
+            String requete = "SELECT Identifiant, DateDebut, DateFin, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentiifiantSite FROM Poste_Personne;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -40,12 +40,11 @@ namespace EntretienSPPP.DB
                 postePersonne.DateDebut = dataReader.GetDateTime(1);
                 postePersonne.DateFin = dataReader.GetDateTime(2);
                 postePersonne.Statut = dataReader.GetString(3);
-
                 postePersonne.Coefficient = dataReader.GetFloat(4);
                 postePersonne.personne.Identifiant = dataReader.GetInt32(5);
                 postePersonne.poste.Identifiant = dataReader.GetInt32(6);
                 postePersonne.Contrat = dataReader.GetString(7);
-                postePersonne.site.Identifiant = dataReader.GetInt32(7);
+                postePersonne.site.Identifiant = dataReader.GetInt32(8);
 
 
                 //2 - Ajouter ce Poste_Personne à la list de client
@@ -67,8 +66,8 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"SELECT Identifiant, DateDebut, DateFin, Site, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentiifiantSite FROM Poste_Personne
-                                WHERE Identifiant = @Identifiant";
+            String requete = @"SELECT Identifiant, DateDebut, DateFin, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentifiantSite FROM Poste_Personne
+                                WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -84,9 +83,106 @@ namespace EntretienSPPP.DB
             Poste_Personne postePersonne = new Poste_Personne();
 
             postePersonne.Identifiant = dataReader.GetInt32(0);
+            postePersonne.DateDebut = dataReader.GetDateTime(1);
+            postePersonne.DateFin = dataReader.GetDateTime(2);
+            postePersonne.Statut = dataReader.GetString(3);
+            postePersonne.Coefficient = dataReader.GetFloat(4);
+            postePersonne.personne.Identifiant = dataReader.GetInt32(5);
+            postePersonne.poste.Identifiant = dataReader.GetInt32(6);
+            postePersonne.Contrat = dataReader.GetString(7);
+            postePersonne.site.Identifiant = dataReader.GetInt32(8);
             dataReader.Close();
             connection.Close();
             return postePersonne;
+        }
+
+        public static void Insert(Poste_Personne Poste_Personne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"INSERT INTO Poste_Personne (DateDebut, DateFin, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentifiantSite)
+                               VALUES (@DateDebut, @DateFin, @Site, @Statut, @Coefficient, @IdentifiantPersonne, @IdentifiantPoste, @Contrat, @IdentifiantSite) 
+                               SELECT SCOPE_IDENTITY() ;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("DateDebut", Poste_Personne.DateDebut);
+            commande.Parameters.AddWithValue("DateFin", Poste_Personne.DateFin);
+            commande.Parameters.AddWithValue("Statut", Poste_Personne.Statut );
+            commande.Parameters.AddWithValue("Coefficient", Poste_Personne.Coefficient);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", Poste_Personne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPoste", Poste_Personne.poste.Identifiant);
+            commande.Parameters.AddWithValue("Contrat", Poste_Personne.Contrat);
+            commande.Parameters.AddWithValue("IdentifiantSite", Poste_Personne.site.Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Poste_Personne Poste_Personne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"UPDATE Poste_Personne
+                               SET DateDebut=@DateDebut,
+                                   DateFin=@DateFin, 
+                                   Statut=@Statut, 
+                                   Coefficient=@Coefficient, 
+                                   IdentifiantPersonne=@IdentifiantPersonne,
+                                   IdentifiantPoste=@IdentifiantPoste,
+                                   Contrat=@Contrat,
+                                   IdentifiantSite=@IdentifiantSite,
+                             WHERE Identifiant=@Identifiant ;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("DateDebut", Poste_Personne.DateDebut);
+            commande.Parameters.AddWithValue("DateFin", Poste_Personne.DateFin);
+            commande.Parameters.AddWithValue("Statut", Poste_Personne.Statut);
+            commande.Parameters.AddWithValue("Coefficient", Poste_Personne.Coefficient);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", Poste_Personne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPoste", Poste_Personne.poste.Identifiant);
+            commande.Parameters.AddWithValue("Contrat", Poste_Personne.Contrat);
+            commande.Parameters.AddWithValue("IdentifiantSite", Poste_Personne.site.Identifiant);
+            commande.Parameters.AddWithValue("Identifiant", Poste_Personne.Identifiant);
+ 
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"DELETE Poste_Personne
+                               WHERE Identifiant=@Identifiant ;";
+
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

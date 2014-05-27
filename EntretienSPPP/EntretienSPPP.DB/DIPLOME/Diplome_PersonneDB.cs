@@ -94,5 +94,71 @@ namespace EntretienSPPP.DB
             connection.Close();
             return diplomePersonne;
         }
+
+        public static void Insert(Diplome_Personne Diplome_Personne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"INSERT INTO Diplome_Personne (DateObtention, IdentifiantDiplome, IdentifiantPersonne)
+                               VALUES (@DateObtention, @IdentifiantDiplome, @IdentifiantPersonne) 
+                               SELECT SCOPE_IDENTITY() ";
+
+            connection.Open();
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("DateObtention", Diplome_Personne.DateObtention);
+            commande.Parameters.AddWithValue("IdentifiantDiplome", Diplome_Personne.diplome.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", Diplome_Personne.personne.Identifiant);
+            
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Diplome_Personne Diplome_Personne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"UPDATE Diplome_Personne
+                               SET DateObtention=@DateObtention, IdentifiantDiplome=@IdentifiantDiplome, IdentifiantPersonne=@IdentifiantPersonne
+                               WHERE Identifiant=@Identifiant ";
+
+            connection.Open();
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Identifiant", Diplome_Personne.Identifiant);
+            commande.Parameters.AddWithValue("DateObtention", Diplome_Personne.DateObtention);
+            commande.Parameters.AddWithValue("IdentifiantDiplome", Diplome_Personne.diplome.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", Diplome_Personne.personne.Identifiant);            
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        { 
+                        //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"DELETE Diplome_Personne
+                               WHERE Identifiant=@Identifiant ";
+
+            connection.Open();
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }
