@@ -284,8 +284,8 @@ namespace EntretienSPPP.WinForm
 
                  
 
-                 personne.famille = Convert.ToInt32                                                         (this.comboBoxSituationFamillaleAjoutEmploye.SelectedValue);
-
+                 personne.famille = Convert.ToInt32(this.comboBoxSituationFamillaleAjoutEmploye.SelectedValue);
+                
                  PersonneDB.Insert(personne);
 
 
