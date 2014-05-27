@@ -124,3 +124,4 @@ C:\Users\jeoffrey\Desktop\SPPP\Mission2\EntretienSPPP\EntretienSPPP.WF\obj\Debug
 D:\Users\Pierre\Desktop\Mission2\EntretienSPPP\EntretienSPPP.WF\bin\Debug\EntretienSPPP.WinForm.exe.config
 D:\Users\Pierre\Desktop\Mission2\EntretienSPPP\EntretienSPPP.WF\obj\Debug\EntretienSPPP.WinForm.exe
 D:\Users\Pierre\Desktop\Mission2\EntretienSPPP\EntretienSPPP.WF\obj\Debug\EntretienSPPP.WinForm.pdb
+C:\Users\jbblois\Desktop\SPPP\Mission2\EntretienSPPP\EntretienSPPP.WF\obj\Debug\EntretienSPPP.WinForm.Acceuil2.Acceuil2.resources

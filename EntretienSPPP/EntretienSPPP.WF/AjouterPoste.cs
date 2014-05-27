@@ -27,12 +27,12 @@ namespace EntretienSPPP.WinForm
         {
             Poste_Personne PostePersonne = new Poste_Personne();
 
-            PostePersonne.personne.Identifiant = PersonneDB.LastID();
-            PostePersonne.poste.Identifiant = Convert.ToInt32                                                      (this.comboBoxIntituléPoste.SelectedValue);
+            PostePersonne.personne = PersonneDB.LastID();
+            PostePersonne.poste = Convert.ToInt32                                                      (this.comboBoxIntituléPoste.SelectedValue);
             PostePersonne.Contrat = this.comboBoxTypeContrat.SelectedText;
             PostePersonne.DateDebut = this.dateTimePickerDateDebutPoste.Value;
             PostePersonne.DateFin = this.dateTimePickerDateFinPoste.Value;
-            PostePersonne.site.Identifiant = Convert.ToInt32(this.comboBoxSite.SelectedValue);
+            PostePersonne.site = Convert.ToInt32(this.comboBoxSite.SelectedValue);
             PostePersonne.Statut = this.comboBoxStatus.SelectedText;
             PostePersonne.Coefficient = Convert.ToInt32(this.textBoxCoefficient.Text);
 

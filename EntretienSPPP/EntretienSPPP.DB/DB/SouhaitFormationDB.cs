@@ -36,7 +36,7 @@ namespace EntretienSPPP.DB
 
 
                 SouhaitFormation souhaitFormation = new SouhaitFormation();
-                souhaitFormation = dataReader.GetInt32(0);
+                souhaitFormation.Identifiant = dataReader.GetInt32(0);
                 souhaitFormation.Objectif = dataReader.GetString(1);
                 souhaitFormation.Interne = dataReader.GetChar(2);
                 souhaitFormation.Externe = dataReader.GetChar(3); 
@@ -81,7 +81,7 @@ namespace EntretienSPPP.DB
 
             SouhaitFormation souhaitFormation = new SouhaitFormation();
 
-            souhaitFormation = dataReader.GetInt32(0);
+            souhaitFormation.Identifiant = dataReader.GetInt32(0);
             souhaitFormation.Objectif = dataReader.GetString(1);
             souhaitFormation.Interne = dataReader.GetChar(2);
             souhaitFormation.Externe = dataReader.GetChar(3); 
