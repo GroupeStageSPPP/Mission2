@@ -11,6 +11,7 @@ namespace EntretienSPPP.DB
         
         #endregion
         #region Propriété
+        
         public Int32 IdentifiantEntretien { get; set; }
         public Int16 Communication { get; set; }
         public Int16 SensRelationnel { get; set; }
@@ -20,7 +21,6 @@ namespace EntretienSPPP.DB
         public Int16 Management { get; set; }
         public Int16 Objectifs { get; set; }
         public string Commentaire { get; set; }
-
         #endregion
         #region Constructeur
         public EvaluationMoi()

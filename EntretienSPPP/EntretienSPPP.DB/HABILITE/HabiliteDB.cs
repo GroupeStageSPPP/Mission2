@@ -83,7 +83,7 @@ namespace EntretienSPPP.DB
             return habilite;
         }
 
-        public static Boolean update(Habilite habilite)
+        public static Boolean Update(Habilite habilite)
         {
             Boolean isUpDAte = false ;
             //mettre a jour la base de donnée
@@ -93,7 +93,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
 
-            String requete = @"Update habilite set type = @type where identifiant = @identifiant  ;";
+            String requete = @"UPDATE habilite SET type = @type WHERE identifiant = @identifiant  ;";
             
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -120,7 +120,7 @@ namespace EntretienSPPP.DB
             return isUpDAte;
         }
 
-        public static Boolean delete(Habilite habilite)
+        public static Boolean Delete(Habilite habilite)
         {
             Boolean isDelete = false;
             //Connection
@@ -156,14 +156,14 @@ namespace EntretienSPPP.DB
       
         }
 
-        public static Habilite CreateHabilite(Habilite habilite)
+        public static Habilite Insert(Habilite habilite)
         {
 
             SqlConnection connection = DataBase.connection;
            
 
 
-            String requete = @"Insert INTO habilite(type) Values (@type); SELECT SCOPE_IDENTITY() ; ";
+            String requete = @"INSERT INTO habilite(type) VALUES (@type) SELECT SCOPE_IDENTITY() ; ";
 
             SqlCommand commande = new SqlCommand(requete, connection);
 

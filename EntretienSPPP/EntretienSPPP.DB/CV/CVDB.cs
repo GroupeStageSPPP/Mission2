@@ -22,7 +22,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, DateDeb, DateFin, Entreprise, IdentifiantPersonne FROM CV";
+            String requete = "SELECT Identifiant, DateDeb, DateFin, Secteur, Poste, Entreprise, IdentifiantPersonne FROM CV";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -38,8 +38,9 @@ namespace EntretienSPPP.DB
                 cv.Identifiant = dataReader.GetInt32(0);
                 cv.DateDeb = dataReader.GetDateTime(1);
                 cv.DateFin = dataReader.GetDateTime(2);
-                cv.Entreprise = dataReader.GetString(3);
-                cv.personne.Identifiant = dataReader.GetInt32(4);
+                cv.Secteur = dataReader.GetString(3);
+                cv.Poste = dataReader.GetString(4);
+                cv.Entreprise = dataReader.GetString(5);
 
                 //2 - Ajouter ce CV à la list de client
                 list.Add(cv);
@@ -60,7 +61,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"SELECT Identifiant, DateDeb, DateFin, Entreprise, Secteur, Poste, IdentifiantPersonne FROM CV
+            String requete = @"SELECT Identifiant, DateDeb, DateFin, Secteur, Poste, Entreprise, Secteur, Poste, IdentifiantPersonne FROM CV
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -79,9 +80,10 @@ namespace EntretienSPPP.DB
             cv.Identifiant = dataReader.GetInt32(0);
             cv.DateDeb = dataReader.GetDateTime(1);
             cv.DateFin = dataReader.GetDateTime(2);
-            cv.Entreprise = dataReader.GetString(3);
-            cv.Secteur = dataReader.GetString(4);
-            cv.Poste = dataReader.GetString(5);
+            cv.Secteur = dataReader.GetString(3);
+            cv.Poste = dataReader.GetString(4);            
+            cv.Entreprise = dataReader.GetString(5);
+
             cv.personne.Identifiant = dataReader.GetInt32(6);
             dataReader.Close();
             connection.Close();
@@ -94,8 +96,9 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"INSERT INTO CV  (DateDeb, DateFin, Entreprise, Secteur, Poste, IdentifiantPersonne)
+            String requete = @"INSERT INTO CV  (DateDeb, DateFin, Secteur, Poste, Entreprise, IdentifiantPersonne)
                                VALUES (@DateDeb, @DateFin, @Entreprise, @Secteur, @Poste, @IdentifiantPersonne);SELECT SCOPE_IDENTITY() ";
+            connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -106,7 +109,7 @@ namespace EntretienSPPP.DB
             commande.Parameters.AddWithValue("Poste", Cv.Poste);
             commande.Parameters.AddWithValue("IdentifiantPersonne", Cv.personne.Identifiant);
             //Execution
-            connection.Open();
+
             commande.ExecuteNonQuery();
             connection.Close();
         }
@@ -118,8 +121,9 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"UPDATE CV  
-                               SET DateDeb = @DateDeb, DateFin = @DateFin,  Entreprise = @Entreprise,  Secteur = @Secteur,  Poste @Poste= ,  IdentifiantPersonne =  @IdentifiantPersonne
+                               SET DateDeb = @DateDeb, DateFin = @DateFin,  Entreprise = @Entreprise,  Secteur = @Secteur,  Poste =@Poste ,  IdentifiantPersonne =  @IdentifiantPersonne
                                WHERE Identifiant = @Identifiant";
+            connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -130,7 +134,7 @@ namespace EntretienSPPP.DB
             commande.Parameters.AddWithValue("Poste", Cv.Poste);
             commande.Parameters.AddWithValue("IdentifiantPersonne", Cv.personne.Identifiant);
             //Execution
-            connection.Open();
+
             commande.ExecuteNonQuery();
             connection.Close();
         }
@@ -143,12 +147,13 @@ namespace EntretienSPPP.DB
             //Commande
             String requete = @"DELETE FROM CV 
                                WHERE Identifiant = @Identifiant";
+            connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Identifiant", Identifiant);
             //Execution
-            connection.Open();
+
             commande.ExecuteNonQuery();
             connection.Close();
         }

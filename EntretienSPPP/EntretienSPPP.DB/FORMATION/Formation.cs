@@ -12,7 +12,6 @@ namespace EntretienSPPP.DB
 
         #region Propriétés
         public int Identifiant { get; set; }
-        public Organisme organisme { get; set; }
         public string Titre { get; set; }
         public string Objectif { get; set; }
         public char Interne { get; set; }

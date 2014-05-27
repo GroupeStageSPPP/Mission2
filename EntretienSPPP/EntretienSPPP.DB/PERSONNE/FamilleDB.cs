@@ -117,7 +117,7 @@ namespace EntretienSPPP.DB
             return isUpDAte;
         }
 
-        public static Boolean delete(Famille famille)
+        public static Boolean Delete(Famille famille)
         {
             Boolean isDelete = false;
             //Connection
@@ -153,14 +153,14 @@ namespace EntretienSPPP.DB
       
         }
 
-        public static Famille CreateFamille (Famille famille)
+        public static Famille Insert(Famille famille)
         {
             
             SqlConnection connection = DataBase.connection;
            
 
 
-            String requete = @"Insert INTO Famille(libelle) Values (@libelle); SELECT SCOPE_IDENTITY(); ";
+            String requete = @"Insert INTO Famille(libelle) Values (@libelle) SELECT SCOPE_IDENTITY(); ";
 
             SqlCommand commande = new SqlCommand(requete, connection);
 

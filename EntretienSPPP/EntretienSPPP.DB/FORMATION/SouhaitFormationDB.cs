@@ -21,7 +21,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien FROM SouhaitFormation";
+            String requete = "SELECT Identifiant, Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien FROM SouhaitFormation;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -65,7 +65,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"SELECT Identifiant, Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien FROM SouhaitFormation
-                                WHERE Identifiant = @Identifiant";
+                                WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -100,7 +100,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO SouhaitFormation (Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien)
-                               VALUES (@Objectif, @Interne, @Externe, @AvisPersonne, @AvisResponsable, @IdentifiantEntretien);SELECT SCOPE_IDENTITY() ";
+                               VALUES (@Objectif, @Interne, @Externe, @AvisPersonne, @AvisResponsable, @IdentifiantEntretien) SELECT SCOPE_IDENTITY() ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -124,7 +124,7 @@ namespace EntretienSPPP.DB
             //Commande
             String requete = @"UPDATE SouhaitFormation 
                                SET Objectif = @Objectif, Interne = @Interne, Externe = @Externe, AvisPersonne = @AvisPersonne, AvisResponsable = @AvisResponsable
-                               WHERE Identifiant = @Identifiant";
+                               WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -147,7 +147,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"DELETE FROM SouhaitFormation 
-                               WHERE Identifiant = @Identifiant";
+                               WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres

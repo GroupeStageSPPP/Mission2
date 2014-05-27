@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
+
 
 
 namespace EntretienSPPP.DB
@@ -23,7 +23,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT IdentifiantEntretien, Mesure, Description, Resultat,IdentifiantEntretien FROM Objectif ;";
+            String requete = "SELECT Identifiant, Mesure, Description, Resultat,IdentifiantEntretien FROM Objectif ;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -36,7 +36,7 @@ namespace EntretienSPPP.DB
 
                 //1 - Créer un Objectif à partir des donner de la ligne du dataReader
                 Objectif objectif = new Objectif();
-                objectif.IdentifiantEntretien = dataReader.GetInt32(0);
+                objectif.Identifiant = dataReader.GetInt32(0);
                 objectif.Mesure = dataReader.GetString(1);
                 objectif.Description = dataReader.GetString(2);
                 objectif.Resultat = dataReader.GetString(3);
