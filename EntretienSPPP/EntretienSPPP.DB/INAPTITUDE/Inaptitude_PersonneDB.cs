@@ -88,5 +88,77 @@ namespace EntretienSPPP.DB
             connection.Close();
             return inaptitudePersonne;
         }
+
+        public static void Insert(Inaptitude_Personne Inaptitude_Personne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"INSERT INTO Inaptitude_Personne (DateFin, Definitif, IdentifiantInaptitude, IdentifiantPersonne)
+                               VALUES (@DateFin, @Definitif, @IdentifiantInaptitude, @IdentifiantPersonne) 
+                               SELECT SCOPE_IDENTITY() ;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("DateFin", Inaptitude_Personne.DateFin);
+            commande.Parameters.AddWithValue("Definitif", Inaptitude_Personne.Definitif);
+            commande.Parameters.AddWithValue("IdentifiantInaptitude", Inaptitude_Personne.inaptitude.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", Inaptitude_Personne.personne.Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Inaptitude_Personne Inaptitude_Personne)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"UPDATE Inaptitude_Personne
+                               SET DateFin=@DateFin, Definitif=@Definitif, IdentifiantInaptitude=@IdentifiantInaptitude, IdentifiantPersonne=@IdentifiantPersonne
+                               WHERE Identifiant=@Identifiant ;";
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Identifiant", Inaptitude_Personne.Identifiant);
+            commande.Parameters.AddWithValue("DateFin", Inaptitude_Personne.DateFin);
+            commande.Parameters.AddWithValue("Definitif", Inaptitude_Personne.Definitif);
+            commande.Parameters.AddWithValue("IdentifiantInaptitude", Inaptitude_Personne.inaptitude.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", Inaptitude_Personne.personne.Identifiant);
+            
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            SqlConnection connection = DataBase.connection;
+
+            //Requete
+            String requete = @"DELETE Inaptitude_Personne
+                               WHERE Identifiant=@Identifiant ;";
+
+
+            //Commande
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Parametres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

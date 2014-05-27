@@ -1,0 +1,5 @@
+C:\Users\jbblois\Desktop\SPPP\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\x86\Release\EntretienSPPP.DB.dll
+C:\Users\jbblois\Desktop\SPPP\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\x86\Release\EntretienSPPP.DB.pdb
+C:\Users\jbblois\Desktop\SPPP\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\x86\Release\EntretienSPPP.DB.csprojResolveAssemblyReference.cache
+C:\Users\jbblois\Desktop\SPPP\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\x86\Release\EntretienSPPP.DB.dll
+C:\Users\jbblois\Desktop\SPPP\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\x86\Release\EntretienSPPP.DB.pdb

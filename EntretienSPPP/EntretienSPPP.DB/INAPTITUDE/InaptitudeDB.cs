@@ -154,7 +154,7 @@ namespace EntretienSPPP.DB
       
         }
 
-        public static Inaptitude CreateInaptitude(Inaptitude inaptitude)
+        public static Inaptitude Insert(Inaptitude inaptitude)
         {
 
             SqlConnection connection = DataBase.connection;
