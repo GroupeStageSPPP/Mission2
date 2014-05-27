@@ -275,16 +275,16 @@ namespace EntretienSPPP.WinForm
                 bool isChecked = this.BoutonRadioMonsieurAjoutEmploye.Checked;
                       if (isChecked)
                          {
-                personne.genre.Identifiant = 1;
+                personne.genre = 1;
                          }
                       else
                          {
-                personne.genre.Identifiant = 2;
+                personne.genre = 2;
                          }
 
                  
 
-                 personne.famille.Identifiant = Convert.ToInt32                                                         (this.comboBoxSituationFamillaleAjoutEmploye.SelectedValue);
+                 personne.famille = Convert.ToInt32                                                         (this.comboBoxSituationFamillaleAjoutEmploye.SelectedValue);
 
                  PersonneDB.Insert(personne);
 

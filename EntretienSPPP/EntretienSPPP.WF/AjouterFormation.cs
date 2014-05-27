@@ -37,11 +37,12 @@ namespace EntretienSPPP.WinForm
 
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
-            Formation_Personne formation = new Formation_Personne();
+            Formation_Personne formation_personne = new Formation_Personne();
+            Formation formation = new Formation();
 
-            formation.personne.Identifiant = PersonneDB.LastID();
-            formation.formation.Titre =   textBoxTitreFormation.Text;
-            formation.organisme.Identifiant = Convert.ToInt32                                                      (this.comboBoxListeNomOrganisme.SelectedValue);
+            formation_personne.personne = PersonneDB.LastID();
+            formation.Titre = textBoxTitreFormation.Text;
+            formation_personne.organisme = Convert.ToInt32(this.comboBoxListeNomOrganisme.SelectedValue);
 
             if (this.comboBoxListeNomOrganisme.SelectedValue == "Autre")
             {
@@ -51,9 +52,9 @@ namespace EntretienSPPP.WinForm
 
             }
             //formation.Annee = this.textBoxAnnée.Text;
-            formation.formation.Objectif = this.textBoxObjectifFOrmation.Text;
-            formation.Contenu = this.comboBoxNoteContenu.SelectedText;
-            formation.Formateur = this.comboBoxNoteFOrmateur.SelectedText;
+            formation.Objectif = this.textBoxObjectifFOrmation.Text;
+            formation_personne.Contenu = this.comboBoxNoteContenu.SelectedText;
+            formation_personne.Formateur = this.comboBoxNoteFOrmateur.SelectedText;
 
             bool isChecked = this.radioButtonUtile.Checked;
             if (isChecked)
@@ -64,7 +65,7 @@ namespace EntretienSPPP.WinForm
             {
                 //formation..Identifiant = 2;
             }
-            formation.Documentation = this.comboBoxNoteDocumentation.SelectedText;
+            formation_personne.Documentation = this.comboBoxNoteDocumentation.SelectedText;
             
             
             Close();

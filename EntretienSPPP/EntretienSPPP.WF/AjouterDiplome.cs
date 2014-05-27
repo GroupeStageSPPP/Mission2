@@ -25,11 +25,11 @@ namespace EntretienSPPP.WinForm
 
         private void buttonEnregistrerDiplôme_Click(object sender, EventArgs e)
         {
-            Diplome_Personne diplome = new Diplome_Personne();
+            Diplome_Personne diplome_personne = new Diplome_Personne();
 
             //diplome.diplome.Identifiant = Convert.ToInt32(this.comboxDiplome.SelectedValue);
             //diplome.DateObtention = this.DateTime.selectValue;
-            diplome.diplome.niveau.Identifiant = Convert.ToInt32                                                   (this.comboBoxNiveauDiplôme.SelectedValue);
+            diplome_personne.diplome = Convert.ToInt32(this.comboBoxNiveauDiplôme.SelectedValue);
 
 
             if (this.comboBoxNiveauDiplôme.SelectedValue == "Autre")
@@ -43,11 +43,11 @@ namespace EntretienSPPP.WinForm
             //{
             //    Diplome NewDiplome = new Diplome();
             //    NewDiplome.Libelle = textBoxIntituléDiplôme.Text;
-            //    diplome.diplome.niveau.Identifiant = NiveauDB.LastID();      
+            //    diplome.diplome.niveau = NiveauDB.LastID();      
             //    DiplomeDB.Insert(NewDiplome);
             //}
 
-            Diplome_PersonneDB.Insert(diplome);
+            Diplome_PersonneDB.Insert(diplome_personne);
 
             Close();
         }

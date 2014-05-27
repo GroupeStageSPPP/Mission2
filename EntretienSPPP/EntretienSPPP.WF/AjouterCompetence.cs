@@ -41,15 +41,14 @@ namespace EntretienSPPP.WinForm
         private void buttonAjouterCompétence_Click(object sender, EventArgs e)
         {
             Competence_Personne competencePersonne = new Competence_Personne();
-
-            competencePersonne.personne.Identifiant = PersonneDB.LastID();
-            competencePersonne.competence.Identifiant = Convert.ToInt32                                            (this.comboBoxCompétences.SelectedValue);
+            competencePersonne.personne = PersonneDB.LastID();
+            competencePersonne.competence = Convert.ToInt32                                             (this.comboBoxCompétences.SelectedValue);
 
             if (this.comboBoxCompétences.SelectedValue == "Autre")
             {
                 Competence competence = new Competence();
                 competence.Libelle = this.textBoxNomNewCompetence.SelectedText;
-                competencePersonne.competence.Identifiant = CompetenceDB.LastID();
+                competencePersonne.competence = CompetenceDB.LastID();
             }
 
             Competence_PersonneDB.Insert(competencePersonne);

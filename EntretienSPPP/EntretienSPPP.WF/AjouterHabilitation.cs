@@ -29,8 +29,8 @@ namespace EntretienSPPP.WinForm
                 Habilite_Personne habilité = new Habilite_Personne();
             
             habilité.Identifiant = PersonneDB.LastID();
-            habilité.habilite.Identifiant = Convert.ToInt32(this.comboBoxTypeHabilité.SelectedValue);
-            habilité.organisme.Identifiant = Convert.ToInt32(this.comboBoxNomOrganisme.SelectedValue);
+            habilité.habilite = Convert.ToInt32(this.comboBoxTypeHabilité.SelectedValue);
+            habilité.organisme = Convert.ToInt32(this.comboBoxNomOrganisme.SelectedValue);
             habilité.DateFin = this.dateTimePickerDateFinValidité.Value;
 
             if (this.comboBoxNomOrganisme.Text == "Autre")
@@ -38,7 +38,7 @@ namespace EntretienSPPP.WinForm
                 Organisme organisme = new Organisme();
                 organisme.Libelle = textBoxNouveauNom.Text;
                 OrganismeDB.Insert(organisme);
-                habilité.organisme.Identifiant = OrganismeDB.LastID();
+                habilité.organisme = OrganismeDB.LastID();
 
             }
 

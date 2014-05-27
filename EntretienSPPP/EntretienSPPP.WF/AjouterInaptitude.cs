@@ -52,8 +52,8 @@ namespace EntretienSPPP.WinForm
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
             Inaptitude_Personne InaptitudePersonne = new Inaptitude_Personne();
-            InaptitudePersonne.personne.Identifiant = PersonneDB.LastID();
-            InaptitudePersonne.inaptitude.Identifiant = Convert.ToInt32                                            (this.comboBoxTypeInaptitude.SelectedValue);
+            InaptitudePersonne.personne = PersonneDB.LastID();
+            InaptitudePersonne.inaptitude = Convert.ToInt32                                            (this.comboBoxTypeInaptitude.SelectedValue);
 
             if (radioButtonTemporaire.Checked == true)
             {
@@ -73,7 +73,7 @@ namespace EntretienSPPP.WinForm
                 Inaptitude inaptitude = new Inaptitude();
                 inaptitude.Descriptif = this.TextBoxNomInaptitude.Text;
                 InaptitudeDB.CreateInaptitude(inaptitude);
-                InaptitudePersonne.inaptitude.Identifiant = InaptitudeDB.LastID();
+                InaptitudePersonne.inaptitude = InaptitudeDB.LastID();
                 
             }
 
