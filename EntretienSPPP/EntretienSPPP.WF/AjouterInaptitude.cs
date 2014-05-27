@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EntretienSPPP.DB;
 
 namespace EntretienSPPP.WinForm
 {
@@ -50,7 +51,35 @@ namespace EntretienSPPP.WinForm
 
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
-            //fonction ajouter une inaptuitude.
+            Inaptitude_Personne InaptitudePersonne = new Inaptitude_Personne();
+            InaptitudePersonne.personne.Identifiant = PersonneDB.LastID();
+            InaptitudePersonne.inaptitude.Identifiant = Convert.ToInt32                                            (this.comboBoxTypeInaptitude.SelectedValue);
+
+            if (radioButtonTemporaire.Checked == true)
+            {
+                label4.Enabled = true;
+                dateTimePickerDateFinInaptitude.Enabled = true;
+                InaptitudePersonne.DateFin = this.dateTimePickerDateFinInaptitude.Value;
+            }
+            else
+            {
+                label4.Enabled = false;
+                dateTimePickerDateFinInaptitude.Enabled = false;
+                InaptitudePersonne.Definitif = 't';
+            }
+
+            if (this.comboBoxTypeInaptitude.SelectedValue == "Autre")
+            {
+                Inaptitude inaptitude = new Inaptitude();
+                inaptitude.Descriptif = this.TextBoxNomInaptitude.Text;
+                InaptitudeDB.CreateInaptitude(inaptitude);
+                InaptitudePersonne.inaptitude.Identifiant = InaptitudeDB.LastID();
+                
+            }
+
+
+            Inaptitude_PersonneDB.Insert(InaptitudePersonne);
+
             Close();
         }
     }

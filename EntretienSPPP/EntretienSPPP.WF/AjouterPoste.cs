@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EntretienSPPP.DB;
 
 namespace EntretienSPPP.WinForm
 {
@@ -24,7 +25,19 @@ namespace EntretienSPPP.WinForm
 
         private void buttonEnregistrerPoste_Click(object sender, EventArgs e)
         {
-            //fonction créer poste
+            Poste_Personne PostePersonne = new Poste_Personne();
+
+            PostePersonne.personne.Identifiant = PersonneDB.LastID();
+            PostePersonne.poste.Identifiant = Convert.ToInt32                                                      (this.comboBoxIntituléPoste.SelectedValue);
+            PostePersonne.Contrat = this.comboBoxTypeContrat.SelectedText;
+            PostePersonne.DateDebut = this.dateTimePickerDateDebutPoste.Value;
+            PostePersonne.DateFin = this.dateTimePickerDateFinPoste.Value;
+            PostePersonne.site.Identifiant = Convert.ToInt32(this.comboBoxSite.SelectedValue);
+            PostePersonne.Statut = this.comboBoxStatus.SelectedText;
+            PostePersonne.Coefficient = Convert.ToInt32(this.textBoxCoefficient.Text);
+
+            Poste_PersonneDB.Insert(PostePersonne);
+            
             this.Close();
         }
     }

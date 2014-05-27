@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EntretienSPPP.DB;
 
 namespace EntretienSPPP.WinForm
 {
@@ -24,7 +25,27 @@ namespace EntretienSPPP.WinForm
 
         private void buttonEnregistrer_Click(object sender, EventArgs e)
         {
-            //Fonction creer une langue.
+            Langue_Personne languePersonne = new Langue_Personne();
+
+            languePersonne.personne.Identifiant = PersonneDB.LastID();
+
+            languePersonne.langue.Identifiant = Convert.ToInt32(this.comboBoxLangue.SelectedValue);
+
+            languePersonne.Niveau = this.comboBoxNiveauLangue.SelectedText;
+
+            //languePersonne.Utilite = ;
+
+            if (this.comboBoxLangue.SelectedValue == "Autre")
+            {
+                Langue NewLangue = new Langue();
+                NewLangue.Libelle = this.textBoxAjoutLangue.Text;
+                LangueDB.CreateLangue(NewLangue);
+                languePersonne.langue.Identifiant = LangueDB.LastID(); 
+
+            }
+
+            Langue_PersonneDB.Insert(languePersonne);
+
             Close();
         }
 

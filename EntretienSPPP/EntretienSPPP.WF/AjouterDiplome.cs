@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EntretienSPPP.DB;
 
 namespace EntretienSPPP.WinForm
 {
@@ -24,7 +25,30 @@ namespace EntretienSPPP.WinForm
 
         private void buttonEnregistrerDiplôme_Click(object sender, EventArgs e)
         {
-            //Fonction création diplôme
+            Diplome_Personne diplome = new Diplome_Personne();
+
+            //diplome.diplome.Identifiant = Convert.ToInt32(this.comboxDiplome.SelectedValue);
+            //diplome.DateObtention = this.DateTime.selectValue;
+            diplome.diplome.niveau.Identifiant = Convert.ToInt32                                                   (this.comboBoxNiveauDiplôme.SelectedValue);
+
+
+            if (this.comboBoxNiveauDiplôme.SelectedValue == "Autre")
+            {
+                Niveau niveau = new Niveau();
+                //niveau.Libelle = this..Text;
+                NiveauDB.Insert(niveau);
+            }
+
+            //if (this.comboBoxDiplôme.SelectedValue == "Autre")
+            //{
+            //    Diplome NewDiplome = new Diplome();
+            //    NewDiplome.Libelle = textBoxIntituléDiplôme.Text;
+            //    diplome.diplome.niveau.Identifiant = NiveauDB.LastID();      
+            //    DiplomeDB.Insert(NewDiplome);
+            //}
+
+            Diplome_PersonneDB.Insert(diplome);
+
             Close();
         }
     }
