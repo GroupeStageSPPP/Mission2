@@ -37,6 +37,7 @@
             this.comboBoxLangue = new System.Windows.Forms.ComboBox();
             this.InformationPerso = new System.Windows.Forms.Label();
             this.textBoxAjoutLangue = new System.Windows.Forms.TextBox();
+            this.checkBoxUtilite = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonEnregistrer
@@ -121,12 +122,23 @@
             this.textBoxAjoutLangue.Size = new System.Drawing.Size(126, 20);
             this.textBoxAjoutLangue.TabIndex = 29;
             // 
+            // checkBoxUtilite
+            // 
+            this.checkBoxUtilite.AutoSize = true;
+            this.checkBoxUtilite.Location = new System.Drawing.Point(165, 106);
+            this.checkBoxUtilite.Name = "checkBoxUtilite";
+            this.checkBoxUtilite.Size = new System.Drawing.Size(56, 17);
+            this.checkBoxUtilite.TabIndex = 30;
+            this.checkBoxUtilite.Text = "Utile ?";
+            this.checkBoxUtilite.UseVisualStyleBackColor = true;
+            // 
             // AjouterLangue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(277, 166);
+            this.Controls.Add(this.checkBoxUtilite);
             this.Controls.Add(this.textBoxAjoutLangue);
             this.Controls.Add(this.InformationPerso);
             this.Controls.Add(this.buttonEnregistrer);
@@ -155,5 +167,6 @@
         private System.Windows.Forms.ComboBox comboBoxLangue;
         private System.Windows.Forms.Label InformationPerso;
         private System.Windows.Forms.TextBox textBoxAjoutLangue;
+        private System.Windows.Forms.CheckBox checkBoxUtilite;
     }
 }
