@@ -27,9 +27,9 @@ namespace EntretienSPPP.WinForm
         {
             Langue_Personne languePersonne = new Langue_Personne();
 
-            languePersonne.personne.Identifiant = PersonneDB.LastID();
+            languePersonne.personne = PersonneDB.LastID();
 
-            languePersonne.langue.Identifiant = Convert.ToInt32(this.comboBoxLangue.SelectedValue);
+            languePersonne.langue = Convert.ToInt32(this.comboBoxLangue.SelectedValue);
 
             languePersonne.Niveau = this.comboBoxNiveauLangue.SelectedText;
 
@@ -40,7 +40,7 @@ namespace EntretienSPPP.WinForm
                 Langue NewLangue = new Langue();
                 NewLangue.Libelle = this.textBoxAjoutLangue.Text;
                 LangueDB.CreateLangue(NewLangue);
-                languePersonne.langue.Identifiant = LangueDB.LastID(); 
+                languePersonne.langue = LangueDB.LastID(); 
 
             }
 

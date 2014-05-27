@@ -1,0 +1,3 @@
+ATTENTION JEOF IL FAUT QUE TU MODIFIE TOUTS LES EVENEMENT QUI FONT REFERENCE A UNE TABLE NN
+
+Entre autre si tu creer une ligne dans une table (exemple les diplomes), tu doit desormais creer un objet diplome et recuperer son ID que tu met dans Diplome_Personne. 
