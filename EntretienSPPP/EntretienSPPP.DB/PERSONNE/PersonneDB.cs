@@ -113,7 +113,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO Personne (Nom, Prenom, DateNaissance, Ville, CodePostal, Telephone, Mail, IdentifiantFamille, IdentifiantGenre)
-                               VALUES (@Nom, @Prenom, @DateNaissance, @Ville, @CodePostal, @Telephone, @Mail, @IdentifiantFamille, @IdentifiantGenre)";
+                               VALUES (@Nom, @Prenom, @DateNaissance, @Ville, @CodePostal, @Telephone, @Mail, @IdentifiantFamille, @IdentifiantGenre) ;SELECT SCOPE_IDENTITY() ";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres

@@ -88,7 +88,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO Competence (Libelle)
-                                VALUES @Libelle";
+                                VALUES @Libelle; SELECT SCOPE_IDENTITY() ";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres

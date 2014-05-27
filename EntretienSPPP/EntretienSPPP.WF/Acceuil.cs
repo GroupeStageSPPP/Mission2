@@ -67,6 +67,77 @@ namespace EntretienSPPP.WinForm
                 listBoxPosteActuelAjoutEmploye.Items.Clear();
                 listBoxCompetenceAjoutEmploye.Items.Clear();
                 listBoxFormationAjoutEmploye.Items.Clear();
+
+                RefreshAjoutEmployeFalse();
+            }
+            private void RefreshAjoutEmployeTrue()
+            {
+                if ((TextBoxPrenomAjoutEmploye.Text != "") && (textBoxNomAjoutEmploye.Text != "") && (comboBoxSituationFamillaleAjoutEmploye.Text != "") && (textBoxAdresseAjoutEmploye.Text != "") && (maskedTextBoxCodePostalAjoutEmploye.Text != "") && (textBoxVilleAjoutEmploye.Text != "") && (textBoxMailAjoutEmploye.Text != "") && (maskedTextBoxNumerosTelephoneAjoutEmploye.Text != ""))
+                {
+                    buttonAjouterAncienEmploi.Enabled = true;
+                    buttonAjouterCompétence.Enabled = true;
+                    buttonAjouterDiplome.Enabled = true;
+                    buttonAjouterFormation.Enabled = true;
+                    buttonAjouterHabilite.Enabled = true;
+                    buttonAJouterInaptitude.Enabled = true;
+                    buttonAjouterLangue.Enabled = true;
+                    buttonAjouterPoste.Enabled = true;
+
+                    listBoxAcienEmploisAjoutEmploye.Enabled = true;
+                    listBoxCompetenceAjoutEmploye.Enabled = true;
+                    listBoxDiplomesAjoutEmploye.Enabled = true;
+                    listBoxFormationAjoutEmploye.Enabled = true;
+                    listBoxHabilitationAjoutEmploye.Enabled = true;
+                    listBoxInaptitudeAjoutEmploye.Enabled = true;
+                    listBoxLangueAjoutEmploye.Enabled = true;
+                    listBoxPosteActuelAjoutEmploye.Enabled = true;
+
+                    label19.Enabled = true;
+                    label17.Enabled = true;
+                    label21.Enabled = true;
+                    label15.Enabled = true;
+                    label20.Enabled = true;
+                    label18.Enabled = true;
+                    label14.Enabled = true;
+                    label16.Enabled = true;
+
+                    buttonConfirmer.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez remplir tous les champs");
+                }
+            }
+            private void RefreshAjoutEmployeFalse()
+            {
+                buttonAjouterAncienEmploi.Enabled = false;
+                buttonAjouterCompétence.Enabled = false;
+                buttonAjouterDiplome.Enabled = false;
+                buttonAjouterFormation.Enabled = false;
+                buttonAjouterHabilite.Enabled = false;
+                buttonAJouterInaptitude.Enabled = false;
+                buttonAjouterLangue.Enabled = false;
+                buttonAjouterPoste.Enabled = false;
+
+                listBoxAcienEmploisAjoutEmploye.Enabled = false;
+                listBoxCompetenceAjoutEmploye.Enabled = false;
+                listBoxDiplomesAjoutEmploye.Enabled = false;
+                listBoxFormationAjoutEmploye.Enabled = false;
+                listBoxHabilitationAjoutEmploye.Enabled = false;
+                listBoxInaptitudeAjoutEmploye.Enabled = false;
+                listBoxLangueAjoutEmploye.Enabled = false;
+                listBoxPosteActuelAjoutEmploye.Enabled = false;
+
+                label19.Enabled = false;
+                label17.Enabled = false;
+                label21.Enabled = false;
+                label15.Enabled = false;
+                label20.Enabled = false;
+                label18.Enabled = false;
+                label14.Enabled = false;
+                label16.Enabled = false;
+
+                buttonConfirmer.Enabled = false;
             }
             private void ouvrirEcran(string nonEcran)
             {
@@ -188,6 +259,11 @@ namespace EntretienSPPP.WinForm
         #endregion
         #region Fonction de l'onglet : ADMINISTRATION
             #region Employé
+
+            private void buttonADMINISTRATIONAjoutEmployeSuivant_Click(object sender,                EventArgs e)
+            {
+                RefreshAjoutEmployeTrue();
+            }
                 private void panelAjoutemploye_VisibleChanged(object sender, EventArgs e)
                 {
                     if (panelAjoutemploye.Visible == false)
@@ -214,9 +290,9 @@ namespace EntretienSPPP.WinForm
                 #region RafraichissementListBox
                     private void RefreshListeBoxHabilite()
                     {
-                        List<Habilite_Personne> listHabilitePersonne = Habilite_PersonneDB.List();
+                        List<Habilite_Personne> listHabilitePersonne =                                           Habilite_PersonneDB.List();
 
-                        this.listBoxHabilitationAjoutEmploye.DataSource = listHabilitePersonne;
+                        this.listBoxHabilitationAjoutEmploye.DataSource =                                        listHabilitePersonne;
                         this.listBoxHabilitationAjoutEmploye.DisplayMember = "habilite";
                         this.listBoxHabilitationAjoutEmploye.DisplayMember = "organisme";
                         this.listBoxHabilitationAjoutEmploye.ValueMember = "Identifiant";
@@ -225,22 +301,22 @@ namespace EntretienSPPP.WinForm
                     private void RefreshListBoxAncienEmploi()
                     {
                         List<CV> listAncienEmploi = CVDB.List();
-                        this.listBoxAcienEmploisAjoutEmploye.DataSource = listAncienEmploi;
-                        this.listBoxAcienEmploisAjoutEmploye.DisplayMember = "Entreprise";
+                        this.listBoxAcienEmploisAjoutEmploye.DataSource =                                        listAncienEmploi;
+                        this.listBoxAcienEmploisAjoutEmploye.DisplayMember =                                     "Entreprise";
                         this.listBoxAcienEmploisAjoutEmploye.DisplayMember = "Poste";
                         this.listBoxAcienEmploisAjoutEmploye.ValueMember = "Identifiant";
                     }
                     private void RefreshListeDiplomePersonne()
                     {
-                        List<Diplome_Personne> ListDIplomePersonne = Diplome_PersonneDB.List();
-                        this.listBoxDiplomesAjoutEmploye.DataSource = ListDIplomePersonne;
+                        List<Diplome_Personne> ListDIplomePersonne =                                             Diplome_PersonneDB.List();
+                        this.listBoxDiplomesAjoutEmploye.DataSource =                                            ListDIplomePersonne;
                         this.listBoxDiplomesAjoutEmploye.DisplayMember = "diplome";
                         this.listBoxDiplomesAjoutEmploye.DisplayMember = "DateObtention";
                         this.listBoxDiplomesAjoutEmploye.ValueMember = "Identifiant";
                     }
                     private void RefreshLanguePersonne()
                     {
-                        List<Langue_Personne> listLanguePersonne = Langue_PersonneDB.List();
+                        List<Langue_Personne> listLanguePersonne = Langue_PersonneDB.List                        ();
                         this.listBoxLangueAjoutEmploye.DataSource = listLanguePersonne;
                         this.listBoxLangueAjoutEmploye.DisplayMember = "langue";
                         this.listBoxLangueAjoutEmploye.DisplayMember = "niveau";
@@ -248,8 +324,8 @@ namespace EntretienSPPP.WinForm
                     }
                     private void RefreshInaptitudePersonne()
                     {
-                        List<Inaptitude_Personne> listInaptitudePersonne = Inaptitude_PersonneDB.List();
-                        this.listBoxInaptitudeAjoutEmploye.DataSource = listInaptitudePersonne;
+                        List<Inaptitude_Personne> listInaptitudePersonne =                                       Inaptitude_PersonneDB.List();
+                        this.listBoxInaptitudeAjoutEmploye.DataSource =                                          listInaptitudePersonne;
                         this.listBoxInaptitudeAjoutEmploye.DisplayMember = "inaptitude";
                         this.listBoxInaptitudeAjoutEmploye.DisplayMember = "Definitif";
                         this.listBoxInaptitudeAjoutEmploye.DisplayMember = "DateFin";
@@ -258,10 +334,10 @@ namespace EntretienSPPP.WinForm
                     private void RefreshPosteActuel()
                     {
                         List<Poste_Personne> ListPostePersonne = Poste_PersonneDB.List();
-                        this.listBoxPosteActuelAjoutEmploye.DataSource = ListPostePersonne;
+                        this.listBoxPosteActuelAjoutEmploye.DataSource =                                         ListPostePersonne;
                         this.listBoxPosteActuelAjoutEmploye.DisplayMember = "Contrat";
                         this.listBoxPosteActuelAjoutEmploye.DisplayMember = "poste";
-                        this.listBoxPosteActuelAjoutEmploye.DisplayMember = "Coefficient";
+                        this.listBoxPosteActuelAjoutEmploye.DisplayMember =                                      "Coefficient";
                         this.listBoxPosteActuelAjoutEmploye.DisplayMember = "site";
                         this.listBoxPosteActuelAjoutEmploye.ValueMember = "Identifiant";
                     }
@@ -389,5 +465,7 @@ namespace EntretienSPPP.WinForm
             GraphiqueSatisfaction graphSatisf = new GraphiqueSatisfaction();
             graphSatisf.ShowDialog();
         }
+
+   
     }
 }

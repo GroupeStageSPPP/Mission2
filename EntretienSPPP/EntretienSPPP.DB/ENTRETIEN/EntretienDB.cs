@@ -100,7 +100,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO Entretien (DateDeb, DateFin, Commentaire, IdentifiantPersonne, Expression, DefinitionFonction, ClareteFonction, ClareteObjectif)
-                                VALUES (@DateDeb, @DateFin, @Commentaire, @IdentifiantPersonne, @Expression, @DefinitionFonction, @ClareteFonction, @ClareteObjectif)";
+                                VALUES (@DateDeb, @DateFin, @Commentaire, @IdentifiantPersonne, @Expression, @DefinitionFonction, @ClareteFonction, @ClareteObjectif) ; SELECT SCOPE_IDENTITY() ";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres

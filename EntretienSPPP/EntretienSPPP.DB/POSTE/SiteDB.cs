@@ -91,7 +91,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"INSERT INTO Site (Libelle, Adresse)
-                                VALUES (@Libelle, @Adresse)";
+                                VALUES (@Libelle, @Adresse) ; SELECT SCOPE_IDENTITY();";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
