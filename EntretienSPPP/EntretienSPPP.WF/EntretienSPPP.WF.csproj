@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Messaging" />
@@ -149,6 +150,12 @@
     <Compile Include="QuitterComfirmation.Designer.cs">
       <DependentUpon>QuitterComfirmation.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResultatRecherche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultatRecherche.Designer.cs">
+      <DependentUpon>ResultatRecherche.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Acceuil.resx">
       <DependentUpon>Acceuil.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +211,9 @@
     <EmbeddedResource Include="QuitterComfirmation.resx">
       <DependentUpon>QuitterComfirmation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResultatRecherche.resx">
+      <DependentUpon>ResultatRecherche.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -218,12 +228,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntretienSPPP.DB\EntretienSPPP.DB.csproj">
-      <Project>{54b30e80-cfe3-49ee-ba10-e7025c871ef0}</Project>
-      <Name>EntretienSPPP.DB</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\SPPP+Nom-.png" />
   </ItemGroup>
   <ItemGroup>
@@ -235,7 +239,12 @@
   <ItemGroup>
     <None Include="Resources\LogoRH.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EntretienSPPP.DB\EntretienSPPP.DB.csproj">
+      <Project>{5f62189e-0f21-4884-9524-7694118c21d5}</Project>
+      <Name>EntretienSPPP.DB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

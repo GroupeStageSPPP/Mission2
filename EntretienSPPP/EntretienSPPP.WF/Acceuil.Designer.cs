@@ -35,7 +35,6 @@
             this.editerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.personnesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entretienToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,13 +49,29 @@
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelEcranPrincipal = new System.Windows.Forms.Panel();
+            this.panelRECHERCHE = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBoxOrientationRecherche = new System.Windows.Forms.GroupBox();
+            this.comboBoxAP_3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxAP_2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxAP_1 = new System.Windows.Forms.ComboBox();
+            this.labelAP_3 = new System.Windows.Forms.Label();
+            this.labelAP_2 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.groupBoxRechercheSecondaire = new System.Windows.Forms.GroupBox();
+            this.buttonLancerRecherche = new System.Windows.Forms.Button();
+            this.textBoxAS1_3 = new System.Windows.Forms.TextBox();
+            this.labelAS1_3 = new System.Windows.Forms.Label();
+            this.comboBoxAS1_3 = new System.Windows.Forms.ComboBox();
+            this.labelAS1_2 = new System.Windows.Forms.Label();
+            this.comboBoxAS1_2 = new System.Windows.Forms.ComboBox();
+            this.labelAS1_1 = new System.Windows.Forms.Label();
+            this.comboBoxAS1_1 = new System.Windows.Forms.ComboBox();
             this.panelAcceuil = new System.Windows.Forms.Panel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
@@ -92,6 +107,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonADMINISTRATIONAjoutEmployeSuivant = new System.Windows.Forms.Button();
             this.maskedTextBoxNumerosTelephoneAjoutEmploye = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.maskedTextBoxCodePostalAjoutEmploye = new System.Windows.Forms.MaskedTextBox();
@@ -140,16 +156,22 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.buttonADMINISTRATIONAjoutEmployeSuivant = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelEcranPrincipal.SuspendLayout();
+            this.panelRECHERCHE.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.groupBoxOrientationRecherche.SuspendLayout();
+            this.groupBoxRechercheSecondaire.SuspendLayout();
             this.panelAcceuil.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel31.SuspendLayout();
@@ -182,6 +204,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -216,7 +240,7 @@
             // 
             this.nouveauToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
-            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.nouveauToolStripMenuItem.Text = "Nouveau";
             this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.nouveauToolStripMenuItem_Click);
             // 
@@ -224,14 +248,13 @@
             // 
             this.editerToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.editerToolStripMenuItem.Name = "editerToolStripMenuItem";
-            this.editerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editerToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.editerToolStripMenuItem.Text = "Consulter";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.personnesToolStripMenuItem,
-            this.entretienToolStripMenuItem1,
             this.statistiquesToolStripMenuItem});
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -243,19 +266,14 @@
             // personnesToolStripMenuItem
             // 
             this.personnesToolStripMenuItem.Name = "personnesToolStripMenuItem";
-            this.personnesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.personnesToolStripMenuItem.Text = "Employé";
-            // 
-            // entretienToolStripMenuItem1
-            // 
-            this.entretienToolStripMenuItem1.Name = "entretienToolStripMenuItem1";
-            this.entretienToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.entretienToolStripMenuItem1.Text = "Entretien";
+            this.personnesToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.personnesToolStripMenuItem.Text = "Recherche";
+            this.personnesToolStripMenuItem.Click += new System.EventHandler(this.personnesToolStripMenuItem_Click);
             // 
             // statistiquesToolStripMenuItem
             // 
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
-            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.statistiquesToolStripMenuItem.Text = "Statistiques";
             this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
             // 
@@ -316,7 +334,7 @@
             this.pleinÉcranToolStripMenuItem.Checked = true;
             this.pleinÉcranToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pleinÉcranToolStripMenuItem.Name = "pleinÉcranToolStripMenuItem";
-            this.pleinÉcranToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.pleinÉcranToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pleinÉcranToolStripMenuItem.Text = "Plein écran";
             this.pleinÉcranToolStripMenuItem.Click += new System.EventHandler(this.pleinÉcranToolStripMenuItem_Click);
             // 
@@ -324,7 +342,7 @@
             // 
             this.fenêtréToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.fenêtréToolStripMenuItem.Name = "fenêtréToolStripMenuItem";
-            this.fenêtréToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.fenêtréToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fenêtréToolStripMenuItem.Text = "Fenêtré";
             this.fenêtréToolStripMenuItem.Click += new System.EventHandler(this.fenêtréToolStripMenuItem_Click);
             // 
@@ -333,25 +351,25 @@
             this.toolStripSeparator1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.Transparent;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(132, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem2.Text = "Acceuil";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(129, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // aideToolStripMenuItem
             // 
             this.aideToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aideToolStripMenuItem.Text = "Aide";
             // 
             // quitterToolStripMenuItem
@@ -379,35 +397,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1280, 750);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1280, 100);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::EntretienSPPP.WinForm.Properties.Resources.LogoRH;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(440, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 100);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // tableLayoutPanel4
             // 
@@ -468,8 +457,9 @@
             // 
             // panelEcranPrincipal
             // 
-            this.panelEcranPrincipal.Controls.Add(this.panelAjoutemploye);
+            this.panelEcranPrincipal.Controls.Add(this.panelRECHERCHE);
             this.panelEcranPrincipal.Controls.Add(this.panelAcceuil);
+            this.panelEcranPrincipal.Controls.Add(this.panelAjoutemploye);
             this.panelEcranPrincipal.Controls.Add(this.panelNouvelEntretien);
             this.panelEcranPrincipal.Controls.Add(this.panelAjoutFormation);
             this.panelEcranPrincipal.Controls.Add(this.panelAjoutPoste);
@@ -479,6 +469,207 @@
             this.panelEcranPrincipal.Name = "panelEcranPrincipal";
             this.panelEcranPrincipal.Size = new System.Drawing.Size(1239, 605);
             this.panelEcranPrincipal.TabIndex = 6;
+            // 
+            // panelRECHERCHE
+            // 
+            this.panelRECHERCHE.Controls.Add(this.splitContainer1);
+            this.panelRECHERCHE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRECHERCHE.Location = new System.Drawing.Point(0, 0);
+            this.panelRECHERCHE.Margin = new System.Windows.Forms.Padding(0);
+            this.panelRECHERCHE.Name = "panelRECHERCHE";
+            this.panelRECHERCHE.Size = new System.Drawing.Size(1239, 605);
+            this.panelRECHERCHE.TabIndex = 3;
+            this.panelRECHERCHE.Visible = false;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBoxOrientationRecherche);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBoxRechercheSecondaire);
+            this.splitContainer1.Size = new System.Drawing.Size(1239, 605);
+            this.splitContainer1.SplitterDistance = 109;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // groupBoxOrientationRecherche
+            // 
+            this.groupBoxOrientationRecherche.Controls.Add(this.comboBoxAP_3);
+            this.groupBoxOrientationRecherche.Controls.Add(this.comboBoxAP_2);
+            this.groupBoxOrientationRecherche.Controls.Add(this.comboBoxAP_1);
+            this.groupBoxOrientationRecherche.Controls.Add(this.labelAP_3);
+            this.groupBoxOrientationRecherche.Controls.Add(this.labelAP_2);
+            this.groupBoxOrientationRecherche.Controls.Add(this.label24);
+            this.groupBoxOrientationRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxOrientationRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxOrientationRecherche.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxOrientationRecherche.Name = "groupBoxOrientationRecherche";
+            this.groupBoxOrientationRecherche.Size = new System.Drawing.Size(1239, 109);
+            this.groupBoxOrientationRecherche.TabIndex = 0;
+            this.groupBoxOrientationRecherche.TabStop = false;
+            this.groupBoxOrientationRecherche.Text = "Orientation principale de la recherche";
+            // 
+            // comboBoxAP_3
+            // 
+            this.comboBoxAP_3.FormattingEnabled = true;
+            this.comboBoxAP_3.Location = new System.Drawing.Point(665, 64);
+            this.comboBoxAP_3.Name = "comboBoxAP_3";
+            this.comboBoxAP_3.Size = new System.Drawing.Size(164, 23);
+            this.comboBoxAP_3.TabIndex = 1;
+            this.comboBoxAP_3.Visible = false;
+            this.comboBoxAP_3.SelectedIndexChanged += new System.EventHandler(this.comboBoxAP_3_SelectedIndexChanged);
+            // 
+            // comboBoxAP_2
+            // 
+            this.comboBoxAP_2.FormattingEnabled = true;
+            this.comboBoxAP_2.Location = new System.Drawing.Point(400, 64);
+            this.comboBoxAP_2.Name = "comboBoxAP_2";
+            this.comboBoxAP_2.Size = new System.Drawing.Size(164, 23);
+            this.comboBoxAP_2.TabIndex = 1;
+            this.comboBoxAP_2.Visible = false;
+            this.comboBoxAP_2.SelectedIndexChanged += new System.EventHandler(this.comboBoxAP_2_SelectedIndexChanged);
+            // 
+            // comboBoxAP_1
+            // 
+            this.comboBoxAP_1.FormattingEnabled = true;
+            this.comboBoxAP_1.Location = new System.Drawing.Point(27, 64);
+            this.comboBoxAP_1.Name = "comboBoxAP_1";
+            this.comboBoxAP_1.Size = new System.Drawing.Size(303, 23);
+            this.comboBoxAP_1.TabIndex = 1;
+            this.comboBoxAP_1.SelectedIndexChanged += new System.EventHandler(this.comboBoxAP_1_SelectedIndexChanged);
+            // 
+            // labelAP_3
+            // 
+            this.labelAP_3.AutoSize = true;
+            this.labelAP_3.Location = new System.Drawing.Point(662, 33);
+            this.labelAP_3.Name = "labelAP_3";
+            this.labelAP_3.Size = new System.Drawing.Size(100, 15);
+            this.labelAP_3.TabIndex = 0;
+            this.labelAP_3.Text = "Quel paramètre?";
+            this.labelAP_3.Visible = false;
+            // 
+            // labelAP_2
+            // 
+            this.labelAP_2.AutoSize = true;
+            this.labelAP_2.Location = new System.Drawing.Point(397, 33);
+            this.labelAP_2.Name = "labelAP_2";
+            this.labelAP_2.Size = new System.Drawing.Size(153, 15);
+            this.labelAP_2.TabIndex = 0;
+            this.labelAP_2.Text = "Quel genre de statistique? ";
+            this.labelAP_2.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(24, 33);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(99, 15);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Vous souhaitez : ";
+            // 
+            // groupBoxRechercheSecondaire
+            // 
+            this.groupBoxRechercheSecondaire.Controls.Add(this.buttonLancerRecherche);
+            this.groupBoxRechercheSecondaire.Controls.Add(this.textBoxAS1_3);
+            this.groupBoxRechercheSecondaire.Controls.Add(this.labelAS1_3);
+            this.groupBoxRechercheSecondaire.Controls.Add(this.comboBoxAS1_3);
+            this.groupBoxRechercheSecondaire.Controls.Add(this.labelAS1_2);
+            this.groupBoxRechercheSecondaire.Controls.Add(this.comboBoxAS1_2);
+            this.groupBoxRechercheSecondaire.Controls.Add(this.labelAS1_1);
+            this.groupBoxRechercheSecondaire.Controls.Add(this.comboBoxAS1_1);
+            this.groupBoxRechercheSecondaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxRechercheSecondaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxRechercheSecondaire.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxRechercheSecondaire.Name = "groupBoxRechercheSecondaire";
+            this.groupBoxRechercheSecondaire.Size = new System.Drawing.Size(1239, 492);
+            this.groupBoxRechercheSecondaire.TabIndex = 0;
+            this.groupBoxRechercheSecondaire.TabStop = false;
+            this.groupBoxRechercheSecondaire.Text = "Précision de la recherche";
+            // 
+            // buttonLancerRecherche
+            // 
+            this.buttonLancerRecherche.Location = new System.Drawing.Point(946, 306);
+            this.buttonLancerRecherche.Name = "buttonLancerRecherche";
+            this.buttonLancerRecherche.Size = new System.Drawing.Size(203, 34);
+            this.buttonLancerRecherche.TabIndex = 4;
+            this.buttonLancerRecherche.Text = "Lancer la recherche";
+            this.buttonLancerRecherche.UseVisualStyleBackColor = true;
+            this.buttonLancerRecherche.Visible = false;
+            this.buttonLancerRecherche.Click += new System.EventHandler(this.buttonLancerRecherche_Click);
+            // 
+            // textBoxAS1_3
+            // 
+            this.textBoxAS1_3.Location = new System.Drawing.Point(669, 88);
+            this.textBoxAS1_3.Name = "textBoxAS1_3";
+            this.textBoxAS1_3.Size = new System.Drawing.Size(164, 21);
+            this.textBoxAS1_3.TabIndex = 2;
+            this.textBoxAS1_3.Visible = false;
+            // 
+            // labelAS1_3
+            // 
+            this.labelAS1_3.AutoSize = true;
+            this.labelAS1_3.Location = new System.Drawing.Point(666, 60);
+            this.labelAS1_3.Name = "labelAS1_3";
+            this.labelAS1_3.Size = new System.Drawing.Size(31, 15);
+            this.labelAS1_3.TabIndex = 0;
+            this.labelAS1_3.Text = "Vaut";
+            this.labelAS1_3.Visible = false;
+            // 
+            // comboBoxAS1_3
+            // 
+            this.comboBoxAS1_3.FormattingEnabled = true;
+            this.comboBoxAS1_3.Location = new System.Drawing.Point(665, 88);
+            this.comboBoxAS1_3.Name = "comboBoxAS1_3";
+            this.comboBoxAS1_3.Size = new System.Drawing.Size(164, 23);
+            this.comboBoxAS1_3.TabIndex = 1;
+            this.comboBoxAS1_3.Visible = false;
+            // 
+            // labelAS1_2
+            // 
+            this.labelAS1_2.AutoSize = true;
+            this.labelAS1_2.Location = new System.Drawing.Point(397, 60);
+            this.labelAS1_2.Name = "labelAS1_2";
+            this.labelAS1_2.Size = new System.Drawing.Size(33, 15);
+            this.labelAS1_2.TabIndex = 0;
+            this.labelAS1_2.Text = "Dont";
+            this.labelAS1_2.Visible = false;
+            // 
+            // comboBoxAS1_2
+            // 
+            this.comboBoxAS1_2.FormattingEnabled = true;
+            this.comboBoxAS1_2.Location = new System.Drawing.Point(396, 88);
+            this.comboBoxAS1_2.Name = "comboBoxAS1_2";
+            this.comboBoxAS1_2.Size = new System.Drawing.Size(168, 23);
+            this.comboBoxAS1_2.TabIndex = 1;
+            this.comboBoxAS1_2.Visible = false;
+            this.comboBoxAS1_2.SelectedIndexChanged += new System.EventHandler(this.comboBoxAS1_2_SelectedIndexChanged);
+            // 
+            // labelAS1_1
+            // 
+            this.labelAS1_1.AutoSize = true;
+            this.labelAS1_1.Location = new System.Drawing.Point(24, 60);
+            this.labelAS1_1.Name = "labelAS1_1";
+            this.labelAS1_1.Size = new System.Drawing.Size(62, 15);
+            this.labelAS1_1.TabIndex = 0;
+            this.labelAS1_1.Text = "Trier par : ";
+            this.labelAS1_1.Visible = false;
+            // 
+            // comboBoxAS1_1
+            // 
+            this.comboBoxAS1_1.FormattingEnabled = true;
+            this.comboBoxAS1_1.Location = new System.Drawing.Point(23, 88);
+            this.comboBoxAS1_1.Name = "comboBoxAS1_1";
+            this.comboBoxAS1_1.Size = new System.Drawing.Size(189, 23);
+            this.comboBoxAS1_1.TabIndex = 1;
+            this.comboBoxAS1_1.Visible = false;
+            this.comboBoxAS1_1.SelectedIndexChanged += new System.EventHandler(this.comboBoxAS1_1_SelectedIndexChanged);
             // 
             // panelAcceuil
             // 
@@ -945,6 +1136,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(300, 241);
             this.panel3.TabIndex = 0;
+            // 
+            // buttonADMINISTRATIONAjoutEmployeSuivant
+            // 
+            this.buttonADMINISTRATIONAjoutEmployeSuivant.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.buttonADMINISTRATIONAjoutEmployeSuivant.Location = new System.Drawing.Point(205, 213);
+            this.buttonADMINISTRATIONAjoutEmployeSuivant.Name = "buttonADMINISTRATIONAjoutEmployeSuivant";
+            this.buttonADMINISTRATIONAjoutEmployeSuivant.Size = new System.Drawing.Size(79, 23);
+            this.buttonADMINISTRATIONAjoutEmployeSuivant.TabIndex = 42;
+            this.buttonADMINISTRATIONAjoutEmployeSuivant.Text = "Suivant";
+            this.buttonADMINISTRATIONAjoutEmployeSuivant.UseVisualStyleBackColor = true;
+            this.buttonADMINISTRATIONAjoutEmployeSuivant.Click += new System.EventHandler(this.buttonADMINISTRATIONAjoutEmployeSuivant_Click);
             // 
             // maskedTextBoxNumerosTelephoneAjoutEmploye
             // 
@@ -1481,16 +1683,34 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // buttonADMINISTRATIONAjoutEmployeSuivant
+            // tableLayoutPanel2
             // 
-            this.buttonADMINISTRATIONAjoutEmployeSuivant.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.buttonADMINISTRATIONAjoutEmployeSuivant.Location = new System.Drawing.Point(205, 213);
-            this.buttonADMINISTRATIONAjoutEmployeSuivant.Name = "buttonADMINISTRATIONAjoutEmployeSuivant";
-            this.buttonADMINISTRATIONAjoutEmployeSuivant.Size = new System.Drawing.Size(79, 23);
-            this.buttonADMINISTRATIONAjoutEmployeSuivant.TabIndex = 42;
-            this.buttonADMINISTRATIONAjoutEmployeSuivant.Text = "Suivant";
-            this.buttonADMINISTRATIONAjoutEmployeSuivant.UseVisualStyleBackColor = true;
-            this.buttonADMINISTRATIONAjoutEmployeSuivant.Click += new System.EventHandler(this.buttonADMINISTRATIONAjoutEmployeSuivant_Click);
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1280, 100);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::EntretienSPPP.WinForm.Properties.Resources.LogoRH;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(440, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(400, 100);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Acceuil
             // 
@@ -1508,13 +1728,20 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelEcranPrincipal.ResumeLayout(false);
+            this.panelRECHERCHE.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.groupBoxOrientationRecherche.ResumeLayout(false);
+            this.groupBoxOrientationRecherche.PerformLayout();
+            this.groupBoxRechercheSecondaire.ResumeLayout(false);
+            this.groupBoxRechercheSecondaire.PerformLayout();
             this.panelAcceuil.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel31.ResumeLayout(false);
@@ -1557,6 +1784,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1590,7 +1819,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem personnesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem entretienToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem statistiquesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -1675,6 +1903,24 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonADMINISTRATIONAjoutEmployeSuivant;
+        private System.Windows.Forms.Panel panelRECHERCHE;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox groupBoxOrientationRecherche;
+        private System.Windows.Forms.ComboBox comboBoxAP_3;
+        private System.Windows.Forms.ComboBox comboBoxAP_2;
+        private System.Windows.Forms.ComboBox comboBoxAP_1;
+        private System.Windows.Forms.Label labelAP_3;
+        private System.Windows.Forms.Label labelAP_2;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.GroupBox groupBoxRechercheSecondaire;
+        private System.Windows.Forms.Button buttonLancerRecherche;
+        private System.Windows.Forms.TextBox textBoxAS1_3;
+        private System.Windows.Forms.Label labelAS1_3;
+        private System.Windows.Forms.ComboBox comboBoxAS1_3;
+        private System.Windows.Forms.Label labelAS1_2;
+        private System.Windows.Forms.ComboBox comboBoxAS1_2;
+        private System.Windows.Forms.Label labelAS1_1;
+        private System.Windows.Forms.ComboBox comboBoxAS1_1;
 
 
 
