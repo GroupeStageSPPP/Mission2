@@ -16,6 +16,18 @@ namespace EntretienSPPP.WinForm
         public AjouterLangue()
         {
             InitializeComponent();
+
+            this.comboBoxLangue.DataSource = LangueDB.List();
+            this.comboBoxLangue.ValueMember = "identifiant";
+            this.comboBoxLangue.DisplayMember = "libelle";
+
+            //this.comboBoxNiveauLangue.Items.Add("Survie");
+            //this.comboBoxNiveauLangue.Items.Add("Basique");
+            //this.comboBoxNiveauLangue.Items.Add("Courant");
+            //this.comboBoxNiveauLangue.Items.Add("Bilingue");
+
+            
+
         }
 
         private void buttonRetour_Click(object sender, EventArgs e)
@@ -33,7 +45,12 @@ namespace EntretienSPPP.WinForm
 
             languePersonne.Niveau = this.comboBoxNiveauLangue.SelectedText;
 
-            //languePersonne.Utilite = ;
+            if (this.checkBoxUtilite.Checked)
+            {
+                languePersonne.Utilite = 'U';
+            }
+
+            else { languePersonne.Utilite = 'I'; }
 
             if (this.comboBoxLangue.SelectedValue == "Autre")
             {

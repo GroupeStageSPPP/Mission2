@@ -44,14 +44,15 @@ namespace EntretienSPPP.WinForm
             formation.Titre = textBoxTitreFormation.Text;
             formation_personne.organisme = Convert.ToInt32(this.comboBoxListeNomOrganisme.SelectedValue);
 
-            if (this.comboBoxListeNomOrganisme.SelectedValue == "Autre")
-            {
-                Organisme organisme = new Organisme();
-                organisme.Libelle = textBoxNomOrganisme.Text;
-                OrganismeDB.Insert(organisme);
+            //if (this.comboBoxListeNomOrganisme.SelectedValue == "Autre")
+            //{
+            //    Organisme organisme = new Organisme();
+            //    organisme.Telephone = "00000000";
+            //    organisme.Libelle = textBoxNomOrganisme.Text;
+            //    OrganismeDB.Insert(organisme);
 
-            }
-            //formation.Annee = this.textBoxAnnée.Text;
+            //}
+            formation_personne.Annee= this.dateTimePickerDateFormation.Value;
             formation.Objectif = this.textBoxObjectifFOrmation.Text;
             formation_personne.Contenu = this.comboBoxNoteContenu.SelectedText;
             formation_personne.Formateur = this.comboBoxNoteFOrmateur.SelectedText;
@@ -59,7 +60,7 @@ namespace EntretienSPPP.WinForm
             bool isChecked = this.radioButtonUtile.Checked;
             if (isChecked)
             {
-                //formation..Identifiant = 1;
+                //formation_personne. = 1;
             }
             else
             {

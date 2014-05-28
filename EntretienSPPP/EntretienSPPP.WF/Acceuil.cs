@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using EntretienSPPP.DB;
+using EntretienSPPP.DB.ALGO;
 
 
 
@@ -36,6 +39,15 @@ namespace EntretienSPPP.WinForm
             {
                 administrationToolStripMenuItem.Enabled = false;
             }
+
+            //ajout flo
+            comboBoxAP_1.Items.Add("Rechercher Une(des) personne(s)");
+            //comboBoxAP_1.Items.Add("Effectuer une statistique");
+
+            comboBoxAS1_1.Items.Add("Personne");
+            comboBoxAS1_1.Items.Add("Poste");
+            comboBoxAS1_1.Items.Add("Diplôme");
+            comboBoxAS1_1.Items.Add("Langue");
         }
         private void Acceuil_Load(object sender, EventArgs e)
         {
@@ -59,14 +71,14 @@ namespace EntretienSPPP.WinForm
                 textBoxMailAjoutEmploye.Text = "";
                 maskedTextBoxNumerosTelephoneAjoutEmploye.Text = "";
 
-                listBoxHabilitationAjoutEmploye.Items.Clear();
-                listBoxAcienEmploisAjoutEmploye.Items.Clear();
-                listBoxDiplomesAjoutEmploye.Items.Clear();
-                listBoxLangueAjoutEmploye.Items.Clear();
-                listBoxInaptitudeAjoutEmploye.Items.Clear();
-                listBoxPosteActuelAjoutEmploye.Items.Clear();
-                listBoxCompetenceAjoutEmploye.Items.Clear();
-                listBoxFormationAjoutEmploye.Items.Clear();
+                //listBoxHabilitationAjoutEmploye.Items.Clear();
+                //listBoxAcienEmploisAjoutEmploye.Items.Clear();
+                //listBoxDiplomesAjoutEmploye.Items.Clear();
+                //listBoxLangueAjoutEmploye.Items.Clear();
+                //listBoxInaptitudeAjoutEmploye.Items.Clear();
+                //listBoxPosteActuelAjoutEmploye.Items.Clear();
+                //listBoxCompetenceAjoutEmploye.Items.Clear();
+                //listBoxFormationAjoutEmploye.Items.Clear();
 
                 RefreshAjoutEmployeFalse();
             }
@@ -141,6 +153,15 @@ namespace EntretienSPPP.WinForm
             }
             private void ouvrirEcran(string nonEcran)
             {
+                //Recherche
+                if (nonEcran == "RECHERCHE_Recherche")
+                {
+                    panelRECHERCHE.Visible = true;
+                }
+                else
+                {
+                    panelRECHERCHE.Visible = false;
+                }
                 //Ajouter un employe
                 if (nonEcran == "Ajouter_un_employe")
                 {
@@ -255,12 +276,354 @@ namespace EntretienSPPP.WinForm
 
         #endregion
         #region Fonction de l'onglet : RECHERCHE
+            #region Recherche
+                private void personnesToolStripMenuItem_Click(object sender, EventArgs e)
+                {
+                    ouvrirEcran("RECHERCHE_Recherche");
+                }
+                string tableCible = "";
+                string champCible = "";
+                string valeurCible = "";
+                #region FonctionsDiverses
+                    private void ViderEtCacherComboBox(ComboBox comboBox, Label label, bool isVisible)
+                    {
+                        if (isVisible == false)
+                        {
+                            comboBox.Visible = false;
+                            label.Visible = false;
+                        }
+                        else
+                        {
+                            comboBox.Visible = true;
+                            label.Visible = true;
+                        }
+                        comboBox.Items.Clear();
+                        comboBox.Text = "";
+                    }
+                    private void RemplirComboBoxes(ComboBox comboBox, Label label, List<string> listeCB)
+                    {
+                        ViderEtCacherComboBox(comboBox, label, true);
 
+                        foreach (string chaine in listeCB)
+                        {
+                            comboBox.Items.Add(chaine);
+                        }
+                    }
+                #endregion
+                #region AxePrincipal
+                    private void comboBoxAP_1_SelectedIndexChanged(object sender, EventArgs e)
+                    {
+                        string indexChoisi = (string)comboBoxAP_1.SelectedItem;
+                        switch (indexChoisi)
+                        {
+                            case "Rechercher Une(des) personne(s)":
+                                //ordre
+                                ViderEtCacherComboBox(comboBoxAP_2, labelAP_2, false);
+                                comboBoxAS1_1.Visible = true;
+                                labelAS1_1.Visible = true;
+                                break;
+                            case "Effectuer une statistique":
+                                RemplirComboBoxes(comboBoxAP_2, labelAP_2, new List<string>() { "Moyenne", "Minimum", "Maximum", "Compter" });
+                                comboBoxAS1_1.Visible = false;
+                                labelAS1_1.Visible = false;
+                                break;
+                            default:
+                                break;
+                        }
+
+                        ViderEtCacherComboBox(comboBoxAP_3, labelAP_3, false);
+                    }
+                    private void comboBoxAP_2_SelectedIndexChanged(object sender, EventArgs e)
+                    {
+                        string indexChoisi = (string)comboBoxAP_2.SelectedItem;
+
+                        switch (indexChoisi)
+                        {
+                            case "Moyenne":
+                                RemplirComboBoxes(comboBoxAP_3, labelAP_3, new List<string>() { "Âge" });
+                                break;
+                            case "Compter":
+                                RemplirComboBoxes(comboBoxAP_3, labelAP_3, new List<string>() { "Personnes" });
+                                break;
+                            case "Minimum":
+                                RemplirComboBoxes(comboBoxAP_3, labelAP_3, new List<string>() { "Âge" });
+                                break;
+                            case "Maximum":
+                                RemplirComboBoxes(comboBoxAP_3, labelAP_3, new List<string>() { "Âge" });
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    private void comboBoxAP_3_SelectedIndexChanged(object sender, EventArgs e)
+                    {
+                        comboBoxAS1_1.Visible = true;
+                        labelAS1_1.Visible = true;
+                    }
+                #endregion
+                #region AxeSecondaire
+                    private void comboBoxAS1_1_SelectedIndexChanged(object sender, EventArgs e)
+                    {
+                        string indexChoisi = (string)comboBoxAS1_1.SelectedItem;
+                        switch (indexChoisi)
+                        {
+                            case "Personne":
+                                RemplirComboBoxes(comboBoxAS1_2, labelAS1_2, new List<string>() { "Nom", "Prénom", "Ville", "Code postal", "Civilité" });
+                                break;
+                            case "Poste":
+                                RemplirComboBoxes(comboBoxAS1_2, labelAS1_2, new List<string>() { "Libelle", "Fonction" });
+                                break;
+                            case "Diplôme":
+                                RemplirComboBoxes(comboBoxAS1_2, labelAS1_2, new List<string>() { "Libelle"/*, "Niveau"*/ });
+                                break;
+                            case "Langue":
+                                RemplirComboBoxes(comboBoxAS1_2, labelAS1_2, new List<string>() { "Libelle" });
+                                break;
+                            default:
+                                break;
+                        }
+
+                        ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, false);
+                    }
+                    private void comboBoxAS1_2_SelectedIndexChanged(object sender, EventArgs e)
+                {
+                    string indexAS1_1 = (string)comboBoxAS1_1.SelectedItem;
+                    string indexChoisi = (string)comboBoxAS1_2.SelectedItem;
+                    List<string> liste = new List<string>();
+
+                    switch (indexAS1_1)
+                    {
+                        case "Personne":
+                            switch (indexChoisi)
+                            {
+                                case "Nom":
+                                    ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, false);
+                                    labelAS1_3.Visible = true;
+                                    textBoxAS1_3.Visible = true;
+                                    textBoxAS1_3.Text = "";
+
+                                    tableCible = "Personne";
+                                    champCible = "Nom";
+                                    break;
+                                case "Prénom":
+                                    ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, false);
+                                    labelAS1_3.Visible = true;
+                                    textBoxAS1_3.Visible = true;
+                                    textBoxAS1_3.Text = "";
+
+                                    tableCible = "Personne";
+                                    champCible = "Prenom";
+                                    break;
+                                case "Ville":
+                                    labelAS1_3.Visible = true;
+                                    textBoxAS1_3.Visible = false;
+                                    textBoxAS1_3.Text = "";
+
+                                    ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, true);
+                                    liste = FonctionFlo.GetListChamp("Ville", "Personne");
+                                    RemplirComboBoxes(comboBoxAS1_3, labelAS1_3, liste);
+
+                                    tableCible = "Personne";
+                                    champCible = "Ville";
+                                    break;
+                                case "Code postal":
+                                    labelAS1_3.Visible = true;
+                                    textBoxAS1_3.Visible = false;
+                                    textBoxAS1_3.Text = "";
+
+                                    ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, true);
+                                    liste = FonctionFlo.GetListChamp("CodePostal", "Personne");
+                                    RemplirComboBoxes(comboBoxAS1_3, labelAS1_3, liste);
+
+                                    tableCible = "Personne";
+                                    champCible = "CodePostal";
+                                    break;
+                                case "Civilité":
+                                    labelAS1_3.Visible = true;
+                                    textBoxAS1_3.Visible = false;
+                                    textBoxAS1_3.Text = "";
+
+                                    RemplirComboBoxes(comboBoxAS1_3, labelAS1_3, new List<string>() { "Homme", "Femme" });
+
+                                    tableCible = "Genre";
+                                    champCible = "Libelle";
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Poste":
+                            switch (indexChoisi)
+                            {
+                                case "Libelle":
+                                    labelAS1_3.Visible = true;
+                                    textBoxAS1_3.Text = "";
+
+                                    ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, true);
+                                    liste = FonctionFlo.GetListChamp("Libelle", "Poste");
+                                    RemplirComboBoxes(comboBoxAS1_3, labelAS1_3, liste);
+
+                                    tableCible = "Poste";
+                                    champCible = "Libelle";
+                                    break;
+                                case "Fonction":
+                                    labelAS1_3.Visible = true;
+                                    textBoxAS1_3.Visible = false;
+                                    textBoxAS1_3.Text = "";
+
+                                    ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, true);
+                                    liste = FonctionFlo.GetListChamp("Fonction", "Poste");
+                                    RemplirComboBoxes(comboBoxAS1_3, labelAS1_3, liste);
+
+                                    tableCible = "Poste";
+                                    champCible = "Fonction";
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Diplôme":
+                            switch (indexChoisi)
+                            {
+                                case "Libelle":
+                                    labelAS1_3.Visible = true;
+                                    textBoxAS1_3.Visible = false;
+                                    textBoxAS1_3.Text = "";
+
+                                    ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, true);
+                                    liste = FonctionFlo.GetListChamp("Libelle", "Diplome");
+                                    RemplirComboBoxes(comboBoxAS1_3, labelAS1_3, liste);
+
+                                    tableCible = "Diplome";
+                                    champCible = "Libelle";
+                                    break;
+                                //case "Niveau":
+                                //    labelAS1_3_2.Visible = false;
+                                //    textBoxAS1_3.Visible = false;
+                                //    textBoxAS1_3.Text = "";
+
+                                //    ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, true);
+                                //    liste = FonctionFlo.GetListChamp("Niveau", "Diplome");
+                                //    RemplirComboBoxes(comboBoxAS1_3, labelAS1_3, liste);
+                                //    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Langue":
+                            switch (indexChoisi)
+                            {
+                                case "Libelle":
+                                    labelAS1_3.Visible = true;
+                                    textBoxAS1_3.Visible = false;
+                                    textBoxAS1_3.Text = "";
+
+                                    ViderEtCacherComboBox(comboBoxAS1_3, labelAS1_3, true);
+                                    liste = FonctionFlo.GetListChamp("Libelle", "Langue");
+                                    RemplirComboBoxes(comboBoxAS1_3, labelAS1_3, liste);
+
+                                    tableCible = "Langue";
+                                    champCible = "Libelle";
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+                    buttonLancerRecherche.Visible = true;
+                }
+                #endregion
+                private void buttonLancerRecherche_Click(object sender, EventArgs e)
+                {
+                    //if (comboBoxAS1_3.Text == "" && comboBoxAS1_3.Visible == false)
+                    //{
+                    //    MessageBox.Show("Requête incomplète.");
+                    //}
+                    //else if (textBoxAS1_3.Text == "" && textBoxAS1_3.Visible == false)
+                    //{
+                    //    MessageBox.Show("Requête incomplète.");
+                    //}
+
+                    if (comboBoxAS1_3.Text != "" && comboBoxAS1_3.Visible == true)
+                    {
+                        valeurCible = comboBoxAS1_3.Text;
+                    }
+                    else if (textBoxAS1_3.Text != "" && textBoxAS1_3.Visible == true)
+                    {
+                        valeurCible = textBoxAS1_3.Text;
+                    }
+
+                    //poste / diplome / langue / civ
+                    List<string> requete = new List<string>();
+                    requete.Add("select Personne.Identifiant from Personne");
+                    requete.Add("inner join POSTE_PERSONNE");
+                    requete.Add("on Personne.Identifiant = POSTE_PERSONNE.IdentifiantPersonne");
+                    requete.Add("inner join Poste");
+                    requete.Add("on Poste.Identifiant = POSTE_PERSONNE.IdentifiantPoste");
+                    requete.Add("inner join DIPLOME_PERSONNE");
+                    requete.Add("on Personne.Identifiant = DIPLOME_PERSONNE.IdentifiantPersonne");
+                    requete.Add("inner join DIPLOME");
+                    requete.Add("on DIPLOME.Identifiant = DIPLOME_PERSONNE.IdentifiantDiplome");
+                    requete.Add("inner join LANGUE_PERSONNE");
+                    requete.Add("on PERSONNE.Identifiant = LANGUE_PERSONNE.IdentifiantPersonne");
+                    requete.Add("inner join LANGUE");
+                    requete.Add("on Langue.Identifiant = LANGUE_PERSONNE.IdentifiantLangue");
+                    requete.Add("inner join GENRE");
+                    requete.Add("on Personne.IdentifiantGenre = Genre.Identifiant");
+                    requete.Add("where " + tableCible + "." + champCible + " = " + "\'" + valeurCible + "\'");
+                    string requeteFinale = "";
+
+                    foreach (string row in requete)
+                    {
+                        requeteFinale += row + " ";
+                    }
+
+                    LancerRequete(requeteFinale);
+                }
+                private void LancerRequete(string request)
+                {
+                    //ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPP"];
+                    //SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+                    SqlConnection connection = DataBase.connection;
+                    connection.Open();
+                    SqlCommand commande = new SqlCommand(request, connection);
+
+                    SqlDataReader dataReader = commande.ExecuteReader();
+
+                    List<int> listARecup = new List<int>();
+                    List<int> listQQCH = new List<int>();
+
+                    while (dataReader.Read())
+                    {
+                        listARecup.Add(dataReader.GetInt32(0));
+                    }
+                    dataReader.Close();
+                    connection.Close();
+
+                    if (listARecup.Count == 0)
+                    {
+                        MessageBox.Show("Aucun résultat pour cette recherche.");
+                    }
+                    else
+                    {
+                        //winform
+                        ResultatRecherche res = new ResultatRecherche(listARecup);
+
+                        res.ShowDialog();
+                    }
+
+                }
+            #endregion
+            #region Statistiques
+            #endregion
         #endregion
         #region Fonction de l'onglet : ADMINISTRATION
-            #region Employé
+                #region Employé
 
-            private void buttonADMINISTRATIONAjoutEmployeSuivant_Click(object sender,                EventArgs e)
+                private void buttonADMINISTRATIONAjoutEmployeSuivant_Click(object sender,                EventArgs e)
             {
                 Personne personne = new Personne();
                 personne.Nom = this.textBoxNomAjoutEmploye.Text;
@@ -307,45 +670,46 @@ namespace EntretienSPPP.WinForm
                 #region ChargementPAge
                     private void ChargementTermine(object sender, EventArgs e)
                     {
-                    //    this.RefreshListeBoxHabilite();
-                    //    this.RefreshListBoxAncienEmploi();
-                    //    this.RefreshListeDiplomePersonne();
-                    //    this.RefreshLanguePersonne();
-                    //    this.RefreshInaptitudePersonne();
-                    //    this.RefreshPosteActuel();
-                    //    this.refreshCompetencePersonne();
+                        this.RefreshListeBoxHabilite();
+                        this.RefreshListBoxAncienEmploi();
+                        this.RefreshListeDiplomePersonne();
+                        this.RefreshLanguePersonne();
+                        this.RefreshInaptitudePersonne();
+                        this.RefreshPosteActuel();
+                        this.refreshCompetencePersonne();
 
 
 
-                        //this.comboBoxSituationFamillaleAjoutEmploye.DataSource = FamilleDB.List();
-                        //this.comboBoxSituationFamillaleAjoutEmploye.ValueMember = "Identifiant";
-                        //this.comboBoxSituationFamillaleAjoutEmploye.DisplayMember = "Libelle";
+                    this.comboBoxSituationFamillaleAjoutEmploye.DataSource = FamilleDB.List();
+                    this.comboBoxSituationFamillaleAjoutEmploye.ValueMember = "Identifiant";
+                    this.comboBoxSituationFamillaleAjoutEmploye.DisplayMember = "Libelle";
 
                     }
                 #endregion
                 #region RafraichissementListBox
+
                     private void RefreshListeBoxHabilite()
                     {
-                        List<Habilite_Personne> listHabilitePersonne =                                           Habilite_PersonneDB.List();
+                        List<Habilite_Personne> listHabilitePersonne =                                                                                                 Habilite_PersonneDB.List();
 
-                        this.listBoxHabilitationAjoutEmploye.DataSource =                                        listHabilitePersonne;
+                        this.listBoxHabilitationAjoutEmploye.DataSource =                                                                                               listHabilitePersonne;
                         this.listBoxHabilitationAjoutEmploye.DisplayMember = "habilite";
-                        this.listBoxHabilitationAjoutEmploye.DisplayMember = "organisme";
+                        this.listBoxHabilitationAjoutEmploye.DisplayMember = "Libelle";
                         this.listBoxHabilitationAjoutEmploye.ValueMember = "Identifiant";
 
                     }
                     private void RefreshListBoxAncienEmploi()
                     {
                         List<CV> listAncienEmploi = CVDB.List();
-                        this.listBoxAcienEmploisAjoutEmploye.DataSource =                                        listAncienEmploi;
-                        this.listBoxAcienEmploisAjoutEmploye.DisplayMember =                                     "Entreprise";
+                        this.listBoxAcienEmploisAjoutEmploye.DataSource =                                                  listAncienEmploi;
+                        this.listBoxAcienEmploisAjoutEmploye.DisplayMember =                                               "Entreprise";
                         this.listBoxAcienEmploisAjoutEmploye.DisplayMember = "Poste";
                         this.listBoxAcienEmploisAjoutEmploye.ValueMember = "Identifiant";
                     }
                     private void RefreshListeDiplomePersonne()
                     {
-                        List<Diplome_Personne> ListDIplomePersonne =                                             Diplome_PersonneDB.List();
-                        this.listBoxDiplomesAjoutEmploye.DataSource =                                            ListDIplomePersonne;
+                        List<Diplome_Personne> ListDIplomePersonne =                                                        Diplome_PersonneDB.List();
+                        this.listBoxDiplomesAjoutEmploye.DataSource =                                                      ListDIplomePersonne;
                         this.listBoxDiplomesAjoutEmploye.DisplayMember = "diplome";
                         this.listBoxDiplomesAjoutEmploye.DisplayMember = "DateObtention";
                         this.listBoxDiplomesAjoutEmploye.ValueMember = "Identifiant";
@@ -360,8 +724,8 @@ namespace EntretienSPPP.WinForm
                     }
                     private void RefreshInaptitudePersonne()
                     {
-                        List<Inaptitude_Personne> listInaptitudePersonne =                                       Inaptitude_PersonneDB.List();
-                        this.listBoxInaptitudeAjoutEmploye.DataSource =                                          listInaptitudePersonne;
+                        List<Inaptitude_Personne> listInaptitudePersonne =                                                   Inaptitude_PersonneDB.List();
+                        this.listBoxInaptitudeAjoutEmploye.DataSource =                                                     listInaptitudePersonne;
                         this.listBoxInaptitudeAjoutEmploye.DisplayMember = "inaptitude";
                         this.listBoxInaptitudeAjoutEmploye.DisplayMember = "Definitif";
                         this.listBoxInaptitudeAjoutEmploye.DisplayMember = "DateFin";
@@ -370,10 +734,10 @@ namespace EntretienSPPP.WinForm
                     private void RefreshPosteActuel()
                     {
                         List<Poste_Personne> ListPostePersonne = Poste_PersonneDB.List();
-                        this.listBoxPosteActuelAjoutEmploye.DataSource =                                         ListPostePersonne;
+                        this.listBoxPosteActuelAjoutEmploye.DataSource =                                                   ListPostePersonne;
                         this.listBoxPosteActuelAjoutEmploye.DisplayMember = "Contrat";
                         this.listBoxPosteActuelAjoutEmploye.DisplayMember = "poste";
-                        this.listBoxPosteActuelAjoutEmploye.DisplayMember =                                      "Coefficient";
+                        this.listBoxPosteActuelAjoutEmploye.DisplayMember =                                                "Coefficient";
                         this.listBoxPosteActuelAjoutEmploye.DisplayMember = "site";
                         this.listBoxPosteActuelAjoutEmploye.ValueMember = "Identifiant";
                     }
@@ -501,7 +865,5 @@ namespace EntretienSPPP.WinForm
             GraphiqueSatisfaction graphSatisf = new GraphiqueSatisfaction();
             graphSatisf.ShowDialog();
         }
-
-   
     }
 }

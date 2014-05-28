@@ -17,6 +17,7 @@ namespace EntretienSPPP.WinForm
         {
            
             InitializeComponent();
+            
         }
 
         private void buttonAnnuler_Click(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace EntretienSPPP.WinForm
             ancienEmploi.Poste = this.textBoxIntituleDuPoste.Text;
             ancienEmploi.DateDeb = this.dateTimePickerDateDebutAncienEmploi.Value;
             ancienEmploi.DateFin = this.dateTimePickerDateFinAncienEmploi.Value;
-            //ancienEmploi.Secteur = this.dateTimePickerDateFinAncienEmploi;
+            ancienEmploi.Secteur = this.textBoxSecteur.Text;
 
             CVDB.Insert(ancienEmploi);
 

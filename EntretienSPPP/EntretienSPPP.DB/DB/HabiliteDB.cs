@@ -163,7 +163,7 @@ namespace EntretienSPPP.DB
            
 
 
-            String requete = @"INSERT INTO habilite(type) VALUES (@type) SELECT SCOPE_IDENTITY() ; ";
+            String requete = @"INSERT INTO habilite(type) VALUES (@type) SELECT SCOPE_IDENTITY()  ";
 
             SqlCommand commande = new SqlCommand(requete, connection);
 

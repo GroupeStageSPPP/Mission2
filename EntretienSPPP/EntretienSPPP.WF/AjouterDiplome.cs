@@ -16,6 +16,15 @@ namespace EntretienSPPP.WinForm
         public AjouterDiplome()
         {
             InitializeComponent();
+            this.comboBoxIntituléDiplôme.DataSource = DiplomeDB.List();
+            this.comboBoxIntituléDiplôme.ValueMember = "Identifiant";
+            this.comboBoxIntituléDiplôme.DisplayMember = "Libelle";
+
+            this.comboBoxNiveauDiplôme.DataSource = NiveauDB.List();
+            this.comboBoxNiveauDiplôme.ValueMember = "Identifiant";
+            this.comboBoxNiveauDiplôme.DisplayMember = "Libelle";
+
+
         }
 
         private void buttonRetour_Click(object sender, EventArgs e)
@@ -27,25 +36,26 @@ namespace EntretienSPPP.WinForm
         {
             Diplome_Personne diplome_personne = new Diplome_Personne();
 
-            //diplome.diplome.Identifiant = Convert.ToInt32(this.comboxDiplome.SelectedValue);
-            //diplome.DateObtention = this.DateTime.selectValue;
-            diplome_personne.diplome = Convert.ToInt32(this.comboBoxNiveauDiplôme.SelectedValue);
+            diplome_personne.diplome = Convert.ToInt32(this.comboBoxIntituléDiplôme.SelectedValue);
+
+            diplome_personne.DateObtention = this.dateTimePicker1.Value;
+            
 
 
             if (this.comboBoxNiveauDiplôme.SelectedValue == "Autre")
             {
                 Niveau niveau = new Niveau();
-                //niveau.Libelle = this..Text;
+                niveau.Libelle = this.textBoxIntituléAjout.Text;
                 NiveauDB.Insert(niveau);
             }
 
-            //if (this.comboBoxDiplôme.SelectedValue == "Autre")
-            //{
-            //    Diplome NewDiplome = new Diplome();
-            //    NewDiplome.Libelle = textBoxIntituléDiplôme.Text;
-            //    diplome.diplome.niveau = NiveauDB.LastID();      
-            //    DiplomeDB.Insert(NewDiplome);
-            //}
+            if (this.comboBoxIntituléDiplôme.SelectedValue == "Autre")
+            {
+                Diplome NewDiplome = new Diplome();
+                NewDiplome.Libelle = this.textBoxIntituléAjout.Text;
+                NewDiplome.niveau = NiveauDB.LastID();
+                DiplomeDB.Insert(NewDiplome);
+            }
 
             Diplome_PersonneDB.Insert(diplome_personne);
 

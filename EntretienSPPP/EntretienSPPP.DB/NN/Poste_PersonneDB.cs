@@ -23,7 +23,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, DateDebut, DateFin, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentiifiantSite FROM Poste_Personne;";
+            String requete = "SELECT Identifiant, DateDebut, DateFin, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentifiantSite FROM Poste_Personne;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -104,7 +104,7 @@ namespace EntretienSPPP.DB
             //Requete
             String requete = @"INSERT INTO Poste_Personne (DateDebut, DateFin, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentifiantSite)
                                VALUES (@DateDebut, @DateFin, @Site, @Statut, @Coefficient, @IdentifiantPersonne, @IdentifiantPoste, @Contrat, @IdentifiantSite) 
-                               SELECT SCOPE_IDENTITY() ;";
+                               SELECT SCOPE_IDENTITY() ";
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);

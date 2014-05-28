@@ -11,7 +11,7 @@ namespace EntretienSPPP.DB
 {
     public static class DataBase
     {
-        public static SqlConnection connection = new SqlConnection("");
+        public static SqlConnection connection = new SqlConnection("Data Source=PC-JEOFF;Initial Catalog=EntretienSPPP;Integrated Security=True");
 
     }
 }

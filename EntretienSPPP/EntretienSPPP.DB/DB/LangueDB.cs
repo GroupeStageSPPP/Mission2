@@ -161,7 +161,7 @@ namespace EntretienSPPP.DB
            
 
 
-            String requete = @"Insert INTO langue(libelle) Values (@libelle); SELECT SCOPE_IDENTITY() ; ";
+            String requete = @"Insert INTO langue(libelle) Values (@libelle); SELECT SCOPE_IDENTITY()  ";
 
             SqlCommand commande = new SqlCommand(requete, connection);
 

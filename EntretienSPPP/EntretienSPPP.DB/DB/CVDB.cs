@@ -96,7 +96,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"INSERT INTO CV  (DateDeb, DateFin, Secteur, Poste, Entreprise, IdentifiantPersonne)
+            String requete = @"INSERT INTO CV  (DateDeb, DateFin, Entreprise, Secteur, Poste, IdentifiantPersonne)
                                VALUES (@DateDeb, @DateFin, @Entreprise, @Secteur, @Poste, @IdentifiantPersonne);SELECT SCOPE_IDENTITY() ";
             connection.Open();            
             SqlCommand commande = new SqlCommand(requete, connection);

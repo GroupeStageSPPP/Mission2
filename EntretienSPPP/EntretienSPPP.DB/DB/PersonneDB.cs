@@ -112,8 +112,8 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"INSERT INTO Personne (Nom, Prenom, DateNaissance, Ville, CodePostal, Telephone, Mail, IdentifiantFamille, IdentifiantGenre)
-                               VALUES (@Nom, @Prenom, @DateNaissance, @Ville, @CodePostal, @Telephone, @Mail, @IdentifiantFamille, @IdentifiantGenre) SELECT SCOPE_IDENTITY() ;";
+            String requete = @"INSERT INTO Personne (Nom, Prenom, DateNaissance,rue, Ville, CodePostal, Telephone, Mail, IdentifiantFamille, IdentifiantGenre)
+                               VALUES (@Nom, @Prenom, @DateNaissance,@rue, @Ville, @CodePostal, @Telephone, @Mail, @IdentifiantFamille, @IdentifiantGenre) SELECT SCOPE_IDENTITY() ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -139,7 +139,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"UPDATE Personne SET Nom = @Nom, Prenom = @Prenom, DateNaissance = @DateNaissance, Ville = @Ville, CodePostal = @CodePostal, Telephone = @Telephone, Mail = @Mail, IdentifiantFamille = @IdentifiantFamille, IdentifiantGenre = @IdentifiantGenre
+            String requete = @"UPDATE Personne SET Nom = @Nom, Prenom = @Prenom, DateNaissance = @DateNaissance,Rue=@Rue, Ville = @Ville, CodePostal = @CodePostal, Telephone = @Telephone, Mail = @Mail, IdentifiantFamille = @IdentifiantFamille, IdentifiantGenre = @IdentifiantGenre
                                WHERE Identifiant=@Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
