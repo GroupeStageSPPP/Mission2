@@ -42,7 +42,7 @@ namespace EntretienSPPP.WinForm
         {
             Competence_Personne competencePersonne = new Competence_Personne();
             competencePersonne.personne = PersonneDB.LastID();
-            competencePersonne.competence = Convert.ToInt32                                             (this.comboBoxCompétences.SelectedValue);
+            competencePersonne.competence = Convert.ToInt32                                                                 (this.comboBoxCompétences.SelectedValue);
 
             if (this.comboBoxCompétences.SelectedValue == "Autre")
             {
