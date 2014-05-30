@@ -37,7 +37,7 @@ namespace EntretienSPPP.DB
                 Diplome diplome = new Diplome();
                 diplome.Identifiant = dataReader.GetInt32(0);
                 diplome.Libelle = dataReader.GetString(1);
-                diplome.niveau = dataReader.GetInt32(2);
+                diplome.Niveau = dataReader.GetInt32(2);
 
 
                 //2 - Ajouter ce Diplome à la list de client
@@ -77,7 +77,7 @@ namespace EntretienSPPP.DB
 
             diplome.Identifiant = dataReader.GetInt32(0);
             diplome.Libelle = dataReader.GetString(1);
-            diplome.niveau = dataReader.GetInt32(2);
+            diplome.Niveau = dataReader.GetInt32(2);
             dataReader.Close();
             connection.Close();
             return diplome;
@@ -96,7 +96,7 @@ namespace EntretienSPPP.DB
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Diplome.Libelle);
-            commande.Parameters.AddWithValue("IdentifiantNiveau", Diplome.niveau);
+            commande.Parameters.AddWithValue("IdentifiantNiveau", Diplome.Niveau);
             //Execution
 
 
@@ -120,8 +120,7 @@ namespace EntretienSPPP.DB
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Diplome.Libelle);
-            commande.Parameters.AddWithValue("niveau", Diplome.niveau);
-            commande.Parameters.AddWithValue("IdentifiantNiveau", Diplome.niveau);
+            commande.Parameters.AddWithValue("niveau", Diplome.Niveau);
             //Execution
 
             commande.ExecuteNonQuery();

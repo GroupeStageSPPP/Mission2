@@ -16,7 +16,7 @@ namespace EntretienSPPP.DB
         public DateTime DateDebut { get; set; }
         public DateTime DateFin { get; set; }
         public string Statut { get; set; }
-        public float Coefficient { get; set; }
+        public Double Coefficient { get; set; }
         public Int32 personne { get; set; }
         public Int32 poste { get; set; }
         public string Contrat { get; set; }

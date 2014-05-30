@@ -14,7 +14,10 @@ namespace EntretienSPPP.DB
         #region Propriété
         public int Identifiant { get; set; }
         public string Libelle { get; set; }
-        public string Adresse { get; set; }
+        public string Rue { get; set; }
+        public string Ville { get; set; }
+        public string CodePostal { get; set; }
+
 
         #endregion
 

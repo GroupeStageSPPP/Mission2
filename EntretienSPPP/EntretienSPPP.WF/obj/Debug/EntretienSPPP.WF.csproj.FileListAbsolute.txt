@@ -151,3 +151,6 @@ D:\Users\Pierre\Desktop\master\EntretienSPPP\EntretienSPPP.WF\bin\Debug\Entretie
 D:\Users\Pierre\Desktop\master\EntretienSPPP\EntretienSPPP.WF\obj\Debug\EntretienSPPP.WinForm.ResultatRecherche.resources
 D:\Users\Pierre\Desktop\master\EntretienSPPP\EntretienSPPP.WF\obj\Debug\EntretienSPPP.WinForm.exe
 D:\Users\Pierre\Desktop\master\EntretienSPPP\EntretienSPPP.WF\obj\Debug\EntretienSPPP.WinForm.pdb
+C:\Users\msi\Documents\GitHub\Mission2\EntretienSPPP\EntretienSPPP.WF\bin\Debug\EntretienSPPP.WinForm.exe.config
+C:\Users\msi\Documents\GitHub\Mission2\EntretienSPPP\EntretienSPPP.WF\obj\Debug\EntretienSPPP.WinForm.exe
+C:\Users\msi\Documents\GitHub\Mission2\EntretienSPPP\EntretienSPPP.WF\obj\Debug\EntretienSPPP.WinForm.pdb

@@ -36,7 +36,7 @@ namespace EntretienSPPP.DB
                 Langue_Personne languePersonne = new Langue_Personne();
                 languePersonne.Identifiant = dataReader.GetInt32(0);
                 languePersonne.Niveau = dataReader.GetString(1);
-                languePersonne.Utilite = dataReader.GetChar(2);
+                languePersonne.Utilite = dataReader.GetByte(2);
                 languePersonne.personne = dataReader.GetInt32(3);
                 languePersonne.langue = dataReader.GetInt32(4);
 
@@ -78,7 +78,7 @@ namespace EntretienSPPP.DB
             Langue_Personne languePersonne = new Langue_Personne();
             languePersonne.Identifiant = dataReader.GetInt32(0);
             languePersonne.Niveau = dataReader.GetString(1);
-            languePersonne.Utilite = dataReader.GetChar(2);
+            languePersonne.Utilite = dataReader.GetByte(2);
             languePersonne.personne = dataReader.GetInt32(3);
             languePersonne.langue = dataReader.GetInt32(4);
 

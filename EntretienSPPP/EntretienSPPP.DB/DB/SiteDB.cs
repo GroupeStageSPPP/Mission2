@@ -23,7 +23,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, Libelle, Adresse FROM Site";
+            String requete = "SELECT Identifiant, Libelle, Rue, Ville, CodePostal FROM Site";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -38,7 +38,9 @@ namespace EntretienSPPP.DB
                 Site site = new Site();
                 site.Identifiant = dataReader.GetInt32(0);
                 site.Libelle = dataReader.GetString(1);
-                site.Adresse = dataReader.GetString(2);
+                site.Rue = dataReader.GetString(2);
+                site.Ville = dataReader.GetString(3);
+                site.CodePostal = dataReader.GetString(4);
 
 
                 //2 - Ajouter ce Site à la list de client
@@ -60,7 +62,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"SELECT Identifiant, Libelle, Adresse FROM Site
+            String requete = @"SELECT Identifiant, Libelle, Rue, Ville, CodePostal FROM Site
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -78,7 +80,10 @@ namespace EntretienSPPP.DB
 
             site.Identifiant = dataReader.GetInt32(0);
             site.Libelle = dataReader.GetString(1);
-            site.Adresse = dataReader.GetString(2);
+            site.Rue = dataReader.GetString(2);
+            site.Ville = dataReader.GetString(3);
+            site.CodePostal = dataReader.GetString(4);
+
             dataReader.Close();
             connection.Close();
             return site;
@@ -90,13 +95,16 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"INSERT INTO Site (Libelle, Adresse)
-                                VALUES (@Libelle, @Adresse) ; SELECT SCOPE_IDENTITY();";
+            String requete = @"INSERT INTO Site (Libelle, Rue, Ville, CodePostal)
+                                VALUES (@Libelle, @Rue, @Ville, @CodePostal) ; SELECT SCOPE_IDENTITY();";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Site.Libelle);
-            commande.Parameters.AddWithValue("Adresse", Site.Adresse);
+            commande.Parameters.AddWithValue("Rue", Site.Rue);
+            commande.Parameters.AddWithValue("Ville", Site.Ville);
+            commande.Parameters.AddWithValue("CodePostal", Site.CodePostal);
+            
             //Execution
             connection.Open();
             commande.ExecuteNonQuery();
@@ -110,14 +118,16 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"UPDATE Site 
-                               SET Libelle = @Libelle, Adresse = @Adresse
+                               SET Libelle = @Libelle, Rue = @Rue, Ville = @Ville, CodePostal = @CodePostal
                                WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
             commande.Parameters.AddWithValue("Libelle", Site.Libelle);
-            commande.Parameters.AddWithValue("Adresse", Site.Adresse);
-            commande.Parameters.AddWithValue("Identifiant", Site);
+            commande.Parameters.AddWithValue("Rue", Site.Rue);
+            commande.Parameters.AddWithValue("Ville", Site.Ville);
+            commande.Parameters.AddWithValue("CodePostal", Site.CodePostal);
+            commande.Parameters.AddWithValue("Identifiant", Site.Identifiant);
             //Execution
             connection.Open();
             commande.ExecuteNonQuery();

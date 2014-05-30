@@ -10,6 +10,7 @@ namespace EntretienSPPP.DB
         #region Attribut
         
         #endregion
+
         #region Propriété
         public Int32 Identifiant { get; set; }
         public string Mesure { get; set; }
@@ -17,12 +18,14 @@ namespace EntretienSPPP.DB
         public string Resultat { get; set; }
         public Int32 IdentifiantEntretien { get; set; }
         #endregion
+
         #region Constructeur
         public Objectif()
         {
                 
         }
         #endregion
+
         #region Méthodes
         
         #endregion

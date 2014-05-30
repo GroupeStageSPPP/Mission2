@@ -23,7 +23,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, Telephone, Mail FROM Personne";
+            String requete = "SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, IdentifiantHobbyPersonnel, Mail, NumMobile, NumFixe, Password, Login FROM Personne";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -45,8 +45,11 @@ namespace EntretienSPPP.DB
                 personne.CodePostal = dataReader.GetString(6);
                 personne.genre = dataReader.GetInt32(7);
                 personne.famille = dataReader.GetInt32(8);
-                personne.Telephone = dataReader.GetString(9);
-                personne.Mail = dataReader.GetString(10);
+                personne.HobbyPersonnel = dataReader.GetInt32(9);
+                personne.NumFixe = dataReader.GetString(10);
+                personne.NumMobile = dataReader.GetString(11);
+                personne.PassWord = dataReader.GetString(12);
+                personne.Login = dataReader.GetString(13);
 
 
 
@@ -69,7 +72,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, Telephone, Mail FROM Personne
+            String requete = @"SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, IdentifiantHobbyPersonnel, NumFixe, NumMobile, PassWord, Login, Mail, IdentifiantResponsable FROM Personne
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -94,8 +97,11 @@ namespace EntretienSPPP.DB
             personne.CodePostal = dataReader.GetString(6);
             personne.genre = dataReader.GetInt32(7);
             personne.famille = dataReader.GetInt32(8);
-            personne.Telephone = dataReader.GetString(9);
-            personne.Mail = dataReader.GetString(10);
+            personne.HobbyPersonnel = dataReader.GetInt32(9);
+            personne.NumFixe = dataReader.GetString(10);
+            personne.NumMobile = dataReader.GetString(11);
+            personne.PassWord = dataReader.GetString(12);
+            personne.Login = dataReader.GetString(13);
             dataReader.Close();
             connection.Close();
 
@@ -112,8 +118,9 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"INSERT INTO Personne (Nom, Prenom, DateNaissance, Ville, CodePostal, Telephone, Mail, IdentifiantFamille, IdentifiantGenre)
-                               VALUES (@Nom, @Prenom, @DateNaissance, @Ville, @CodePostal, @Telephone, @Mail, @IdentifiantFamille, @IdentifiantGenre) SELECT SCOPE_IDENTITY() ;";
+
+            String requete = @"INSERT INTO Personne (Nom, Prenom, DateNaissance, Rue,  Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, IdentifiantHobbyPersonnel, NumFixe, NumMobile, PassWord, Login, Mail, IdentifiantResponsable)
+                               VALUES (@Nom, @Prenom, @DateNaissance, @Rue, @Ville, @CodePostal, @Telephone, @Mail, @IdentifiantFamille, @IdentifiantGenre, @IdentifiantFamille, @IdentifiantHobbyPersonnel, @NumFixe, @NumMobile, @PassWord, @Login, @Mail, @IdentifiantResponsable) SELECT SCOPE_IDENTITY() ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -123,10 +130,15 @@ namespace EntretienSPPP.DB
             commande.Parameters.AddWithValue("Rue", Personne.Rue);
             commande.Parameters.AddWithValue("Ville", Personne.Ville);
             commande.Parameters.AddWithValue("CodePostal", Personne.CodePostal);
-            commande.Parameters.AddWithValue("Telephone", Personne.Telephone);
-            commande.Parameters.AddWithValue("Mail", Personne.Mail);
-            commande.Parameters.AddWithValue("IdentifiantFamille", Personne.famille);
             commande.Parameters.AddWithValue("IdentifiantGenre", Personne.genre);
+            commande.Parameters.AddWithValue("IdentifiantFamille", Personne.famille);
+            commande.Parameters.AddWithValue("IdentifiantHobbyPersonnel", Personne.HobbyPersonnel);
+            commande.Parameters.AddWithValue("NumFixe", Personne.NumFixe);
+            commande.Parameters.AddWithValue("NumMobile", Personne.NumMobile);
+            commande.Parameters.AddWithValue("Login", Personne.Login);
+            commande.Parameters.AddWithValue("Mail", Personne.Mail);
+            commande.Parameters.AddWithValue("IdentifiantResponsable", Personne.PersonneResponsable);
+
             //Execution
             connection.Open();
             commande.ExecuteNonQuery();
@@ -139,7 +151,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = @"UPDATE Personne SET Nom = @Nom, Prenom = @Prenom, DateNaissance = @DateNaissance, Ville = @Ville, CodePostal = @CodePostal, Telephone = @Telephone, Mail = @Mail, IdentifiantFamille = @IdentifiantFamille, IdentifiantGenre = @IdentifiantGenre
+            String requete = @"UPDATE Personne SET Nom = @Nom, Prenom = @Prenom, DateNaissance = @DateNaissance, Rue = @Rue,  Ville = @Ville, CodePostal = @CodePostal, IdentifiantGenre = @Genre, IdentifiantFamille = @IdentifiantFamille, IdentifiantHobbyPersonnel = @IdentifiantHobbyPersonnel, NumFixe = @NumFixe, NumMobile = @ NumMobile, Login = @Login, Mail = @Mail, IdentifiantResponsable = @IdentifiantResponsable
                                WHERE Identifiant=@Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -150,11 +162,14 @@ namespace EntretienSPPP.DB
             commande.Parameters.AddWithValue("Rue", Personne.Rue);
             commande.Parameters.AddWithValue("Ville", Personne.Ville);
             commande.Parameters.AddWithValue("CodePostal", Personne.CodePostal);
-            commande.Parameters.AddWithValue("Telephone", Personne.Telephone);
-            commande.Parameters.AddWithValue("Mail", Personne.Mail);
-            commande.Parameters.AddWithValue("IdentifiantFamille", Personne.famille);
             commande.Parameters.AddWithValue("IdentifiantGenre", Personne.genre);
-            commande.Parameters.AddWithValue("Identifiant", Personne);
+            commande.Parameters.AddWithValue("IdentifiantFamille", Personne.famille);
+            commande.Parameters.AddWithValue("IdentifiantHobbyPersonnel", Personne.HobbyPersonnel);
+            commande.Parameters.AddWithValue("NumFixe", Personne.NumFixe);
+            commande.Parameters.AddWithValue("NumMobile", Personne.NumMobile);
+            commande.Parameters.AddWithValue("Login", Personne.Login);
+            commande.Parameters.AddWithValue("Mail", Personne.Mail);
+            commande.Parameters.AddWithValue("IdentifiantResponsable", Personne.PersonneResponsable);
             //Execution
             connection.Open();
             commande.ExecuteNonQuery();

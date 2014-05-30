@@ -43,9 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlerteContrat.cs" />
+    <Compile Include="AlerteContratDB.cs" />
+    <Compile Include="AlerteHabilitation.cs" />
+    <Compile Include="AlerteHabilitationDB.cs" />
+    <Compile Include="AlerteSenior.cs" />
+    <Compile Include="AlerteSeniorDB.cs" />
     <Compile Include="ALGO\FonctionFlo.cs" />
+    <Compile Include="Contrat.cs" />
+    <Compile Include="ContratDB.cs" />
     <Compile Include="CS\Competence.cs" />
     <Compile Include="DB\CompetenceDB.cs" />
+    <Compile Include="FinContrat.cs" />
+    <Compile Include="FinContratDB.cs" />
     <Compile Include="NN\Competence_Personne.cs" />
     <Compile Include="NN\Competence_PersonneDB.cs" />
     <Compile Include="CS\CV.cs" />
@@ -71,10 +81,10 @@
     <Compile Include="DB\NiveauDB.cs" />
     <Compile Include="CS\Genre.cs" />
     <Compile Include="DB\GenreDB.cs" />
-    <Compile Include="CS\Habilite.cs" />
+    <Compile Include="CS\Habilitation.cs" />
     <Compile Include="DB\HabiliteDB.cs" />
-    <Compile Include="NN\Habilite_Personne.cs" />
-    <Compile Include="NN\Habilite_PersonneDB.cs" />
+    <Compile Include="NN\Habilitation_Personne.cs" />
+    <Compile Include="NN\Habilitation_PersonneDB.cs" />
     <Compile Include="ALGO\Identification.cs" />
     <Compile Include="ALGO\IdentificationDB.cs" />
     <Compile Include="CS\Inaptitude.cs" />
@@ -95,6 +105,8 @@
     <Compile Include="DB\PosteDB.cs" />
     <Compile Include="NN\Poste_Personne.cs" />
     <Compile Include="NN\Poste_PersonneDB.cs" />
+    <Compile Include="PeriodeContratDB.cs" />
+    <Compile Include="PeriodeContrat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CS\Satisfaction.cs" />
     <Compile Include="DB\SatisfactionDB.cs" />

@@ -17,7 +17,9 @@ namespace EntretienSPPP.DB
         public char Definitif { get; set; }
         public Int32 inaptitude { get; set; }
         public Int32 personne { get; set; }
-
+        public string Rue { get; set; }
+        public string Ville { get; set; }
+        public string CodePostal { get; set; }
         #endregion
 
         #region Constructeurs
