@@ -45,6 +45,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRetour = new System.Windows.Forms.Button();
             this.buttonEnregistrer = new System.Windows.Forms.Button();
+            this.textBoxVilleModifSite = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxCOdePostalModifSite = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxVIlleNewSite = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxCOdePosNewSite = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label6
@@ -69,7 +77,7 @@
             // 
             this.textBoxModifAdresse.Location = new System.Drawing.Point(249, 93);
             this.textBoxModifAdresse.Name = "textBoxModifAdresse";
-            this.textBoxModifAdresse.Size = new System.Drawing.Size(91, 20);
+            this.textBoxModifAdresse.Size = new System.Drawing.Size(112, 20);
             this.textBoxModifAdresse.TabIndex = 55;
             // 
             // label8
@@ -85,7 +93,7 @@
             // 
             this.textBoxModifIntitulé.Location = new System.Drawing.Point(249, 58);
             this.textBoxModifIntitulé.Name = "textBoxModifIntitulé";
-            this.textBoxModifIntitulé.Size = new System.Drawing.Size(91, 20);
+            this.textBoxModifIntitulé.Size = new System.Drawing.Size(112, 20);
             this.textBoxModifIntitulé.TabIndex = 53;
             // 
             // label9
@@ -101,14 +109,14 @@
             // 
             this.textBoxNewAdresse.Location = new System.Drawing.Point(525, 93);
             this.textBoxNewAdresse.Name = "textBoxNewAdresse";
-            this.textBoxNewAdresse.Size = new System.Drawing.Size(91, 20);
+            this.textBoxNewAdresse.Size = new System.Drawing.Size(124, 20);
             this.textBoxNewAdresse.TabIndex = 50;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(288, 233);
+            this.label3.Location = new System.Drawing.Point(156, 260);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 20);
             this.label3.TabIndex = 49;
@@ -116,7 +124,7 @@
             // 
             // buttonModifSite
             // 
-            this.buttonModifSite.Location = new System.Drawing.Point(265, 149);
+            this.buttonModifSite.Location = new System.Drawing.Point(265, 202);
             this.buttonModifSite.Name = "buttonModifSite";
             this.buttonModifSite.Size = new System.Drawing.Size(75, 28);
             this.buttonModifSite.TabIndex = 48;
@@ -135,7 +143,7 @@
             // 
             // buttonSupprimerSite
             // 
-            this.buttonSupprimerSite.Location = new System.Drawing.Point(397, 287);
+            this.buttonSupprimerSite.Location = new System.Drawing.Point(265, 310);
             this.buttonSupprimerSite.Name = "buttonSupprimerSite";
             this.buttonSupprimerSite.Size = new System.Drawing.Size(75, 23);
             this.buttonSupprimerSite.TabIndex = 46;
@@ -144,7 +152,7 @@
             // 
             // buttonAjouterSite
             // 
-            this.buttonAjouterSite.Location = new System.Drawing.Point(541, 150);
+            this.buttonAjouterSite.Location = new System.Drawing.Point(534, 202);
             this.buttonAjouterSite.Name = "buttonAjouterSite";
             this.buttonAjouterSite.Size = new System.Drawing.Size(75, 27);
             this.buttonAjouterSite.TabIndex = 45;
@@ -164,7 +172,7 @@
             // 
             this.textBoxIntituléNewSite.Location = new System.Drawing.Point(525, 58);
             this.textBoxIntituléNewSite.Name = "textBoxIntituléNewSite";
-            this.textBoxIntituléNewSite.Size = new System.Drawing.Size(91, 20);
+            this.textBoxIntituléNewSite.Size = new System.Drawing.Size(124, 20);
             this.textBoxIntituléNewSite.TabIndex = 43;
             // 
             // label1
@@ -195,11 +203,83 @@
             this.buttonEnregistrer.Text = "Enregistrer";
             this.buttonEnregistrer.UseVisualStyleBackColor = true;
             // 
+            // textBoxVilleModifSite
+            // 
+            this.textBoxVilleModifSite.Location = new System.Drawing.Point(249, 166);
+            this.textBoxVilleModifSite.Name = "textBoxVilleModifSite";
+            this.textBoxVilleModifSite.Size = new System.Drawing.Size(112, 20);
+            this.textBoxVilleModifSite.TabIndex = 63;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(211, 169);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 62;
+            this.label2.Text = "Ville :";
+            // 
+            // textBoxCOdePostalModifSite
+            // 
+            this.textBoxCOdePostalModifSite.Location = new System.Drawing.Point(249, 131);
+            this.textBoxCOdePostalModifSite.Name = "textBoxCOdePostalModifSite";
+            this.textBoxCOdePostalModifSite.Size = new System.Drawing.Size(112, 20);
+            this.textBoxCOdePostalModifSite.TabIndex = 61;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(174, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "Code postal :";
+            // 
+            // textBoxVIlleNewSite
+            // 
+            this.textBoxVIlleNewSite.Location = new System.Drawing.Point(525, 166);
+            this.textBoxVIlleNewSite.Name = "textBoxVIlleNewSite";
+            this.textBoxVIlleNewSite.Size = new System.Drawing.Size(124, 20);
+            this.textBoxVIlleNewSite.TabIndex = 67;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(487, 169);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 13);
+            this.label10.TabIndex = 66;
+            this.label10.Text = "Ville :";
+            // 
+            // textBoxCOdePosNewSite
+            // 
+            this.textBoxCOdePosNewSite.Location = new System.Drawing.Point(525, 131);
+            this.textBoxCOdePosNewSite.Name = "textBoxCOdePosNewSite";
+            this.textBoxCOdePosNewSite.Size = new System.Drawing.Size(124, 20);
+            this.textBoxCOdePosNewSite.TabIndex = 65;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(450, 134);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 13);
+            this.label11.TabIndex = 64;
+            this.label11.Text = "Code postal :";
+            // 
             // AjoutSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 420);
+            this.Controls.Add(this.textBoxVIlleNewSite);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBoxCOdePosNewSite);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBoxVilleModifSite);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxCOdePostalModifSite);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxModifAdresse);
@@ -243,5 +323,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRetour;
         private System.Windows.Forms.Button buttonEnregistrer;
+        private System.Windows.Forms.TextBox textBoxVilleModifSite;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxCOdePostalModifSite;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxVIlleNewSite;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxCOdePosNewSite;
+        private System.Windows.Forms.Label label11;
     }
 }

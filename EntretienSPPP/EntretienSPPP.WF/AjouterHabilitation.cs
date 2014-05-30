@@ -36,7 +36,7 @@ namespace EntretienSPPP.WinForm
             if (this.comboBoxNomOrganisme.Text == "Autre")
             {
                 Organisme organisme = new Organisme();
-                organisme.Libelle = textBoxNouveauNom.Text;
+                organisme.Libelle = this.textBoxNouveauNom.Text;
                 OrganismeDB.Insert(organisme);
                 habilité.organisme = OrganismeDB.LastID();
 
