@@ -16,5 +16,10 @@ namespace FormEntretien
         {
             InitializeComponent();
         }
+
+        private void FOnctionAuSEinEntreprise_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

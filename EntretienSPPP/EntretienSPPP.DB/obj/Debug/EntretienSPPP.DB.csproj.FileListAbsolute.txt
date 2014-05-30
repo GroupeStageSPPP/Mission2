@@ -18,3 +18,8 @@ D:\Users\Pierre\Desktop\master\EntretienSPPP\EntretienSPPP.DB\bin\Debug\Entretie
 D:\Users\Pierre\Desktop\master\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.csprojResolveAssemblyReference.cache
 D:\Users\Pierre\Desktop\master\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.dll
 D:\Users\Pierre\Desktop\master\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.pdb
+C:\Users\jeoffrey\Desktop\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.dll
+C:\Users\jeoffrey\Desktop\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.pdb
+C:\Users\jeoffrey\Desktop\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.csprojResolveAssemblyReference.cache
+C:\Users\jeoffrey\Desktop\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.dll
+C:\Users\jeoffrey\Desktop\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.pdb

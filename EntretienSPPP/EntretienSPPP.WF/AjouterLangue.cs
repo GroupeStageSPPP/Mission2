@@ -33,7 +33,7 @@ namespace EntretienSPPP.WinForm
 
             languePersonne.Niveau = this.comboBoxNiveauLangue.SelectedText;
 
-            //languePersonne.Utilite = ;
+            //languePersonne.Utilite = this.checkBoxUtilite;
 
             if (this.comboBoxLangue.SelectedValue == "Autre")
             {

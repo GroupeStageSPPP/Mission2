@@ -169,6 +169,9 @@
     <EmbeddedResource Include="EvaluationMOI.resx">
       <DependentUpon>EvaluationMOI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FOnctionAuSEinEntreprise.resx">
+      <DependentUpon>FOnctionAuSEinEntreprise.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormationSouhai.resx">
       <DependentUpon>FormationSouhai.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,2 +1,3 @@
 c:\users\jeoffrey\documents\visual studio 2012\Projects\FormEntretien\FormEntretien\bin\Debug\FormEntretien.exe.config
 C:\Users\jeoffrey\Desktop\Mission2.1.0\FormEntretien\FormEntretien\bin\Debug\FormEntretien.exe.config
+C:\Users\jeoffrey\Desktop\Mission2\FormEntretien\FormEntretien\bin\Debug\FormEntretien.exe.config

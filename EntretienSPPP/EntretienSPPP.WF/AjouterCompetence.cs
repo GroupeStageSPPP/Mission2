@@ -15,9 +15,9 @@ namespace EntretienSPPP.WinForm
     {
         public AjouterCompetence()
         {
-            //this.comboBoxCompétences.DataSource = CompetenceDB.List();
-            //this.comboBoxCompétences.DisplayMember = "Identifiant";
-            //this.comboBoxCompétences.ValueMember = "Libelle";
+            this.comboBoxCompétences.DataSource = CompetenceDB.List();
+            this.comboBoxCompétences.DisplayMember = "Identifiant";
+            this.comboBoxCompétences.ValueMember = "Libelle";
             InitializeComponent();
         }
 
