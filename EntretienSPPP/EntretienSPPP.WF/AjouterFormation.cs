@@ -51,7 +51,7 @@ namespace EntretienSPPP.WinForm
                 OrganismeDB.Insert(organisme);
 
             }
-            //formation.Annee = this.textBoxAnnée.Text;
+            //formation = this.dateTimePickerDateFormation.Value;
             formation.Objectif = this.textBoxObjectifFOrmation.Text;
             formation_personne.Contenu = this.comboBoxNoteContenu.SelectedText;
             formation_personne.Formateur = this.comboBoxNoteFOrmateur.SelectedText;
@@ -59,7 +59,7 @@ namespace EntretienSPPP.WinForm
             bool isChecked = this.radioButtonUtile.Checked;
             if (isChecked)
             {
-                //formation..Identifiant = 1;
+                //formation = ;
             }
             else
             {
