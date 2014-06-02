@@ -16,6 +16,13 @@ namespace EntretienSPPP.WinForm
         public AjouterHabilitation()
         {
             InitializeComponent();
+            this.comboBoxTypeHabilité.DataSource = HabiliteDB.List();
+            this.comboBoxTypeHabilité.ValueMember = "Identifiant";
+            this.comboBoxTypeHabilité.DisplayMember = "Type";
+
+            this.comboBoxNomOrganisme.DataSource = OrganismeDB.List();
+            this.comboBoxNomOrganisme.ValueMember = "Identifiant";
+            this.comboBoxNomOrganisme.DisplayMember = "Libelle";
         }
 
         #region fonctionsButtons
@@ -28,7 +35,7 @@ namespace EntretienSPPP.WinForm
             
                 Habilite_Personne habilité = new Habilite_Personne();
             
-            habilité.Identifiant = PersonneDB.LastID();
+            habilité.personne = PersonneDB.LastID();
             habilité.habilite = Convert.ToInt32(this.comboBoxTypeHabilité.SelectedValue);
             habilité.organisme = Convert.ToInt32(this.comboBoxNomOrganisme.SelectedValue);
             habilité.DateFin = this.dateTimePickerDateFinValidité.Value;

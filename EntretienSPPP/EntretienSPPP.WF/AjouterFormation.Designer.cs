@@ -131,12 +131,12 @@
             // 
             this.radioButtonInutile.AutoSize = true;
             this.radioButtonInutile.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.radioButtonInutile.Location = new System.Drawing.Point(199, 266);
+            this.radioButtonInutile.Location = new System.Drawing.Point(207, 266);
             this.radioButtonInutile.Name = "radioButtonInutile";
-            this.radioButtonInutile.Size = new System.Drawing.Size(61, 17);
+            this.radioButtonInutile.Size = new System.Drawing.Size(70, 17);
             this.radioButtonInutile.TabIndex = 46;
             this.radioButtonInutile.TabStop = true;
-            this.radioButtonInutile.Text = "Inutile";
+            this.radioButtonInutile.Text = "Inutilisé";
             this.radioButtonInutile.UseVisualStyleBackColor = true;
             // 
             // radioButtonUtile
@@ -145,10 +145,10 @@
             this.radioButtonUtile.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.radioButtonUtile.Location = new System.Drawing.Point(147, 266);
             this.radioButtonUtile.Name = "radioButtonUtile";
-            this.radioButtonUtile.Size = new System.Drawing.Size(50, 17);
+            this.radioButtonUtile.Size = new System.Drawing.Size(59, 17);
             this.radioButtonUtile.TabIndex = 45;
             this.radioButtonUtile.TabStop = true;
-            this.radioButtonUtile.Text = "Utile";
+            this.radioButtonUtile.Text = "Utilisé";
             this.radioButtonUtile.UseVisualStyleBackColor = true;
             // 
             // label8

@@ -101,7 +101,7 @@ namespace EntretienSPPP.DB
                                                               @DateFin, 
                                                               @IdentifiantPersonne, 
                                                               @IdentifiantHabilite)
-                               SELECT SCOPE_IdentifiantENTITY() ;";
+                               SELECT SCOPE_IDENTITY() ;";
 
             //Commande
             SqlCommand commande = new SqlCommand(requete, connection);
