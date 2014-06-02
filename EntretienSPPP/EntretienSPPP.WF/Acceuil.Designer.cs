@@ -123,7 +123,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.buttonConfirmer = new System.Windows.Forms.Button();
             this.listBoxAcienEmploisAjoutEmploye = new System.Windows.Forms.ListBox();
-            this.buttonAjouterCompétence = new System.Windows.Forms.Button();
+            this.buttonAjouterHobby = new System.Windows.Forms.Button();
             this.buttonAjouterPoste = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -144,7 +144,7 @@
             this.buttonAjouterFormation = new System.Windows.Forms.Button();
             this.listBoxInaptitudeAjoutEmploye = new System.Windows.Forms.ListBox();
             this.buttonAJouterInaptitude = new System.Windows.Forms.Button();
-            this.listBoxCompetenceAjoutEmploye = new System.Windows.Forms.ListBox();
+            this.listBoxHobbyAjoutEmploye = new System.Windows.Forms.ListBox();
             this.listBoxPosteActuelAjoutEmploye = new System.Windows.Forms.ListBox();
             this.panelNouvelEntretien = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -334,7 +334,7 @@
             this.pleinÉcranToolStripMenuItem.Checked = true;
             this.pleinÉcranToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pleinÉcranToolStripMenuItem.Name = "pleinÉcranToolStripMenuItem";
-            this.pleinÉcranToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pleinÉcranToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.pleinÉcranToolStripMenuItem.Text = "Plein écran";
             this.pleinÉcranToolStripMenuItem.Click += new System.EventHandler(this.pleinÉcranToolStripMenuItem_Click);
             // 
@@ -342,7 +342,7 @@
             // 
             this.fenêtréToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.fenêtréToolStripMenuItem.Name = "fenêtréToolStripMenuItem";
-            this.fenêtréToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fenêtréToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.fenêtréToolStripMenuItem.Text = "Fenêtré";
             this.fenêtréToolStripMenuItem.Click += new System.EventHandler(this.fenêtréToolStripMenuItem_Click);
             // 
@@ -351,25 +351,25 @@
             this.toolStripSeparator1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.Transparent;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(132, 22);
             this.toolStripMenuItem2.Text = "Acceuil";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(129, 6);
             // 
             // aideToolStripMenuItem
             // 
             this.aideToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.aideToolStripMenuItem.Text = "Aide";
             // 
             // quitterToolStripMenuItem
@@ -1048,9 +1048,9 @@
             this.label9.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.label9.Location = new System.Drawing.Point(1, 173);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 13);
+            this.label9.Size = new System.Drawing.Size(118, 13);
             this.label9.TabIndex = 43;
-            this.label9.Text = "Situation famillalle :";
+            this.label9.Text = "Situation familiale :";
             // 
             // comboBoxSituationFamillaleAjoutEmploye
             // 
@@ -1271,7 +1271,7 @@
             // 
             this.panel5.Controls.Add(this.buttonConfirmer);
             this.panel5.Controls.Add(this.listBoxAcienEmploisAjoutEmploye);
-            this.panel5.Controls.Add(this.buttonAjouterCompétence);
+            this.panel5.Controls.Add(this.buttonAjouterHobby);
             this.panel5.Controls.Add(this.buttonAjouterPoste);
             this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label20);
@@ -1292,7 +1292,7 @@
             this.panel5.Controls.Add(this.buttonAjouterFormation);
             this.panel5.Controls.Add(this.listBoxInaptitudeAjoutEmploye);
             this.panel5.Controls.Add(this.buttonAJouterInaptitude);
-            this.panel5.Controls.Add(this.listBoxCompetenceAjoutEmploye);
+            this.panel5.Controls.Add(this.listBoxHobbyAjoutEmploye);
             this.panel5.Controls.Add(this.listBoxPosteActuelAjoutEmploye);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(64, 0);
@@ -1322,17 +1322,17 @@
             this.listBoxAcienEmploisAjoutEmploye.Size = new System.Drawing.Size(266, 108);
             this.listBoxAcienEmploisAjoutEmploye.TabIndex = 15;
             // 
-            // buttonAjouterCompétence
+            // buttonAjouterHobby
             // 
-            this.buttonAjouterCompétence.Enabled = false;
-            this.buttonAjouterCompétence.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.buttonAjouterCompétence.Location = new System.Drawing.Point(667, 148);
-            this.buttonAjouterCompétence.Name = "buttonAjouterCompétence";
-            this.buttonAjouterCompétence.Size = new System.Drawing.Size(161, 23);
-            this.buttonAjouterCompétence.TabIndex = 24;
-            this.buttonAjouterCompétence.Text = "Ajouter une Compétence";
-            this.buttonAjouterCompétence.UseVisualStyleBackColor = true;
-            this.buttonAjouterCompétence.Click += new System.EventHandler(this.buttonAjouterCompétence_Click);
+            this.buttonAjouterHobby.Enabled = false;
+            this.buttonAjouterHobby.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.buttonAjouterHobby.Location = new System.Drawing.Point(667, 148);
+            this.buttonAjouterHobby.Name = "buttonAjouterHobby";
+            this.buttonAjouterHobby.Size = new System.Drawing.Size(161, 23);
+            this.buttonAjouterHobby.TabIndex = 24;
+            this.buttonAjouterHobby.Text = "Ajouter un hobby personnel";
+            this.buttonAjouterHobby.UseVisualStyleBackColor = true;
+            this.buttonAjouterHobby.Click += new System.EventHandler(this.buttonAjouterCompétence_Click);
             // 
             // buttonAjouterPoste
             // 
@@ -1518,9 +1518,9 @@
             this.label16.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.label16.Location = new System.Drawing.Point(556, 153);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(88, 13);
+            this.label16.Size = new System.Drawing.Size(52, 13);
             this.label16.TabIndex = 39;
-            this.label16.Text = "Compétence :";
+            this.label16.Text = "Hobby :";
             // 
             // buttonAjouterFormation
             // 
@@ -1556,15 +1556,15 @@
             this.buttonAJouterInaptitude.UseVisualStyleBackColor = true;
             this.buttonAJouterInaptitude.Click += new System.EventHandler(this.buttonAJouterInaptitude_Click);
             // 
-            // listBoxCompetenceAjoutEmploye
+            // listBoxHobbyAjoutEmploye
             // 
-            this.listBoxCompetenceAjoutEmploye.Enabled = false;
-            this.listBoxCompetenceAjoutEmploye.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.listBoxCompetenceAjoutEmploye.FormattingEnabled = true;
-            this.listBoxCompetenceAjoutEmploye.Location = new System.Drawing.Point(559, 177);
-            this.listBoxCompetenceAjoutEmploye.Name = "listBoxCompetenceAjoutEmploye";
-            this.listBoxCompetenceAjoutEmploye.Size = new System.Drawing.Size(266, 108);
-            this.listBoxCompetenceAjoutEmploye.TabIndex = 25;
+            this.listBoxHobbyAjoutEmploye.Enabled = false;
+            this.listBoxHobbyAjoutEmploye.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.listBoxHobbyAjoutEmploye.FormattingEnabled = true;
+            this.listBoxHobbyAjoutEmploye.Location = new System.Drawing.Point(559, 177);
+            this.listBoxHobbyAjoutEmploye.Name = "listBoxHobbyAjoutEmploye";
+            this.listBoxHobbyAjoutEmploye.Size = new System.Drawing.Size(266, 108);
+            this.listBoxHobbyAjoutEmploye.TabIndex = 25;
             // 
             // listBoxPosteActuelAjoutEmploye
             // 
@@ -1864,7 +1864,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button buttonConfirmer;
         private System.Windows.Forms.ListBox listBoxAcienEmploisAjoutEmploye;
-        private System.Windows.Forms.Button buttonAjouterCompétence;
+        private System.Windows.Forms.Button buttonAjouterHobby;
         private System.Windows.Forms.Button buttonAjouterPoste;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
@@ -1885,7 +1885,7 @@
         private System.Windows.Forms.Button buttonAjouterFormation;
         private System.Windows.Forms.ListBox listBoxInaptitudeAjoutEmploye;
         private System.Windows.Forms.Button buttonAJouterInaptitude;
-        private System.Windows.Forms.ListBox listBoxCompetenceAjoutEmploye;
+        private System.Windows.Forms.ListBox listBoxHobbyAjoutEmploye;
         private System.Windows.Forms.ListBox listBoxPosteActuelAjoutEmploye;
         private System.Windows.Forms.Panel panelNouvelEntretien;
         private System.Windows.Forms.Label label3;

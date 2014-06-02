@@ -15,22 +15,8 @@ namespace EntretienSPPP.WinForm
     {
         public AjouterCompetence()
         {
-            this.comboBoxCompétences.DataSource = CompetenceDB.List();
-            this.comboBoxCompétences.DisplayMember = "Identifiant";
-            this.comboBoxCompétences.ValueMember = "Libelle";
+           
             InitializeComponent();
-        }
-
-        private void comboBoxCompétences_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxCompétences.Text == "Autre")
-            {
-                textBoxNomNewCompetence.Enabled = true;
-            }
-            else
-            {
-                textBoxNomNewCompetence.Enabled = false;
-            }
         }
 
         private void buttonRetour_Click(object sender, EventArgs e)
@@ -42,15 +28,6 @@ namespace EntretienSPPP.WinForm
         {
             Competence_Personne competencePersonne = new Competence_Personne();
             competencePersonne.personne = PersonneDB.LastID();
-            competencePersonne.competence = Convert.ToInt32                                             (this.comboBoxCompétences.SelectedValue);
-
-            if (this.comboBoxCompétences.SelectedValue == "Autre")
-            {
-                Competence competence = new Competence();
-                competence.Libelle = this.textBoxNomNewCompetence.SelectedText;
-                competencePersonne.competence = CompetenceDB.LastID();
-            }
-
             Competence_PersonneDB.Insert(competencePersonne);
             this.Close();
         }

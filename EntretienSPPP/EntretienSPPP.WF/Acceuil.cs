@@ -77,7 +77,7 @@ namespace EntretienSPPP.WinForm
                 listBoxLangueAjoutEmploye.Items.Clear();
                 listBoxInaptitudeAjoutEmploye.Items.Clear();
                 listBoxPosteActuelAjoutEmploye.Items.Clear();
-                listBoxCompetenceAjoutEmploye.Items.Clear();
+                listBoxHobbyAjoutEmploye.Items.Clear();
                 listBoxFormationAjoutEmploye.Items.Clear();
 
                 RefreshAjoutEmployeFalse();
@@ -87,7 +87,7 @@ namespace EntretienSPPP.WinForm
                 if ((TextBoxPrenomAjoutEmploye.Text != "") && (textBoxNomAjoutEmploye.Text != "") && (comboBoxSituationFamillaleAjoutEmploye.Text != "") && (textBoxAdresseAjoutEmploye.Text != "") && (maskedTextBoxCodePostalAjoutEmploye.Text != "") && (textBoxVilleAjoutEmploye.Text != "") && (textBoxMailAjoutEmploye.Text != "") && (maskedTextBoxNumerosTelephoneAjoutEmploye.Text != ""))
                 {
                     buttonAjouterAncienEmploi.Enabled = true;
-                    buttonAjouterCompétence.Enabled = true;
+                    buttonAjouterHobby.Enabled = true;
                     buttonAjouterDiplome.Enabled = true;
                     buttonAjouterFormation.Enabled = true;
                     buttonAjouterHabilite.Enabled = true;
@@ -96,7 +96,7 @@ namespace EntretienSPPP.WinForm
                     buttonAjouterPoste.Enabled = true;
 
                     listBoxAcienEmploisAjoutEmploye.Enabled = true;
-                    listBoxCompetenceAjoutEmploye.Enabled = true;
+                    listBoxHobbyAjoutEmploye.Enabled = true;
                     listBoxDiplomesAjoutEmploye.Enabled = true;
                     listBoxFormationAjoutEmploye.Enabled = true;
                     listBoxHabilitationAjoutEmploye.Enabled = true;
@@ -123,7 +123,7 @@ namespace EntretienSPPP.WinForm
             private void RefreshAjoutEmployeFalse()
             {
                 buttonAjouterAncienEmploi.Enabled = false;
-                buttonAjouterCompétence.Enabled = false;
+                buttonAjouterHobby.Enabled = false;
                 buttonAjouterDiplome.Enabled = false;
                 buttonAjouterFormation.Enabled = false;
                 buttonAjouterHabilite.Enabled = false;
@@ -132,7 +132,7 @@ namespace EntretienSPPP.WinForm
                 buttonAjouterPoste.Enabled = false;
 
                 listBoxAcienEmploisAjoutEmploye.Enabled = false;
-                listBoxCompetenceAjoutEmploye.Enabled = false;
+                listBoxHobbyAjoutEmploye.Enabled = false;
                 listBoxDiplomesAjoutEmploye.Enabled = false;
                 listBoxFormationAjoutEmploye.Enabled = false;
                 listBoxHabilitationAjoutEmploye.Enabled = false;
@@ -670,28 +670,28 @@ namespace EntretienSPPP.WinForm
                 #region ChargementPAge
                     private void ChargementTermine(object sender, EventArgs e)
                     {
-                    //    this.RefreshListeBoxHabilite();
-                    //    this.RefreshListBoxAncienEmploi();
-                    //    this.RefreshListeDiplomePersonne();
-                    //    this.RefreshLanguePersonne();
-                    //    this.RefreshInaptitudePersonne();
-                    //    this.RefreshPosteActuel();
-                    //    this.refreshCompetencePersonne();
+                        this.RefreshListeBoxHabilite();
+                        this.RefreshListBoxAncienEmploi();
+                        this.RefreshListeDiplomePersonne();
+                        this.RefreshLanguePersonne();
+                        this.RefreshInaptitudePersonne();
+                        this.RefreshPosteActuel();
+                        this.refreshCompetencePersonne();
 
 
 
-                        //this.comboBoxSituationFamillaleAjoutEmploye.DataSource = FamilleDB.List();
-                        //this.comboBoxSituationFamillaleAjoutEmploye.ValueMember = "Identifiant";
-                        //this.comboBoxSituationFamillaleAjoutEmploye.DisplayMember = "Libelle";
+                        this.comboBoxSituationFamillaleAjoutEmploye.DataSource = FamilleDB.List();
+                        this.comboBoxSituationFamillaleAjoutEmploye.ValueMember = "Identifiant";
+                        this.comboBoxSituationFamillaleAjoutEmploye.DisplayMember = "Libelle";
 
                     }
                 #endregion
                 #region RafraichissementListBox
                     private void RefreshListeBoxHabilite()
                     {
-                        List<Habilite_Personne> listHabilitePersonne =                                           Habilite_PersonneDB.List();
+                        List<Habilite_Personne> listHabilitePersonne =Habilite_PersonneDB.List();
 
-                        this.listBoxHabilitationAjoutEmploye.DataSource =                                        listHabilitePersonne;
+                        this.listBoxHabilitationAjoutEmploye.DataSource =listHabilitePersonne;
                         this.listBoxHabilitationAjoutEmploye.DisplayMember = "habilite";
                         this.listBoxHabilitationAjoutEmploye.DisplayMember = "organisme";
                         this.listBoxHabilitationAjoutEmploye.ValueMember = "Identifiant";
@@ -700,15 +700,15 @@ namespace EntretienSPPP.WinForm
                     private void RefreshListBoxAncienEmploi()
                     {
                         List<CV> listAncienEmploi = CVDB.List();
-                        this.listBoxAcienEmploisAjoutEmploye.DataSource =                                        listAncienEmploi;
-                        this.listBoxAcienEmploisAjoutEmploye.DisplayMember =                                     "Entreprise";
+                        this.listBoxAcienEmploisAjoutEmploye.DataSource =listAncienEmploi;
+                        this.listBoxAcienEmploisAjoutEmploye.DisplayMember ="Entreprise";
                         this.listBoxAcienEmploisAjoutEmploye.DisplayMember = "Poste";
                         this.listBoxAcienEmploisAjoutEmploye.ValueMember = "Identifiant";
                     }
                     private void RefreshListeDiplomePersonne()
                     {
-                        List<Diplome_Personne> ListDIplomePersonne =                                             Diplome_PersonneDB.List();
-                        this.listBoxDiplomesAjoutEmploye.DataSource =                                            ListDIplomePersonne;
+                        List<Diplome_Personne> ListDIplomePersonne =Diplome_PersonneDB.List();
+                        this.listBoxDiplomesAjoutEmploye.DataSource =ListDIplomePersonne;
                         this.listBoxDiplomesAjoutEmploye.DisplayMember = "diplome";
                         this.listBoxDiplomesAjoutEmploye.DisplayMember = "DateObtention";
                         this.listBoxDiplomesAjoutEmploye.ValueMember = "Identifiant";
@@ -723,8 +723,8 @@ namespace EntretienSPPP.WinForm
                     }
                     private void RefreshInaptitudePersonne()
                     {
-                        List<Inaptitude_Personne> listInaptitudePersonne =                                       Inaptitude_PersonneDB.List();
-                        this.listBoxInaptitudeAjoutEmploye.DataSource =                                          listInaptitudePersonne;
+                        List<Inaptitude_Personne> listInaptitudePersonne =                                                                      Inaptitude_PersonneDB.List();
+                        this.listBoxInaptitudeAjoutEmploye.DataSource =                                                                         listInaptitudePersonne;
                         this.listBoxInaptitudeAjoutEmploye.DisplayMember = "inaptitude";
                         this.listBoxInaptitudeAjoutEmploye.DisplayMember = "Definitif";
                         this.listBoxInaptitudeAjoutEmploye.DisplayMember = "DateFin";
@@ -733,19 +733,19 @@ namespace EntretienSPPP.WinForm
                     private void RefreshPosteActuel()
                     {
                         List<Poste_Personne> ListPostePersonne = Poste_PersonneDB.List();
-                        this.listBoxPosteActuelAjoutEmploye.DataSource =                                         ListPostePersonne;
+                        this.listBoxPosteActuelAjoutEmploye.DataSource =                                                                        ListPostePersonne;
                         this.listBoxPosteActuelAjoutEmploye.DisplayMember = "Contrat";
                         this.listBoxPosteActuelAjoutEmploye.DisplayMember = "poste";
-                        this.listBoxPosteActuelAjoutEmploye.DisplayMember =                                      "Coefficient";
+                        this.listBoxPosteActuelAjoutEmploye.DisplayMember ="Coefficient";
                         this.listBoxPosteActuelAjoutEmploye.DisplayMember = "site";
                         this.listBoxPosteActuelAjoutEmploye.ValueMember = "Identifiant";
                     }
                     private void refreshCompetencePersonne()
                 {
                     List<Competence> competencePersonne = CompetenceDB.List();
-                    this.listBoxCompetenceAjoutEmploye.DataSource = competencePersonne;
-                    this.listBoxCompetenceAjoutEmploye.DisplayMember = "Libelle";
-                    this.listBoxCompetenceAjoutEmploye.ValueMember = "Identifiant";
+                    this.listBoxHobbyAjoutEmploye.DataSource = competencePersonne;
+                    this.listBoxHobbyAjoutEmploye.DisplayMember = "Libelle";
+                    this.listBoxHobbyAjoutEmploye.ValueMember = "Identifiant";
                 }
                 #endregion
                 #region fonctionsButtonAjouter

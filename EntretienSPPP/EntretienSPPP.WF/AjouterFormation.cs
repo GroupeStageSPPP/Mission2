@@ -52,6 +52,7 @@ namespace EntretienSPPP.WinForm
 
             }
             //formation = this.dateTimePickerDateFormation.Value;
+            
             formation.Objectif = this.textBoxObjectifFOrmation.Text;
             formation_personne.Contenu = this.comboBoxNoteContenu.SelectedText;
             formation_personne.Formateur = this.comboBoxNoteFOrmateur.SelectedText;

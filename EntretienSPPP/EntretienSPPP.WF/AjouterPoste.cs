@@ -28,7 +28,7 @@ namespace EntretienSPPP.WinForm
             Poste_Personne PostePersonne = new Poste_Personne();
 
             PostePersonne.personne = PersonneDB.LastID();
-            PostePersonne.poste = Convert.ToInt32                                                      (this.comboBoxIntituléPoste.SelectedValue);
+            PostePersonne.poste = Convert.ToInt32(this.comboBoxIntituléPoste.SelectedValue);
             PostePersonne.Contrat = this.comboBoxTypeContrat.SelectedText;
             PostePersonne.DateDebut = this.dateTimePickerDateDebutPoste.Value;
             PostePersonne.DateFin = this.dateTimePickerDateFinPoste.Value;

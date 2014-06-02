@@ -27,12 +27,12 @@ namespace EntretienSPPP.WinForm
         private void buttonConfirmerAjoutEmploi_Click(object sender, EventArgs e)
         {
             CV ancienEmploi = new CV();
-            ancienEmploi.personne = PersonneDB.LastID();
+            ancienEmploi.personne   = PersonneDB.LastID();
             ancienEmploi.Entreprise = this.textBoxEntreprise.Text;
-            ancienEmploi.Poste = this.textBoxIntituleDuPoste.Text;
-            ancienEmploi.DateDeb = this.dateTimePickerDateDebutAncienEmploi.Value;
-            ancienEmploi.DateFin = this.dateTimePickerDateFinAncienEmploi.Value;
-            ancienEmploi.Secteur = this.textBoxSecteur.Text;
+            ancienEmploi.Poste      = this.textBoxIntituleDuPoste.Text;
+            ancienEmploi.DateDeb    = this.dateTimePickerDateDebutAncienEmploi.Value;
+            ancienEmploi.DateFin    = this.dateTimePickerDateFinAncienEmploi.Value;
+            ancienEmploi.Secteur    = this.textBoxSecteur.Text;
 
             CVDB.Insert(ancienEmploi);
 

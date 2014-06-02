@@ -23,7 +23,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, DateDebut, DateFin, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentiifiantSite FROM Poste_Personne;";
+            String requete = "SELECT Identifiant, DateDebut, DateFin, Statut, Coefficient, IdentifiantPersonne, IdentifiantPoste,Contrat, IdentifiantSite FROM Poste_Personne;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution

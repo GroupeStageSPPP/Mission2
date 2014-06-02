@@ -12,10 +12,7 @@ namespace EntretienSPPP.DB
 {
     public static class HabiliteDB
     {
-        /// <summary>
-        /// Récupère une liste de Habilite à partir de la base de données
-        /// </summary>
-        /// <returns>Une liste de client</returns>
+       
         public static List<Habilite> List()
         {
             //Récupération de la chaine de connexion
@@ -23,7 +20,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
             //Commande
-            String requete = "SELECT Identifiant, Type FROM Habilite ;";
+            String requete = "SELECT Identifiant ,Type FROM Habilite";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -61,7 +58,7 @@ namespace EntretienSPPP.DB
            
             //Commande
             String requete = @"SELECT Identifiant, Type FROM Habilite
-                                WHERE Identifiant = @Identifiant ;";
+                                WHERE Identifiant = @Identifiant ";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -93,7 +90,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
 
-            String requete = @"UPDATE habilite SET type = @type WHERE identifiant = @identifiant  ;";
+            String requete = @"UPDATE habilite SET type = @type WHERE identifiant = @identifiant  ";
             
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -127,7 +124,7 @@ namespace EntretienSPPP.DB
             SqlConnection connection = DataBase.connection;
            
 
-            String requete = @"DELETE FROM habilite WHERE Identifiant = @Identifiant ; ";
+            String requete = @"DELETE FROM habilite WHERE Identifiant = @Identifiant  ";
 
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -163,7 +160,7 @@ namespace EntretienSPPP.DB
            
 
 
-            String requete = @"INSERT INTO habilite(type) VALUES (@type) SELECT SCOPE_IDENTITY() ; ";
+            String requete = @"INSERT INTO habilite(type) VALUES (@type) SELECT SCOPE_IDENTITY()";
 
             SqlCommand commande = new SqlCommand(requete, connection);
 
